@@ -1,16 +1,28 @@
 ---
-
+import "../styles/global.css";
+import '@fontsource-variable/source-code-pro';
+import '@fontsource/anonymous-pro';
+import '@fontsource/barlow';
+import { getCollection } from "astro:content";
+// import Card from '../components/Card.astro'
+import Card from '../components/Card.svelte'
+import TagFilter from '../components/TagFilter.svelte'
+const software = await getCollection("software");
+const filteredSoftware = software.map((tool) => tool.data)
+const allTags = [...new Set(software.flatMap(tool => tool.data.tags || []))].sort();
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro</title>
+    </head>
+    <body>
+        <h1 class="text-4xl font-semibold text-center font-omsf-title">OMSF Software Directory</h1>
+        <TagFilter client:load items={filteredSoftware} allTags={allTags}></TagFilter>
+
+    </body>
 </html>

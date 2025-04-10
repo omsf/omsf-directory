@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@theme {
+  --color-omsf-base: #bef2e1;
+  --color-omsf-gray: #efefef;
+  --color-omsf-secondary-yellow: #fbe56f;
+  --color-omsf-secondary-pink: #ea96a9;
+  --color-omsf-tertiary-blue: #64a1b2;
+  --color-omsf-tertiary-pink: #f1cae0;
+  --color-omsf-tertiary-green: #a6d382;
+  --font-omsf-title: "Source Code Pro Variable";
+  --font-omsf-subheading: "Anonymous Pro";
+  --font-omsf-descriptive: "Barlow";
+}
