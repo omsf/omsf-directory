@@ -1,0 +1,11 @@
+description: Kartograf is a package for atom mappings focusing on 3D geometries.
+docs: https://github.com/OpenFreeEnergy/kartograf
+license: MIT
+link: https://github.com/OpenFreeEnergy/kartograf
+name: Kartograf
+tags:
+  - Visualization
+  - Atom Mapping
+  - 3D Geometry
+  - Hybrid-Topology Systems
+  - Open Free Energy

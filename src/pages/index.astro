@@ -4,15 +4,13 @@ import '@fontsource-variable/source-code-pro';
 import '@fontsource/anonymous-pro';
 import '@fontsource/barlow';
 import { getCollection } from "astro:content";
-// import Card from '../components/Card.astro'
-import Card from '../components/Card.svelte'
 import TagFilter from '../components/TagFilter.svelte'
 const software = await getCollection("software");
 const filteredSoftware = software.map((tool) => tool.data)
 const allTags = [...new Set(software.flatMap(tool => tool.data.tags || []))].sort();
 ---
 
-<html lang="en">
+<html lang="en" class="overflow-y-scroll">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

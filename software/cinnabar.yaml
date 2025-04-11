@@ -1,0 +1,13 @@
+description:
+  Cinnabar is a software package designed to reliably report and visualize
+  relative free energy results from molecular simulations.
+docs: https://cinnabar.readthedocs.io/en/latest/?badge=latest
+license: MIT
+link: https://github.com/OpenFreeEnergy/cinnabar
+name: cinnabar
+tags:
+  - Atomistic
+  - Visualization
+  - Statistical Analysis
+  - Free Energy
+  - Open Free Energy
