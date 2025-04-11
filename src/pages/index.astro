@@ -19,7 +19,7 @@ const allTags = [...new Set(software.flatMap(tool => tool.data.tags || []))].sor
         <title>Astro</title>
     </head>
     <body>
-        <h1 class="text-4xl font-semibold text-center font-omsf-title">OMSF Software Directory</h1>
+        <h1 class="text-4xl font-semibold text-center font-omsf-title m-4">OMSF Software Directory</h1>
         <TagFilter client:load items={filteredSoftware} allTags={allTags}></TagFilter>
 
     </body>
