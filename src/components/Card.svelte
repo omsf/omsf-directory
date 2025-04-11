@@ -10,7 +10,7 @@
   let {name, description, docs, license, tags, link}: Props = $props();
 </script>
 
-<div class="w-sm h-full rounded overflow-hidden shadow-lg">
+<div class="lg:w-sm w-2xs lg:h-full rounded overflow-hidden shadow-lg">
     <div class="px-6 py-4">
         <div class="font-semibold font-omsf-title text-xl mb-2">{name}</div>
         <div class="font-regular font-omsf-subheading text-base mb-2">{license} • <a href={docs} >Docs</a> • <a href={link}>Website</a></div>
