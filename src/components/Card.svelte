@@ -20,7 +20,7 @@
     </div>
     <div class="px-6 pt-4 pb-2">
         {#each tags as tag}
-            <span class="inline-block font-omsf-subheading bg-gray-200 rounded-full px-3 py-1 text-sm text-gray-700 mr-2 mb-2">{tag}</span>
+            <span class="inline-block font-omsf-subheading bg-omsf-gray rounded-full px-3 py-1 text-sm text-gray-700 mr-2 mb-2">{tag}</span>
         {/each}
     </div>
 </div>
