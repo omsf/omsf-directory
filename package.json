@@ -1,26 +1,33 @@
 {
-  "name": "aggregate",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/cloudflare": "^12.4.0",
-    "@astrojs/language-server": "^2.15.4",
-    "@astrojs/svelte": "^7.0.9",
-    "@astrojs/ts-plugin": "^1.10.4",
-    "@fontsource-variable/source-code-pro": "^5.2.5",
-    "@fontsource/anonymous-pro": "^5.2.5",
-    "@fontsource/barlow": "^5.2.5",
-    "@tailwindcss/vite": "^4.1.3",
-    "astro": "^5.6.0",
-    "svelte": "^5.25.9",
-    "tailwindcss": "^4.1.3",
-    "typescript": "^5.8.3",
-    "wrangler": "^4.9.1"
-  }
+	"name": "aggregate",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/cloudflare": "^12.4.0",
+		"@astrojs/language-server": "^2.15.4",
+		"@astrojs/svelte": "^7.0.9",
+		"@astrojs/ts-plugin": "^1.10.4",
+		"@fontsource-variable/source-code-pro": "^5.2.5",
+		"@fontsource/anonymous-pro": "^5.2.5",
+		"@fontsource/barlow": "^5.2.5",
+		"@tailwindcss/vite": "^4.1.3",
+		"astro": "^5.6.0",
+		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-svelte": "^3.3.3",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"svelte": "^5.25.9",
+		"tailwindcss": "^4.1.3",
+		"typescript": "^5.8.3",
+		"wrangler": "^4.9.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4"
+	}
 }

@@ -1,5 +1,4 @@
-description:
-  GUFE is a toolkit for developers of software related to alchemical free
+description: GUFE is a toolkit for developers of software related to alchemical free
   energy calculations, containing data models and abstract base classes.
 docs: https://github.com/OpenFreeEnergy/gufe
 license: MIT
