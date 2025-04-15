@@ -81,7 +81,7 @@
         >
           <div
             class="grid grid-cols-2 gap-2"
-            transition:slide={{ duration: 300 }}
+            transition:slide|global={{ duration: 300 }}
           >
             {#each allTags as tag}
               <Bubble
@@ -93,7 +93,10 @@
           </div>
         </div>
       {:else}
-        <div class="my-4 flex flex-wrap justify-center gap-2">
+        <div
+          class="my-4 flex flex-wrap justify-center gap-2"
+          transition:slide|global={{ duration: 300 }}
+        >
           {#each allTags as tag}
             <Bubble
               onclick={() => toggleTag(tag)}
