@@ -3,9 +3,9 @@ docs: https://github.com/OpenFreeEnergy/kartograf
 license: MIT
 link: https://github.com/OpenFreeEnergy/kartograf
 name: Kartograf
+project: Open Free Energy
 tags:
   - Visualization
   - Atom Mapping
   - 3D Geometry
   - Hybrid-Topology Systems
-  - Open Free Energy

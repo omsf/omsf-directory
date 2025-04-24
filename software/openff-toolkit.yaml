@@ -3,6 +3,7 @@ description: The Open Forcefield Toolkit provides implementations of the SMIRNOF
 docs: http://open-forcefield-toolkit.readthedocs.io/
 license: MIT
 link: https://github.com/openforcefield/openff-toolkit
+project: Open Force Field
 tags:
   - Force Fields
   - Molecular Dynamics

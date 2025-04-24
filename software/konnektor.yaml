@@ -1,13 +1,14 @@
-description: Konnektor is a package supporting efficient planning of free energy calculations
+description:
+  Konnektor is a package supporting efficient planning of free energy calculations
   through advanced network algorithms and tools.
 docs: https://github.com/OpenFreeEnergy/konnektor
 license: MIT
 link: https://github.com/OpenFreeEnergy/konnektor
 name: Konnektor
+project: Open Free Energy
 tags:
   - Graph Theory
   - Atomistic
   - Free Energy
   - Visualization
   - Network Planning
-  - Open Free Energy
