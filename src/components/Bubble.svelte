@@ -1,12 +1,15 @@
 <script lang="ts">
-  let { onclick, selectionFunction, tag } = $props();
+  interface Props {
+    selectionFunction?: boolean;
+    tag: string;
+  }
+  let { selectionFunction, tag, ...props }: Props = $props();
 </script>
 
 <button
-  {onclick}
-  class="font-omsf-subheading rounded-full px-3 py-1 text-sm transition-colors
+  {...props}
+  class="font-omsf-subheading rounded-full px-3 py-1 text-sm disabled:bg-omsf-gray transition-colors
                                 {selectionFunction
     ? 'bg-omsf-base text-gray-800'
-    : 'bg-omsf-gray hover:bg-omsf-base text-gray-800 hover:border-solid'}"
-  >{tag}</button
+    : 'bg-omsf-gray hover:bg-omsf-base text-gray-800'}">{tag}</button
 >

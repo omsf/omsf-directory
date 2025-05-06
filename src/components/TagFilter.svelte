@@ -3,35 +3,40 @@
   import { slide } from "svelte/transition";
   import Card from "./Card.svelte";
   import Bubble from "./Bubble.svelte";
-  interface Item {
-    name: string;
-    description: string;
-    docs: string;
-    tags: string[];
-    license: string;
-    link: string;
-  }
+  import { type SoftwareSchema } from "../content.config.ts";
 
   interface Props {
-    items: Item[];
+    items: SoftwareSchema[];
     allTags: string[];
   }
   const { items, allTags }: Props = $props();
+  const slideDuration = 150;
 
   let selectedTags = $state(new Array<string>());
   let isMobile = $state(false);
   let showFilters = $state(false);
+  let omsfFilter = $state(false);
 
+  const noClear = $derived(selectedTags.length === 0 && !omsfFilter);
+
+  // const filteredSoftware = $derived(
+  //   selectedTags.length === 0
+  //     ? items
+  //     : items.filter((tool) =>
+  //         selectedTags.every((tag) => (tool.tags || []).includes(tag)),
+  //       ),
+  // );
   const filteredSoftware = $derived(
     selectedTags.length === 0
-      ? items
+      ? omsfFilter
+        ? items.filter((tool) => tool.project !== undefined)
+        : items
       : items.filter((tool) =>
           selectedTags.every((tag) => (tool.tags || []).includes(tag)),
         ),
   );
 
   const toggleTag = (tag: string) => {
-    console.log(tag);
     if (selectedTags.includes(tag)) {
       const index = selectedTags.indexOf(tag);
       selectedTags.splice(index, 1);
@@ -42,10 +47,15 @@
 
   const clearTags = () => {
     selectedTags = [];
+    omsfFilter = false;
   };
 
   const toggleFilters = () => {
     showFilters = !showFilters;
+  };
+
+  const toggleOmsfProjects = () => {
+    omsfFilter = !omsfFilter;
   };
 
   const checkScreenSize = () => {
@@ -70,9 +80,12 @@
   <div>
     <div class="my-4 justify-center flex gap-2">
       <Bubble tag={filtersString()} onclick={toggleFilters}></Bubble>
-      {#if selectedTags.length > 0}
-        <Bubble tag="Clear" onclick={clearTags}></Bubble>
-      {/if}
+      <Bubble
+        tag="OMSF Projects"
+        onclick={toggleOmsfProjects}
+        selectionFunction={omsfFilter}
+      ></Bubble>
+      <Bubble tag="Clear" onclick={clearTags} disabled={noClear}></Bubble>
     </div>
     {#if showFilters}
       {#if isMobile}
@@ -81,7 +94,7 @@
         >
           <div
             class="grid grid-cols-2 gap-2"
-            transition:slide|global={{ duration: 300 }}
+            transition:slide|global={{ duration: slideDuration }}
           >
             {#each allTags as tag}
               <Bubble
@@ -94,8 +107,8 @@
         </div>
       {:else}
         <div
-          class="my-4 flex flex-wrap justify-center gap-2"
-          transition:slide|global={{ duration: 300 }}
+          class="my-4 md:mx-20 lg:mx-70 flex flex-wrap justify-center gap-2"
+          transition:slide|global={{ duration: slideDuration }}
         >
           {#each allTags as tag}
             <Bubble
