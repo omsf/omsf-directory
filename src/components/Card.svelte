@@ -21,9 +21,7 @@
       {#if project !== undefined}
         <img
           src={logo.src}
-          width="50"
-          height="50"
-          class="justify-self-end"
+          class="justify-self-end w-12 h-12"
           alt="OMSF logo"
         />
       {/if}
