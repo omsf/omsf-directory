@@ -19,13 +19,6 @@
 
   const noClear = $derived(selectedTags.length === 0 && !omsfFilter);
 
-  // const filteredSoftware = $derived(
-  //   selectedTags.length === 0
-  //     ? items
-  //     : items.filter((tool) =>
-  //         selectedTags.every((tag) => (tool.tags || []).includes(tag)),
-  //       ),
-  // );
   const filteredSoftware = $derived(
     selectedTags.length === 0
       ? omsfFilter

@@ -1,11 +1,8 @@
 ---
-import "../styles/global.css";
-import "@fontsource-variable/source-code-pro";
-import "@fontsource/anonymous-pro";
-import "@fontsource/barlow";
 import { getCollection } from "astro:content";
 import TagFilter from "../components/TagFilter.svelte";
 import { type SoftwareSchema } from "../content.config";
+import BaseLayout from "../layouts/BaseLayout.astro";
 const software = await getCollection("software");
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
   const aName = a.name.toLowerCase();
@@ -24,18 +21,6 @@ const allTags = [
 ].sort();
 ---
 
-<html lang="en" class="overflow-y-scroll">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <title>OMSF Directory</title>
-  </head>
-  <body>
-    <h1 class="text-4xl font-semibold text-center font-omsf-title m-4">
-      OMSF Software Directory
-    </h1>
-    <TagFilter client:load items={filteredSoftware} allTags={allTags} />
-  </body>
-</html>
+<BaseLayout currentPage="software">
+  <TagFilter client:load items={filteredSoftware} allTags={allTags} />
+</BaseLayout>

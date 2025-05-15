@@ -11,7 +11,7 @@ const omsfProjects = z.enum([
 const SoftwareSchema = z.object({
   name: z.string(),
   description: z.string(),
-  docs: z.string().url(),
+  docs: z.optional(z.string().url()),
   license: z.string(),
   link: z.string().url(),
   tags: z.array(z.string()),
@@ -23,6 +23,11 @@ const software = defineCollection({
   schema: SoftwareSchema,
 });
 
+const workflows = defineCollection({
+  loader: glob({ pattern: "*.yaml", base: "./workflows" }),
+  schema: SoftwareSchema,
+});
+
 export type SoftwareSchema = z.infer<typeof SoftwareSchema>;
 
-export const collections = { software };
+export const collections = { software, workflows };

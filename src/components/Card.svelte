@@ -19,15 +19,12 @@
     <div class="grid grid-cols-2">
       <div class="font-omsf-title mb-1 text-xl font-semibold">{name}</div>
       {#if project !== undefined}
-        <img
-          src={logo.src}
-          class="justify-self-end w-12 h-12"
-          alt="OMSF logo"
-        />
+        <img src={logo.src} class="justify-self-end w-10 h-8" alt="OMSF logo" />
       {/if}
     </div>
     <div class="font-regular font-omsf-subheading font-light mb-2 text-base">
-      {license} • <a href={docs}>Docs</a> • <a href={link}>Website</a>
+      {license}
+      {#if docs}• <a href={docs}>Docs</a>{/if} • <a href={link}>Website</a>
     </div>
     <p class="font-omsf-descriptive text-base text-gray-700">
       {description}
