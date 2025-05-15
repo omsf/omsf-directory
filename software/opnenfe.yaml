@@ -3,6 +3,7 @@ description: A tool for free energy calculations.
 docs: https://openfree.energy
 license: MIT
 link: https://github.com/openforcefield/openff-toolkit
+project: Open Free Energy
 tags:
   - Free Energy
   - Molecular Dynamics
