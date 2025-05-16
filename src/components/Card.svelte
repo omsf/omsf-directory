@@ -17,14 +17,20 @@
 >
   <div class="px-6 py-4">
     <div class="grid grid-cols-2">
-      <div class="font-omsf-title mb-1 text-xl font-semibold">{name}</div>
+      <div class="font-omsf-title mb-1 text-xl font-semibold lg:min-w-70">
+        {name}
+      </div>
       {#if project !== undefined}
         <img src={logo.src} class="justify-self-end w-10 h-8" alt="OMSF logo" />
       {/if}
     </div>
-    <div class="font-regular font-omsf-subheading font-light mb-2 text-base">
-      {license}
-      {#if docs}• <a href={docs}>Docs</a>{/if} • <a href={link}>Website</a>
+    <div class="font-regular font-omsf-subheading font-light text-base">
+      {#if docs}<a href={docs} class="underline">Docs</a> •
+      {/if}
+      <a href={link} class="underline">Website</a>
+    </div>
+    <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
+      License: {license}
     </div>
     <p class="font-omsf-descriptive text-base text-gray-700">
       {description}
