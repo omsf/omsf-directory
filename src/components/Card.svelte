@@ -1,6 +1,6 @@
 <script lang="ts">
   import { type SoftwareSchema } from "../content.config.ts";
-  import logo from "../assets/logo.svg";
+  import Logo from "./logo.svg.svelte";
   const {
     name,
     description,
@@ -21,7 +21,7 @@
         {name}
       </div>
       {#if project !== undefined}
-        <img src={logo.src} class="justify-self-end w-10 h-8" alt="OMSF logo" />
+        <Logo />
       {/if}
     </div>
     <div class="font-regular font-omsf-subheading font-light text-base">
