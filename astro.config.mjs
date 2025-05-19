@@ -15,5 +15,5 @@ export default defineConfig({
 
   integrations: [svelte()],
   adapter: cloudflare(),
-  output: "server",
+  output: "static",
 });
