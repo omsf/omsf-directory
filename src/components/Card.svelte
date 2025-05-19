@@ -1,6 +1,6 @@
 <script lang="ts">
   import { type SoftwareSchema } from "../content.config.ts";
-  import Logo from "./logo.svg.svelte";
+  import Logo from "./Logo.svg.svelte";
   const {
     name,
     description,
