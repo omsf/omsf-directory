@@ -19,9 +19,12 @@ const { currentPage } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>OMSF Directory</title>
   </head>
-  <body>
-    <Header />
-    <Menu currentPage={currentPage} />
-    <slot />
-  </body>
+  <main>
+    <body>
+      <Header transition:animate="none" />
+      <Menu currentPage={currentPage} />
+      <slot />
+    </body>
+  </main>
+
 </html>
