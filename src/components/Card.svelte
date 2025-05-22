@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { type SoftwareSchema } from "../content.config.ts";
+  import { type SoftwareSchema } from "../schemas";
   import Logo from "./Logo.svg.svelte";
   const {
     name,
@@ -9,7 +9,10 @@
     tags,
     link,
     project,
+    languages,
   }: SoftwareSchema = $props();
+  // Concat the language with the other tags
+  const allTags = tags.concat(languages);
 </script>
 
 <div
@@ -37,7 +40,7 @@
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
-    {#each tags as tag}
+    {#each allTags as tag}
       <span
         class="font-omsf-subheading bg-omsf-gray mr-2 mb-2 inline-block rounded-full px-3 py-1 text-sm text-gray-700"
         >{tag}</span
