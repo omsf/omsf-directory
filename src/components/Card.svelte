@@ -11,8 +11,12 @@
     project,
     languages,
   }: SoftwareSchema = $props();
-  // Concat the language with the other tags
-  const allTags = tags.concat(languages);
+  // We create a state because we are abusing JS/TS when using this in the form.
+  // We populate this with unparsable values by default by design in the form.
+  let allTags = $state(new Array<string>());
+  if (tags && languages) {
+    allTags = tags.concat(languages);
+  }
 </script>
 
 <div
