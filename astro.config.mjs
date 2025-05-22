@@ -5,8 +5,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 import svelte from "@astrojs/svelte";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -14,6 +12,4 @@ export default defineConfig({
   },
 
   integrations: [svelte()],
-  adapter: cloudflare(),
-  output: "static",
 });

@@ -1,33 +1,18 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
+import { SoftwareSchemaObject } from "./schemas";
 
 import { glob } from "astro/loaders";
 
-const omsfProjects = z.enum([
-  "Open Force Field",
-  "Open Free Energy",
-  "Open Fold",
-]);
-
-const SoftwareSchema = z.object({
-  name: z.string(),
-  description: z.string(),
-  docs: z.optional(z.string().url()),
-  license: z.string(),
-  link: z.string().url(),
-  tags: z.array(z.string()),
-  project: z.optional(omsfProjects),
-});
-
 const software = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./software" }),
-  schema: SoftwareSchema,
+  schema: SoftwareSchemaObject,
 });
 
 const workflows = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./workflows" }),
-  schema: SoftwareSchema,
+  schema: SoftwareSchemaObject,
 });
 
-export type SoftwareSchema = z.infer<typeof SoftwareSchema>;
+// export type SoftwareSchema = z.infer<typeof SoftwareSchemaObject>;
 
 export const collections = { software, workflows };

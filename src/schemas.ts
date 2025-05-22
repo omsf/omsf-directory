@@ -1,0 +1,26 @@
+import { z } from "zod/v4";
+
+const omsfProjects = z.enum([
+  "Open Force Field",
+  "Open Free Energy",
+  "Open Fold",
+]);
+
+export const ALL_LICENSES = ["0BSD", "AGPL", "GPL-3", "MIT"];
+const licenses = z.enum(ALL_LICENSES);
+
+export const languageTags = ["Python", "C++", "Fortran", "Rust", "Julia", "R"];
+const languages = z.enum(languageTags);
+
+export const SoftwareSchemaObject = z.object({
+  name: z.string(),
+  description: z.string(),
+  docs: z.optional(z.url()),
+  license: licenses,
+  link: z.url(),
+  tags: z.array(z.string()),
+  languages: z.array(languages),
+  project: z.optional(omsfProjects),
+});
+
+export type SoftwareSchema = z.infer<typeof SoftwareSchemaObject>;
