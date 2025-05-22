@@ -4,3 +4,5 @@ docs: "https://github.com/microsoft/bioemu"
 license: "MIT"
 link: "https://github.com/microsoft/bioemu"
 tags: ["Machine Learning", "Molecular Dynamics"]
+languages:
+  - Python

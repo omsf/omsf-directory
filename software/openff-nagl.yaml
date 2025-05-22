@@ -7,3 +7,5 @@ project: Open Force Field
 tags:
   - Force Fields
   - Machine Learning
+languages:
+  - Python

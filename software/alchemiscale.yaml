@@ -1,6 +1,4 @@
-description:
-  A high-throughput alchemical free energy execution system for use with
-  HPC, cloud, bare metal, and Folding@Home.
+description: A high-throughput alchemical free energy execution system for use with HPC, cloud, bare metal, and Folding@Home.
 docs: https://github.com/OpenFreeEnergy/alchemiscale
 license: MIT
 link: https://github.com/OpenFreeEnergy/alchemiscale
@@ -11,3 +9,5 @@ tags:
   - Free Energy
   - HPC
   - Open Free Energy
+languages:
+  - Python

@@ -1,6 +1,4 @@
-description:
-  Exorcist is a daemonless campaign-scale simulation orchestration tool
-  designed to streamline the management of simulation tasks.
+description: Exorcist is a daemonless campaign-scale simulation orchestration tool designed to streamline the management of simulation tasks.
 docs: https://github.com/OpenFreeEnergy/exorcist
 license: MIT
 link: https://github.com/OpenFreeEnergy/exorcist
@@ -10,3 +8,5 @@ tags:
   - Atomistic
   - Simulation Orchestration
   - Data Analysis
+languages:
+  - Python

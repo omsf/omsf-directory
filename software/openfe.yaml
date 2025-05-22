@@ -7,3 +7,5 @@ project: Open Free Energy
 tags:
   - Free Energy
   - Molecular Dynamics
+languages:
+  - Python
