@@ -1,20 +1,34 @@
 <script lang="ts">
-  import { SoftwareSchemaObject } from "../schemas";
+  import {
+    ALL_LICENSES,
+    languageTags,
+    SoftwareSchemaObject,
+    type SoftwareSchema,
+  } from "../schemas";
   import Card from "./Card.svelte";
   import Field from "./Field.svelte";
-  import LicenseSelect from "./LicenseSelect.svelte";
+  import GenericSelect from "./GenericSelect.svelte";
   let formData = $state({
-    name: null,
-    description: null,
+    name: "",
+    description: "",
     license: "",
-    link: null,
+    link: "",
     tags: [],
-    docs: undefined,
-  });
+    docs: "",
+    languages: [],
+  } as SoftwareSchema);
   // Form validation using $derived
   let isFormValid = $derived(SoftwareSchemaObject.safeParse(formData).success);
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
+  let tags = $state("");
+
+  $effect(() => {
+    formData.tags = tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== "");
+  });
 
   $effect(() => {
     // Only generate YAML if the form is valid
@@ -25,7 +39,8 @@
       output += `link: ${formData.link === null ? "" : formData.link}\n`;
     }
     yamlContent = output;
-    cardContent = formData;
+    cardContent = { ...formData };
+    // cardContent = formData;
   });
 
   function copyYamlToClipboard() {
@@ -35,8 +50,8 @@
 
 <div class="max-w-5xl mx-auto mb-8">
   <div class="mb-6">
-    <h2 class="text-2xl font-bold mb-2">Add New Entry</h2>
-    <p class="text-gray-600">
+    <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
+    <p class="text-gray-600 font-omsf-descriptive">
       This simple example demonstrates auto-generating YAML
     </p>
   </div>
@@ -75,7 +90,19 @@
         placeholder="https://..."
         description="The project's main documentation"
       ></Field>
-      <LicenseSelect bind:value={formData.license}></LicenseSelect>
+      <GenericSelect
+        bind:value={formData.license}
+        name="License"
+        required="true"
+        list={ALL_LICENSES}
+      ></GenericSelect>
+      <Field
+        bind:value={tags}
+        type="text"
+        name="Tags"
+        placeholder="tag1,tag2,tag3"
+        description="A comma-seperated lists of tags"
+      ></Field>
     </div>
 
     <!-- YAML preview section (right column on medium+ screens) -->

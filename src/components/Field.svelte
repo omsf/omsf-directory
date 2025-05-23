@@ -19,7 +19,7 @@
 </script>
 
 <div class="mb-6">
-  <label for={name.toLowerCase()} class="block mb-2 font-medium">
+  <label for={name.toLowerCase()} class="block mb-2 font-omsf-subheading">
     {name}
     {#if required}
       *
@@ -33,5 +33,5 @@
     class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-omsf-base focus:border-omsf-base"
     {placeholder}
   />
-  <p class="mt-1 text-sm text-gray-500">{description}</p>
+  <p class="mt-1 text-sm text-gray-500 font-omsf-descriptive">{description}</p>
 </div>
