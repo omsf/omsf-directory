@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class="w-2xs overflow-hidden rounded-lg shadow-lg lg:h-full lg:w-sm border-2 border-omsf-gray min-h-110 max-h-110"
+  class="w-2xs overflow-hidden rounded-lg shadow-lg lg:h-full lg:w-sm border-2 border-omsf-gray min-h-120 max-h-120"
 >
   <div class="px-6 py-4">
     <div class="grid grid-cols-2">

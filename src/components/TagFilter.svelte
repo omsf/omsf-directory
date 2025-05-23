@@ -95,9 +95,9 @@
   }
 </script>
 
-<div class="tag-filter-and-grid">
+<div class="container mx-auto px-2 sm:px-4">
   <div>
-    <div class="my-4 justify-center flex gap-2">
+    <div class="my-4 flex flex-wrap justify-center gap-1.5 sm:gap-2 px-2">
       <Bubble
         tag={filterString("Filter", selectedTags)}
         onclick={toggleFilters}
@@ -130,9 +130,9 @@
     />
   </div>
 
-  <div class="software-grid flex flex-wrap justify-center p-12">
+  <div class="flex flex-wrap justify-center xs:p-12">
     {#each filteredSoftware as tool (tool.name)}
-      <div class="tool-card pb-4 pl-4">
+      <div class="pb-4 pl-4">
         <Card {...tool} />
       </div>
     {/each}
