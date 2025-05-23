@@ -48,7 +48,7 @@
   }
 </script>
 
-<div class="max-w-5xl mx-auto mb-8">
+<div class="container mx-auto px-2 sm:px-4">
   <div class="mb-6">
     <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
     <p class="text-gray-600 font-omsf-descriptive">
@@ -106,7 +106,7 @@
     </div>
 
     <!-- YAML preview section (right column on medium+ screens) -->
-    <div>
+    <div class="grid grid-cols-1 place-items-center">
       <Card {...cardContent}></Card>
     </div>
   </div>
