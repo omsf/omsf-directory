@@ -48,7 +48,18 @@
         output += `tags:\n${formData.tags.map(tag => `  - ${tag}`).join('\n')}\n`;
       }
       if (formData.languages.length > 0) {
-        output += `languages:\n${formData.languages.map(lang => `  - ${lang}`).join('\n')}\n`;
+        // Separate predefined and custom languages
+        const predefinedLanguages = formData.languages.filter(lang => languageTags.includes(lang));
+        const customLanguages = formData.languages.filter(lang => !languageTags.includes(lang) && lang !== "Other");
+        
+        if (predefinedLanguages.length > 0) {
+          output += `languages:\n${predefinedLanguages.map(lang => `  - ${lang}`).join('\n')}\n`;
+        }
+        
+        if (customLanguages.length > 0) {
+          output += `# Custom languages not in the predefined schema - consider adding to languageTags\n`;
+          output += `custom_languages:\n${customLanguages.map(lang => `  - ${lang}`).join('\n')}\n`;
+        }
       }
       if (formData.project && formData.project !== "") {
         output += `project: ${formData.project}\n`;
@@ -124,7 +135,8 @@
         bind:value={formData.languages}
         name="Languages"
         list={languageTags}
-        description="Select programming languages used in this project"
+        description="Select programming languages used in this project. Use 'Other' to add custom languages not in the list."
+        allowOther={true}
       ></MultiSelect>
       <GenericSelect
         bind:value={formData.project}
