@@ -1,10 +1,11 @@
 import { z } from "zod/v4";
 
-const omsfProjects = z.enum([
+export const ALL_OMSF_PROJECTS = [
   "Open Force Field",
-  "Open Free Energy",
+  "Open Free Energy", 
   "Open Fold",
-]);
+];
+const omsfProjects = z.enum(ALL_OMSF_PROJECTS);
 
 export const ALL_LICENSES = ["0BSD", "AGPL", "GPL-3", "MIT"];
 const licenses = z.enum(ALL_LICENSES);

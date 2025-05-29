@@ -3,9 +3,9 @@
     value: string;
     list: string[];
     name: string;
-    required: boolean;
+    required?: boolean;
   }
-  let { value = $bindable(), list, name, required }: Props = $props();
+  let { value = $bindable(), list, name, required = false }: Props = $props();
   const lowerName = name.toLowerCase();
 </script>
 
