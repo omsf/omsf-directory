@@ -18,6 +18,7 @@
     tags: [],
     docs: "",
     languages: [],
+    project: "",
   } as SoftwareSchema);
   // Form validation using $derived
   let isFormValid = $derived(SoftwareSchemaObject.safeParse(formData).success);
