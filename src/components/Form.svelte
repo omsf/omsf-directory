@@ -9,16 +9,17 @@
   import Card from "./Card.svelte";
   import Field from "./Field.svelte";
   import GenericSelect from "./GenericSelect.svelte";
-  import MultiSelect from "./MultiSelect.svelte";
+  import LanguageSelector from "./LanguageSelector.svelte";
+  import Bubble from "./Bubble.svelte";
   let formData = $state({
     name: "",
     description: "",
     license: "",
     link: "",
     tags: [],
-    docs: "",
+    docs: undefined,
     languages: [],
-    project: "",
+    project: undefined,
   } as SoftwareSchema);
   // Form validation using $derived
   let isFormValid = $derived(SoftwareSchemaObject.safeParse(formData).success);
@@ -36,7 +37,9 @@
   $effect(() => {
     // Only generate YAML if the form is valid
     let output = "";
-    if (isFormValid) {
+    $state.snapshot(formData);
+    if (isFormValid && formData.languages.length > 0) {
+      console.log("Valid");
       output += `name: ${formData.name === null ? "" : formData.name}\n`;
       output += `description: ${formData.description === null ? "" : formData.description}\n`;
       output += `link: ${formData.link === null ? "" : formData.link}\n`;
@@ -45,25 +48,9 @@
       }
       output += `license: ${formData.license}\n`;
       if (formData.tags.length > 0) {
-        output += `tags:\n${formData.tags.map(tag => `  - ${tag}`).join('\n')}\n`;
+        output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join("\n")}\n`;
       }
-      if (formData.languages.length > 0) {
-        // Separate predefined and custom languages
-        const predefinedLanguages = formData.languages.filter(lang => languageTags.includes(lang));
-        const customLanguages = formData.languages.filter(lang => !languageTags.includes(lang) && lang !== "Other");
-        
-        if (predefinedLanguages.length > 0) {
-          output += `languages:\n${predefinedLanguages.map(lang => `  - ${lang}`).join('\n')}\n`;
-        }
-        
-        if (customLanguages.length > 0) {
-          output += `# Custom languages not in the predefined schema - consider adding to languageTags\n`;
-          output += `custom_languages:\n${customLanguages.map(lang => `  - ${lang}`).join('\n')}\n`;
-        }
-      }
-      if (formData.project && formData.project !== "") {
-        output += `project: ${formData.project}\n`;
-      }
+      output += `languages:\n${languageTags.map((lang) => `  - ${lang}`).join("\n")}\n`;
     }
     yamlContent = output;
     cardContent = { ...formData };
@@ -131,23 +118,23 @@
         placeholder="tag1,tag2,tag3"
         description="A comma-seperated lists of tags"
       ></Field>
-      <MultiSelect
+      <LanguageSelector
         bind:value={formData.languages}
         name="Languages"
         list={languageTags}
-        description="Select programming languages used in this project. Use 'Other' to add custom languages not in the list."
-        allowOther={true}
-      ></MultiSelect>
-      <GenericSelect
-        bind:value={formData.project}
-        name="Project"
-        list={ALL_OMSF_PROJECTS}
-      ></GenericSelect>
+        description="Select from predefined programming languages or add custom languages for your project."
+        required={true}
+      ></LanguageSelector>
     </div>
 
     <!-- YAML preview section (right column on medium+ screens) -->
     <div class="grid grid-cols-1 place-items-center">
-      <Card {...cardContent}></Card>
+      <div>
+        <div class="mb-4">
+          <Card {...cardContent}></Card>
+        </div>
+        <Bubble tag="Copy YAML" onclick={() => copyYamlToClipboard()} />
+      </div>
     </div>
   </div>
 </div>

@@ -10,7 +10,7 @@
 </script>
 
 <div class="mb-6">
-  <label for={lowerName}
+  <label class="block mb-2 font-omsf-subheading" for={lowerName}
     >{name}
     {#if required}*{/if}</label
   >

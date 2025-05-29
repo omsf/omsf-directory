@@ -20,7 +20,7 @@ export const SoftwareSchemaObject = z.object({
   license: licenses,
   link: z.url(),
   tags: z.array(z.string()),
-  languages: z.array(languages),
+  languages: z.array(z.string()),
   project: z.optional(omsfProjects),
 });
 
