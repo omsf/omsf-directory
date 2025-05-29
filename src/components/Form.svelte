@@ -1,10 +1,10 @@
 <script lang="ts">
-import { ALL_LICENSES, languageTags, SoftwareSchemaObject, type SoftwareSchema } from '../schemas'
+import { ALL_LICENSES, type SoftwareSchema, SoftwareSchemaObject, languageTags } from '../schemas'
+import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
 import Field from './Field.svelte'
 import GenericSelect from './GenericSelect.svelte'
 import LanguageSelector from './LanguageSelector.svelte'
-import Bubble from './Bubble.svelte'
 let formData = $state({
 	name: '',
 	description: '',

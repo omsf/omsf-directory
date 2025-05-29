@@ -1,7 +1,7 @@
 <script lang="ts">
-import Card from './Card.svelte'
-import Bubble from './Bubble.svelte'
 import { type SoftwareSchema } from '../schemas'
+import Bubble from './Bubble.svelte'
+import Card from './Card.svelte'
 import FilterDialog from './FilterDialog.svelte'
 
 interface Props {

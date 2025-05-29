@@ -1,8 +1,8 @@
 <script lang="ts">
 import { onMount } from 'svelte'
 import { slide } from 'svelte/transition'
-import Bubble from './Bubble.svelte'
 import { filterToggle, isMobileWidth } from '../lib/utils/filterUtils'
+import Bubble from './Bubble.svelte'
 
 interface Props {
 	showFilters: boolean
