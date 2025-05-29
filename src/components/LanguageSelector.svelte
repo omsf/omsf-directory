@@ -90,15 +90,9 @@
           }
         }}
       />
-      <button
-        type="button"
-        onclick={addCustomLanguage}
-        disabled={!customLanguageInput.trim()}
-        class="px-3 py-2 text-sm bg-indigo-600 text-white rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed"
+      <Bubble onclick={addCustomLanguage} disabled={!customLanguageInput.trim()}
+        >Add</Bubble
       >
-        Add
-      </button>
-      <Bubble onclick={addCustomLanguage} tag="Add" />
     </div>
   </div>
 

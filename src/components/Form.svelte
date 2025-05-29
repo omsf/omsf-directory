@@ -1,7 +1,6 @@
 <script lang="ts">
   import {
     ALL_LICENSES,
-    ALL_OMSF_PROJECTS,
     languageTags,
     SoftwareSchemaObject,
     type SoftwareSchema,
@@ -22,7 +21,10 @@
     project: undefined,
   } as SoftwareSchema);
   // Form validation using $derived
-  let isFormValid = $derived(SoftwareSchemaObject.safeParse(formData).success);
+  let isFormValid = $derived(
+    SoftwareSchemaObject.safeParse(formData).success &&
+      formData.languages.length > 0,
+  );
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
@@ -37,8 +39,7 @@
   $effect(() => {
     // Only generate YAML if the form is valid
     let output = "";
-    $state.snapshot(formData);
-    if (isFormValid && formData.languages.length > 0) {
+    if (isFormValid) {
       console.log("Valid");
       output += `name: ${formData.name === null ? "" : formData.name}\n`;
       output += `description: ${formData.description === null ? "" : formData.description}\n`;
@@ -133,7 +134,9 @@
         <div class="mb-4">
           <Card {...cardContent}></Card>
         </div>
-        <Bubble tag="Copy YAML" onclick={() => copyYamlToClipboard()} />
+        <Bubble onclick={() => copyYamlToClipboard()} disabled={!isFormValid}
+          >Copy YAML</Bubble
+        >
       </div>
     </div>
   </div>
