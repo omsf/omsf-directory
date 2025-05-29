@@ -44,9 +44,8 @@
         {#each tags as tag}
           <Bubble
             onclick={() => filterToggle(tag, selectedTags)}
-            selectionFunction={selectedTags.includes(tag)}
-            {tag}
-          ></Bubble>
+            selectionFunction={selectedTags.includes(tag)}>{tag}</Bubble
+          >
         {/each}
       </div>
     </div>
@@ -58,9 +57,8 @@
       {#each tags as tag}
         <Bubble
           onclick={() => filterToggle(tag, selectedTags)}
-          selectionFunction={selectedTags.includes(tag)}
-          {tag}
-        ></Bubble>
+          selectionFunction={selectedTags.includes(tag)}>{tag}</Bubble
+        >
       {/each}
     </div>
   {/if}

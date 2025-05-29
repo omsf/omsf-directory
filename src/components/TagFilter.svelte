@@ -98,24 +98,19 @@
 <div class="container mx-auto px-2 sm:px-4">
   <div>
     <div class="my-4 flex flex-wrap justify-center gap-1.5 sm:gap-2 px-2">
-      <Bubble
-        tag={filterString("Filter", selectedTags)}
-        onclick={toggleFilters}
-      />
-      <Bubble
-        tag={filterString("Language", selectedLangs)}
-        onclick={toggleLangs}
-      />
-      <Bubble
-        tag={filterString("License", selectedLicenses)}
-        onclick={toggleLicenses}
-      />
-      <Bubble
-        tag="OMSF Projects"
-        onclick={toggleOmsfProjects}
-        selectionFunction={omsfFilter}
-      ></Bubble>
-      <Bubble tag="Clear" onclick={clearTags} disabled={noClear}></Bubble>
+      <Bubble onclick={toggleFilters}
+        >{filterString("Filters", selectedTags)}</Bubble
+      >
+      <Bubble onclick={toggleLangs}
+        >{filterString("Language", selectedLangs)}</Bubble
+      >
+      <Bubble onclick={toggleLicenses}
+        >{filterString("License", selectedLicenses)}</Bubble
+      >
+      <Bubble onclick={toggleOmsfProjects} selectionFunction={omsfFilter}
+        >OMSF Projects</Bubble
+      >
+      <Bubble onclick={clearTags} disabled={noClear}>Clear</Bubble>
     </div>
     <FilterDialog bind:showFilters bind:selectedTags tags={allTags} />
     <FilterDialog
