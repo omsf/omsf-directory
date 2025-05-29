@@ -2,15 +2,15 @@
   import { type SoftwareSchema } from "../schemas";
   import Logo from "./Logo.svg.svelte";
   const {
-    name,
-    description,
-    docs,
-    license,
-    tags,
-    link,
-    project,
-    languages,
-  }: SoftwareSchema = $props();
+    name = "",
+    description = "",
+    docs = "",
+    license = "",
+    tags = [],
+    link = "",
+    project = "",
+    languages = [],
+  }: Partial<SoftwareSchema> = $props();
   // We create a state because we are abusing JS/TS when using this in the form.
   // We populate this with unparsable values by default by design in the form.
   let allTags = $derived([...(tags || []), ...(languages || [])]);

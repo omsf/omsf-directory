@@ -50,13 +50,12 @@
       if (formData.languages.length > 0) {
         output += `languages:\n${formData.languages.map(lang => `  - ${lang}`).join('\n')}\n`;
       }
-      if (formData.project) {
+      if (formData.project && formData.project !== "") {
         output += `project: ${formData.project}\n`;
       }
     }
     yamlContent = output;
     cardContent = { ...formData };
-    // cardContent = formData;
   });
 
   function copyYamlToClipboard() {
@@ -103,6 +102,7 @@
         bind:value={formData.docs}
         type="url"
         name="Project Docs"
+        required={false}
         placeholder="https://..."
         description="The project's main documentation"
       ></Field>
@@ -116,6 +116,7 @@
         bind:value={tags}
         type="text"
         name="Tags"
+        required={false}
         placeholder="tag1,tag2,tag3"
         description="A comma-seperated lists of tags"
       ></Field>

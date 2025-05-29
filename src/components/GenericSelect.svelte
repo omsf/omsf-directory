@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    value: string;
+    value: string | undefined;
     list: string[];
     name: string;
     required?: boolean;
