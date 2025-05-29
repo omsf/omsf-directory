@@ -1,21 +1,21 @@
 <script lang="ts">
-  interface Props {
-    value: any;
-    name: string;
-    type: string;
-    placeholder: string;
-    description: string;
-    required: boolean | undefined;
-  }
-  let {
-    value = $bindable(),
-    name,
-    type,
-    placeholder,
-    // TODO: figure out how to make this so TS doesn't complain
-    required = undefined,
-    description,
-  }: Props = $props();
+interface Props {
+	value: any
+	name: string
+	type: string
+	placeholder: string
+	description: string
+	required: boolean | undefined
+}
+let {
+	value = $bindable(),
+	name,
+	type,
+	placeholder,
+	// TODO: figure out how to make this so TS doesn't complain
+	required = undefined,
+	description
+}: Props = $props()
 </script>
 
 <div class="mb-6">

@@ -1,98 +1,94 @@
 <script lang="ts">
-  import Card from "./Card.svelte";
-  import Bubble from "./Bubble.svelte";
-  import { type SoftwareSchema } from "../schemas";
-  import FilterDialog from "./FilterDialog.svelte";
+import Card from './Card.svelte'
+import Bubble from './Bubble.svelte'
+import { type SoftwareSchema } from '../schemas'
+import FilterDialog from './FilterDialog.svelte'
 
-  interface Props {
-    items: SoftwareSchema[];
-    allTags: string[];
-  }
-  const { items, allTags }: Props = $props();
-  const languageTags = [...new Set(items.flatMap((item) => item.languages))];
-  const licenses = [...new Set(items.flatMap((item) => item.license))].filter(
-    Boolean,
-  );
+interface Props {
+	items: SoftwareSchema[]
+	allTags: string[]
+}
+const { items, allTags }: Props = $props()
+const languageTags = [...new Set(items.flatMap((item) => item.languages))]
+const licenses = [...new Set(items.flatMap((item) => item.license))].filter(Boolean)
 
-  let selectedTags = $state(new Array<string>());
-  let selectedLangs = $state(new Array<string>());
-  let selectedLicenses = $state(new Array<string>());
+let selectedTags = $state(new Array<string>())
+let selectedLangs = $state(new Array<string>())
+let selectedLicenses = $state(new Array<string>())
 
-  let showFilters = $state(false);
-  let showLangs = $state(false);
-  let showLicenses = $state(false);
-  let omsfFilter = $state(false);
+let showFilters = $state(false)
+let showLangs = $state(false)
+let showLicenses = $state(false)
+let omsfFilter = $state(false)
 
-  const noClear = $derived(
-    selectedTags.length === 0 &&
-      selectedLangs.length === 0 &&
-      selectedLicenses.length === 0 &&
-      !omsfFilter,
-  );
+const noClear = $derived(
+	selectedTags.length === 0 &&
+		selectedLangs.length === 0 &&
+		selectedLicenses.length === 0 &&
+		!omsfFilter
+)
 
-  const filteredSoftware = $derived.by(() => {
-    let filteredItems = items;
+const filteredSoftware = $derived.by(() => {
+	let filteredItems = items
 
-    if (omsfFilter) {
-      filteredItems = filteredItems.filter(
-        (tool) => tool.project !== undefined,
-      );
-    }
+	if (omsfFilter) {
+		filteredItems = filteredItems.filter((tool) => tool.project !== undefined)
+	}
 
-    if (selectedTags.length > 0) {
-      filteredItems = filteredItems.filter((tool) =>
-        selectedTags.every((tag) => (tool.tags || []).includes(tag)),
-      );
-    }
+	if (selectedTags.length > 0) {
+		filteredItems = filteredItems.filter((tool) =>
+			selectedTags.every((tag) => (tool.tags || []).includes(tag))
+		)
+	}
 
-    if (selectedLangs.length > 0) {
-      filteredItems = filteredItems.filter((tool) =>
-        selectedLangs.every((lang) => (tool.languages || []).includes(lang)),
-      );
-    }
+	if (selectedLangs.length > 0) {
+		filteredItems = filteredItems.filter((tool) =>
+			selectedLangs.every((lang) => (tool.languages || []).includes(lang))
+		)
+	}
 
-    if (selectedLicenses.length > 0) {
-      filteredItems = filteredItems.filter((tool) =>
-        selectedLicenses.some((license) => tool.license === license),
-      );
-    }
+	if (selectedLicenses.length > 0) {
+		filteredItems = filteredItems.filter((tool) =>
+			selectedLicenses.some((license) => tool.license === license)
+		)
+	}
 
-    return filteredItems;
-  });
+	return filteredItems
+})
 
-  const clearTags = () => {
-    selectedTags = [];
-    selectedLangs = [];
-    selectedLicenses = [];
-    omsfFilter = false;
-  };
+const clearTags = () => {
+	selectedTags = []
+	selectedLangs = []
+	selectedLicenses = []
+	omsfFilter = false
+}
 
-  const toggleFilters = () => {
-    showLangs = false;
-    showLicenses = false;
-    showFilters = !showFilters;
-  };
+const toggleFilters = () => {
+	showLangs = false
+	showLicenses = false
+	showFilters = !showFilters
+}
 
-  const toggleLangs = () => {
-    showFilters = false;
-    showLicenses = false;
-    showLangs = !showLangs;
-  };
+const toggleLangs = () => {
+	showFilters = false
+	showLicenses = false
+	showLangs = !showLangs
+}
 
-  const toggleLicenses = () => {
-    showFilters = false;
-    showLangs = false;
-    showLicenses = !showLicenses;
-  };
+const toggleLicenses = () => {
+	showFilters = false
+	showLangs = false
+	showLicenses = !showLicenses
+}
 
-  const toggleOmsfProjects = () => {
-    omsfFilter = !omsfFilter;
-  };
+const toggleOmsfProjects = () => {
+	omsfFilter = !omsfFilter
+}
 
-  function filterString(base: string, selection: string[]): string {
-    let out: string = selection.length.toString();
-    return `${base} (${out})`;
-  }
+function filterString(base: string, selection: string[]): string {
+	let out: string = selection.length.toString()
+	return `${base} (${out})`
+}
 </script>
 
 <div class="container mx-auto px-2 sm:px-4">

@@ -3,5 +3,16 @@
 // For a full list of overridable settings, and general information on folder-specific settings,
 // see the documentation: https://zed.dev/docs/configuring-zed#settings-files
 {
-  "language_servers": ["biome", "..."]
+	"language_servers": ["biome", "..."],
+	"languages": {
+		"Svelte": {
+			"format_on_save": "on"
+		},
+		"TypeScript": {
+			"format_on_save": "on"
+		},
+		"Astro": {
+			"format_on_save": "on"
+		}
+	}
 }

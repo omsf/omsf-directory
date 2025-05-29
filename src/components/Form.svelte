@@ -1,65 +1,59 @@
 <script lang="ts">
-  import {
-    ALL_LICENSES,
-    languageTags,
-    SoftwareSchemaObject,
-    type SoftwareSchema,
-  } from "../schemas";
-  import Card from "./Card.svelte";
-  import Field from "./Field.svelte";
-  import GenericSelect from "./GenericSelect.svelte";
-  import LanguageSelector from "./LanguageSelector.svelte";
-  import Bubble from "./Bubble.svelte";
-  let formData = $state({
-    name: "",
-    description: "",
-    license: "",
-    link: "",
-    tags: [],
-    docs: undefined,
-    languages: [],
-    project: undefined,
-  } as SoftwareSchema);
-  // Form validation using $derived
-  let isFormValid = $derived(
-    SoftwareSchemaObject.safeParse(formData).success &&
-      formData.languages.length > 0,
-  );
-  let yamlContent = $state(""); // Declare yamlContent variable
-  let cardContent = $state({});
-  let tags = $state("");
+import { ALL_LICENSES, languageTags, SoftwareSchemaObject, type SoftwareSchema } from '../schemas'
+import Card from './Card.svelte'
+import Field from './Field.svelte'
+import GenericSelect from './GenericSelect.svelte'
+import LanguageSelector from './LanguageSelector.svelte'
+import Bubble from './Bubble.svelte'
+let formData = $state({
+	name: '',
+	description: '',
+	license: '',
+	link: '',
+	tags: [],
+	docs: undefined,
+	languages: [],
+	project: undefined
+} as SoftwareSchema)
+// Form validation using $derived
+let isFormValid = $derived(
+	SoftwareSchemaObject.safeParse(formData).success && formData.languages.length > 0
+)
+let yamlContent = $state('') // Declare yamlContent variable
+let cardContent = $state({})
+let tags = $state('')
 
-  $effect(() => {
-    formData.tags = tags
-      .split(",")
-      .map((tag) => tag.trim())
-      .filter((tag) => tag !== "");
-  });
+$effect(() => {
+	formData.tags = tags
+		.split(',')
+		.map((tag) => tag.trim())
+		.filter((tag) => tag !== '')
+})
 
-  $effect(() => {
-    // Only generate YAML if the form is valid
-    let output = "";
-    if (isFormValid) {
-      console.log("Valid");
-      output += `name: ${formData.name === null ? "" : formData.name}\n`;
-      output += `description: ${formData.description === null ? "" : formData.description}\n`;
-      output += `link: ${formData.link === null ? "" : formData.link}\n`;
-      if (formData.docs) {
-        output += `docs: ${formData.docs}\n`;
-      }
-      output += `license: ${formData.license}\n`;
-      if (formData.tags.length > 0) {
-        output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join("\n")}\n`;
-      }
-      output += `languages:\n${languageTags.map((lang) => `  - ${lang}`).join("\n")}\n`;
-    }
-    yamlContent = output;
-    cardContent = { ...formData };
-  });
+$effect(() => {
+	// Only generate YAML if the form is valid
+	let output = ''
+	if (isFormValid) {
+		console.log('Valid')
+		output += `name: ${formData.name === null ? '' : formData.name}\n`
+		output += `description: ${formData.description === null ? '' : formData.description}\n`
+		output += `link: ${formData.link === null ? '' : formData.link}\n`
+		if (formData.docs) {
+			output += `docs: ${formData.docs}\n`
+		}
+		output += `license: ${formData.license}\n`
+		if (formData.tags.length > 0) {
+			output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join('\n')}\n`
+		}
+		output += `languages:\n${languageTags.map((lang) => `  - ${lang}`).join('\n')}\n`
+	}
+	yamlContent = output
+	cardContent = { ...formData }
+})
 
-  function copyYamlToClipboard() {
-    navigator.clipboard.writeText(yamlContent);
-  }
+function copyYamlToClipboard() {
+	navigator.clipboard.writeText(yamlContent)
+}
 </script>
 
 <div class="container mx-auto px-2 sm:px-4">

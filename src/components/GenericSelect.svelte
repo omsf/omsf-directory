@@ -1,12 +1,12 @@
 <script lang="ts">
-  interface Props {
-    value: string | undefined;
-    list: string[];
-    name: string;
-    required?: boolean;
-  }
-  let { value = $bindable(), list, name, required = false }: Props = $props();
-  const lowerName = name.toLowerCase();
+interface Props {
+	value: string | undefined
+	list: string[]
+	name: string
+	required?: boolean
+}
+let { value = $bindable(), list, name, required = false }: Props = $props()
+const lowerName = name.toLowerCase()
 </script>
 
 <div class="mb-6">

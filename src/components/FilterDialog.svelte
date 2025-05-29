@@ -1,35 +1,30 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { slide } from "svelte/transition";
-  import Bubble from "./Bubble.svelte";
-  import { filterToggle, isMobileWidth } from "../lib/utils/filterUtils";
+import { onMount } from 'svelte'
+import { slide } from 'svelte/transition'
+import Bubble from './Bubble.svelte'
+import { filterToggle, isMobileWidth } from '../lib/utils/filterUtils'
 
-  interface Props {
-    showFilters: boolean;
-    tags: string[];
-    selectedTags: string[];
-  }
-  let {
-    showFilters = $bindable(),
-    tags,
-    selectedTags = $bindable(),
-    ...props
-  }: Props = $props();
-  let isMobile = $state(false);
-  const slideDuration = 150;
+interface Props {
+	showFilters: boolean
+	tags: string[]
+	selectedTags: string[]
+}
+let { showFilters = $bindable(), tags, selectedTags = $bindable(), ...props }: Props = $props()
+let isMobile = $state(false)
+const slideDuration = 150
 
-  // We do this for easier management _and_ testing
-  const checkScreenSize = () => {
-    isMobile = isMobileWidth(window.innerWidth);
-  };
+// We do this for easier management _and_ testing
+const checkScreenSize = () => {
+	isMobile = isMobileWidth(window.innerWidth)
+}
 
-  onMount(() => {
-    checkScreenSize();
-    window.addEventListener("resize", checkScreenSize);
-    return () => {
-      window.removeEventListener("resize", checkScreenSize);
-    };
-  });
+onMount(() => {
+	checkScreenSize()
+	window.addEventListener('resize', checkScreenSize)
+	return () => {
+		window.removeEventListener('resize', checkScreenSize)
+	}
+})
 </script>
 
 {#if showFilters}

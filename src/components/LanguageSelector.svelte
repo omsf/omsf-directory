@@ -1,47 +1,41 @@
 <script lang="ts">
-  import Bubble from "./Bubble.svelte";
+import Bubble from './Bubble.svelte'
 
-  interface Props {
-    value: string[];
-    list: string[];
-    name: string;
-    required?: boolean;
-    description?: string;
-  }
-  let {
-    value = $bindable(),
-    list,
-    name,
-    required = false,
-    description,
-  }: Props = $props();
+interface Props {
+	value: string[]
+	list: string[]
+	name: string
+	required?: boolean
+	description?: string
+}
+let { value = $bindable(), list, name, required = false, description }: Props = $props()
 
-  const lowerName = name.toLowerCase();
-  let customLanguageInput = $state("");
+const lowerName = name.toLowerCase()
+let customLanguageInput = $state('')
 
-  function togglePredefinedLanguage(item: string) {
-    if (value.includes(item)) {
-      value = value.filter((v) => v !== item);
-    } else {
-      value = [...value, item];
-    }
-  }
+function togglePredefinedLanguage(item: string) {
+	if (value.includes(item)) {
+		value = value.filter((v) => v !== item)
+	} else {
+		value = [...value, item]
+	}
+}
 
-  function addCustomLanguage() {
-    const trimmed = customLanguageInput.trim();
-    if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
-      value = [...value, trimmed];
-      customLanguageInput = "";
-    }
-  }
+function addCustomLanguage() {
+	const trimmed = customLanguageInput.trim()
+	if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
+		value = [...value, trimmed]
+		customLanguageInput = ''
+	}
+}
 
-  function removeLanguage(lang: string) {
-    value = value.filter((v) => v !== lang);
-  }
+function removeLanguage(lang: string) {
+	value = value.filter((v) => v !== lang)
+}
 
-  // Separate predefined and custom languages for display
-  let selectedPredefined = $derived(value.filter((v) => list.includes(v)));
-  let selectedCustom = $derived(value.filter((v) => !list.includes(v)));
+// Separate predefined and custom languages for display
+let selectedPredefined = $derived(value.filter((v) => list.includes(v)))
+let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
 </script>
 
 <div class="mb-6">
