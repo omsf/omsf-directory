@@ -45,7 +45,7 @@ $effect(() => {
 		if (formData.tags.length > 0) {
 			output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join('\n')}\n`
 		}
-		output += `languages:\n${languageTags.map((lang) => `  - ${lang}`).join('\n')}\n`
+		output += `languages:\n${formData.languages.map((lang) => `  - ${lang}`).join('\n')}\n`
 	}
 	yamlContent = output
 	cardContent = { ...formData }
