@@ -60,7 +60,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
             type="checkbox"
             checked={value.includes(item)}
             onchange={() => togglePredefinedLanguage(item)}
-            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
+            class="h-4 w-4 text-omsf-base focus:ring-omsf-base border-gray-300 rounded"
           />
           <span class="text-sm font-omsf-subheading">{item}</span>
         </label>
@@ -76,7 +76,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
         type="text"
         bind:value={customLanguageInput}
         placeholder="Enter custom language..."
-        class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+        class="flex-1 px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-omsf-base focus:border-omsf-base"
         onkeydown={(e) => {
           if (e.key === "Enter") {
             e.preventDefault();
@@ -96,13 +96,13 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
       <!-- Predefined languages -->
       {#each selectedPredefined as selected}
         <span
-          class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800"
+          class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
         >
           {selected}
           <button
             type="button"
             onclick={() => removeLanguage(selected)}
-            class="ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full text-indigo-400 hover:bg-indigo-200 hover:text-indigo-600 focus:outline-none"
+            class="ml-1 inline-flex items-center justify-center w-4 h-4 rounded-full text-blue-400 hover:bg-blue-200 hover:text-blue-600 focus:outline-none"
           >
             ×
           </button>

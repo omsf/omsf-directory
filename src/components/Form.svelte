@@ -59,8 +59,8 @@ function copyYamlToClipboard() {
 <div class="container mx-auto px-2 sm:px-4">
   <div class="mb-6">
     <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
-    <p class="text-gray-600 font-omsf-descriptive">
-      This simple example demonstrates auto-generating YAML
+    <p class="text-gray-600 font-omsf-descriptive md:max-w-1/2">
+        This form helps to show how your project will look when we addeded to the directory. You can also generate the YAML by hand and open a PR at the <a href="" class="underline">repo</a>.
     </p>
   </div>
 
@@ -104,6 +104,7 @@ function copyYamlToClipboard() {
         name="License"
         required={true}
         list={ALL_LICENSES}
+        optionValue="Select a License"
       ></GenericSelect>
       <Field
         bind:value={tags}

@@ -4,8 +4,15 @@ interface Props {
 	list: string[]
 	name: string
 	required?: boolean
+	optionValue?: string
 }
-let { value = $bindable(), list, name, required = false }: Props = $props()
+let {
+	value = $bindable(),
+	list,
+	name,
+	required = false,
+	optionValue = 'Select an option'
+}: Props = $props()
 const lowerName = name.toLowerCase()
 </script>
 
@@ -20,7 +27,7 @@ const lowerName = name.toLowerCase()
     bind:value
     class="font-omsf-subheading w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
   >
-    <option value="">Please choose an option</option>
+    <option value="">{{optionValue}}</option>
     {#each list as item}
       <option value={item}>{item}</option>
     {/each}
