@@ -3,7 +3,6 @@ import { ALL_LICENSES, type SoftwareSchema, SoftwareSchemaObject, languageTags }
 import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
 import Field from './Field.svelte'
-import GenericSelect from './GenericSelect.svelte'
 import MultiSelector from './MultiSelector.svelte'
 let formData = $state({
 	name: '',
