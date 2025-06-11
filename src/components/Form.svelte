@@ -4,11 +4,11 @@ import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
 import Field from './Field.svelte'
 import GenericSelect from './GenericSelect.svelte'
-import LanguageSelector from './LanguageSelector.svelte'
+import MultiSelector from './MultiSelector.svelte'
 let formData = $state({
 	name: '',
 	description: '',
-	license: '',
+	licenses: [],
 	link: '',
 	tags: [],
 	docs: undefined,
@@ -41,7 +41,9 @@ $effect(() => {
 		if (formData.docs) {
 			output += `docs: ${formData.docs}\n`
 		}
-		output += `license: ${formData.license}\n`
+		if (formData.licenses.length > 0) {
+			output += `licenses:\n${formData.licenses.map((license) => `  - ${license}`).join('\n')}\n`
+		}
 		if (formData.tags.length > 0) {
 			output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join('\n')}\n`
 		}
@@ -99,13 +101,18 @@ function copyYamlToClipboard() {
         placeholder="https://..."
         description="The project's main documentation"
       ></Field>
-      <GenericSelect
-        bind:value={formData.license}
-        name="License"
-        required={true}
+      <MultiSelector
+        bind:value={formData.licenses}
+        name="Licenses"
         list={ALL_LICENSES}
-        optionValue="Select a License"
-      ></GenericSelect>
+        description="Select from predefined licenses or add your own"
+        required={true}
+        placeholder="Enter custom license..."
+        addButtonText="Add"
+        predefinedSectionTitle="Select from predefined licenses:"
+        customSectionTitle="Add custom license:"
+        allowCustom={true}
+      ></MultiSelector>
       <Field
         bind:value={tags}
         type="text"
@@ -114,13 +121,18 @@ function copyYamlToClipboard() {
         placeholder="tag1,tag2,tag3"
         description="A comma-seperated lists of tags"
       ></Field>
-      <LanguageSelector
+      <MultiSelector
         bind:value={formData.languages}
         name="Languages"
         list={languageTags}
         description="Select from predefined programming languages or add custom languages for your project."
         required={true}
-      ></LanguageSelector>
+        placeholder="Enter custom language..."
+        addButtonText="Add"
+        predefinedSectionTitle="Select from predefined languages:"
+        customSectionTitle="Add custom language:"
+        allowCustom={true}
+      ></MultiSelector>
     </div>
 
     <!-- YAML preview section (right column on medium+ screens) -->

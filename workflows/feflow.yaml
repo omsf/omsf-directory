@@ -1,6 +1,7 @@
 description: FE Flow provides recipes, utilities, and protocols for molecular free energy calculations using the openmmtools/perses and Open Free Energy toolkits.
 docs: https://github.com/OpenFreeEnergy/feflow
-license: MIT
+licenses:
+  - MIT
 link: https://github.com/OpenFreeEnergy/feflow
 name: feflow
 project: Open Free Energy

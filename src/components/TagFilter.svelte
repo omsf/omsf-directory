@@ -10,7 +10,7 @@ interface Props {
 }
 const { items, allTags }: Props = $props()
 const languageTags = [...new Set(items.flatMap((item) => item.languages))]
-const licenses = [...new Set(items.flatMap((item) => item.license))].filter(Boolean)
+const licenses = [...new Set(items.flatMap((item) => item.licenses))].filter(Boolean)
 
 let selectedTags = $state(new Array<string>())
 let selectedLangs = $state(new Array<string>())
@@ -49,7 +49,7 @@ const filteredSoftware = $derived.by(() => {
 
 	if (selectedLicenses.length > 0) {
 		filteredItems = filteredItems.filter((tool) =>
-			selectedLicenses.some((license) => tool.license === license)
+			selectedLicenses.some((license) => (tool.licenses || []).includes(license))
 		)
 	}
 

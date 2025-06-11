@@ -5,7 +5,7 @@ const {
 	name = '',
 	description = '',
 	docs = '',
-	license = '',
+	licenses = [],
 	tags = [],
 	link = '',
 	project = undefined,
@@ -34,7 +34,10 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
       <a href={link} class="underline">Website</a>
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
-      License: {license}
+      Licenses: {#each licenses as license, index}
+          {#if index > 0} • {/if}
+          {license.concat([" "])}
+      {/each}
     </div>
     <p class="font-omsf-descriptive text-base text-gray-700">
       {description}
