@@ -2,7 +2,8 @@ description: Konnektor is a package supporting efficient planning of free energy
 docs: https://github.com/OpenFreeEnergy/konnektor
 licenses:
   - MIT
-link: https://github.com/OpenFreeEnergy/konnektor
+repository: https://github.com/OpenFreeEnergy/konnektor
+link: https://openfree.energy
 name: Konnektor
 project: Open Free Energy
 tags:

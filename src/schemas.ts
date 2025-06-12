@@ -12,7 +12,8 @@ export const SoftwareSchemaObject = z.object({
 	description: z.string(),
 	docs: z.optional(z.url()),
 	licenses: z.array(z.string()).min(1),
-	link: z.url(),
+	link: z.optional(z.url()),
+	repository: z.url(),
 	tags: z.array(z.string()).min(1),
 	languages: z.array(z.string()).min(1),
 	project: z.optional(omsfProjects)

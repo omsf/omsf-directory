@@ -1,9 +1,10 @@
 name: OpenFE
 description: A tool for free energy calculations.
-docs: https://openfree.energy
+docs: https://docs.openfree.energy/en/latest/
 licenses:
   - MIT
-link: https://github.com/openforcefield/openff-toolkit
+repository: https://github.com/OpenFreeEnergy/openfe
+link: https://openfree.energy
 project: Open Free Energy
 tags:
   - Free Energy

@@ -1,9 +1,8 @@
 name: "BioEmu"
 description: "A deep learning model that samples from the approximated equilibrium distribution of structures for a protein monomer, given its amino acid sequence. It can generate thousands of statistically independent structures from the protein structure ensemble per hour on a single GPU."
-docs: "https://github.com/microsoft/bioemu"
+repository: "https://github.com/microsoft/bioemu"
 licenses:
   - "MIT"
-link: "https://github.com/microsoft/bioemu"
 tags: ["Machine Learning", "Molecular Dynamics"]
 languages:
   - Python

@@ -3,6 +3,7 @@ docs: https://github.com/OpenFreeEnergy/feflow
 licenses:
   - MIT
 link: https://github.com/OpenFreeEnergy/feflow
+repository: https://github.com/OpenFreeEnergy/feflow
 name: feflow
 project: Open Free Energy
 tags:

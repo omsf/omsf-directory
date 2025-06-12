@@ -9,7 +9,8 @@ const {
 	tags = [],
 	link = '',
 	project = undefined,
-	languages = []
+	languages = [],
+	repository = ''
 }: Partial<SoftwareSchema> = $props()
 // We create a state because we are abusing JS/TS when using this in the form.
 // We populate this with unparsable values by default by design in the form.
@@ -29,9 +30,11 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
       {/if}
     </div>
     <div class="font-regular font-omsf-subheading font-light text-base">
-      {#if docs}<a href={docs} class="underline">Docs</a> •
-      {/if}
-      <a href={link} class="underline">Website</a>
+      {#if repository}<a href={repository} class="underline">Repo</a>{/if}
+      {#if repository && docs} • {/if}
+      {#if docs}<a href={docs} class="underline">Docs</a>{/if}
+      {#if (repository || docs) && link} • {/if}
+      {#if link}<a href={link} class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
       Licenses: {#each licenses as license, index}

@@ -11,20 +11,25 @@ interface Props {
 const { items, allTags }: Props = $props()
 const languageTags = [...new Set(items.flatMap((item) => item.languages))]
 const licenses = [...new Set(items.flatMap((item) => item.licenses))].filter(Boolean)
+// We filter out the "empty" project.
+const projects = [...new Set(items.flatMap((item) => item.project))].filter((project) => project)
 
 let selectedTags = $state(new Array<string>())
 let selectedLangs = $state(new Array<string>())
 let selectedLicenses = $state(new Array<string>())
+let selectedProjects = $state(new Array<string>())
 
 let showFilters = $state(false)
 let showLangs = $state(false)
 let showLicenses = $state(false)
+let showProjects = $state(false)
 let omsfFilter = $state(false)
 
 const noClear = $derived(
 	selectedTags.length === 0 &&
 		selectedLangs.length === 0 &&
 		selectedLicenses.length === 0 &&
+		selectedProjects.length === 0 &&
 		!omsfFilter
 )
 
@@ -53,6 +58,14 @@ const filteredSoftware = $derived.by(() => {
 		)
 	}
 
+	if (selectedProjects.length > 0) {
+		filteredItems = filteredItems.filter((tool) =>
+			selectedProjects.some((project) => {
+				return tool.project === project
+			})
+		)
+	}
+
 	return filteredItems
 })
 
@@ -60,25 +73,36 @@ const clearTags = () => {
 	selectedTags = []
 	selectedLangs = []
 	selectedLicenses = []
+	selectedProjects = []
 	omsfFilter = false
 }
 
 const toggleFilters = () => {
 	showLangs = false
 	showLicenses = false
+	showProjects = false
 	showFilters = !showFilters
 }
 
 const toggleLangs = () => {
 	showFilters = false
 	showLicenses = false
+	showProjects = false
 	showLangs = !showLangs
 }
 
 const toggleLicenses = () => {
 	showFilters = false
 	showLangs = false
+	showProjects = false
 	showLicenses = !showLicenses
+}
+
+const toggleProjects = () => {
+	showFilters = false
+	showLangs = false
+	showLicenses = false
+	showProjects = !showProjects
 }
 
 const toggleOmsfProjects = () => {
@@ -103,6 +127,9 @@ function filterString(base: string, selection: string[]): string {
       <Bubble onclick={toggleLicenses}
         >{filterString("License", selectedLicenses)}</Bubble
       >
+      <Bubble onclick={toggleProjects}
+        >{filterString("Project", selectedProjects)}</Bubble
+      >
       <Bubble onclick={toggleOmsfProjects} selectionFunction={omsfFilter}
         >OMSF Projects</Bubble
       >
@@ -118,6 +145,11 @@ function filterString(base: string, selection: string[]): string {
       bind:showFilters={showLicenses}
       bind:selectedTags={selectedLicenses}
       tags={licenses}
+    />
+    <FilterDialog
+      bind:showFilters={showProjects}
+      bind:selectedTags={selectedProjects}
+      tags={projects}
     />
   </div>
 

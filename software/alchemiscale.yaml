@@ -1,8 +1,9 @@
 description: A high-throughput alchemical free energy execution system for use with HPC, cloud, bare metal, and Folding@Home.
-docs: https://github.com/OpenFreeEnergy/alchemiscale
+docs: https://docs.alchemiscale.org/en/stable/
 licenses:
   - MIT
-link: https://github.com/OpenFreeEnergy/alchemiscale
+link: https://alchemiscale.org/
+repository: https://github.com/OpenFreeEnergy/alchemiscale
 name: alchemiscale
 project: Open Free Energy
 tags:

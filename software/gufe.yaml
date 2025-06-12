@@ -2,7 +2,8 @@ description: GUFE is a toolkit for developers of software related to alchemical 
 docs: https://github.com/OpenFreeEnergy/gufe
 licenses:
   - MIT
-link: https://github.com/OpenFreeEnergy/gufe
+link: https://openfree.energy
+repository: https://github.com/OpenFreeEnergy/gufe
 name: gufe
 project: Open Free Energy
 tags:
