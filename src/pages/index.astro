@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import TagFilter from '../components/TagFilter.svelte'
-import { type SoftwareSchema } from '../content.config'
+import { type SoftwareSchema } from '../schemas'
 import BaseLayout from '../layouts/BaseLayout.astro'
 const software = await getCollection('software')
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
