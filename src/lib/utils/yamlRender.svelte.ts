@@ -1,4 +1,4 @@
-import { SoftwareSchemaObject, type SoftwareSchema } from '../../schemas'
+import { type SoftwareSchema, SoftwareSchemaObject } from '../../schemas'
 
 export function renderYaml(formData: SoftwareSchema): string {
 	let output = ''

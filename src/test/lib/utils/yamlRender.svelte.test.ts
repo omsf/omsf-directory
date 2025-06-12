@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest'
+import { isValid, renderYaml } from '../../../lib/utils/yamlRender.svelte'
 import type { SoftwareSchema } from '../../../schemas'
-import { renderYaml, isValid } from '../../../lib/utils/yamlRender.svelte'
 
 test('empty form', () => {
 	const formData: SoftwareSchema = {
