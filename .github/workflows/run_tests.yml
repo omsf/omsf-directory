@@ -17,3 +17,15 @@ jobs:
         run: bun install --frozen-lockfile -d
       - name: Run tests
         run: bun test
+  lint:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Biome CLI
+        uses: biomejs/setup-biome@v2
+      - name: Run Biome
+        run: biome ci
