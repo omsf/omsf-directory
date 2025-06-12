@@ -15,10 +15,10 @@ test('filterToggle adds a tag', () => {
 
 test('isMobileWidth returns true', () => {
 	const result = isMobileWidth(700)
-	expect(result).eq(true)
+	expect(result).toEqual(true)
 })
 
 test('isMobileWidth returns false', () => {
 	const result = isMobileWidth(1080)
-	expect(result).eq(false)
+	expect(result).toEqual(false)
 })
