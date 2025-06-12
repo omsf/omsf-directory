@@ -4,20 +4,20 @@ import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
 import Field from './Field.svelte'
 import MultiSelector from './MultiSelector.svelte'
+import { renderYaml, isValid } from '../lib/utils/yamlRender.svelte'
 let formData = $state({
 	name: '',
 	description: '',
 	licenses: [],
-	link: '',
+	link: undefined,
 	tags: [],
 	docs: undefined,
 	languages: [],
-	project: undefined
+	project: undefined,
+	repository: ''
 } as SoftwareSchema)
 // Form validation using $derived
-let isFormValid = $derived(
-	SoftwareSchemaObject.safeParse(formData).success && formData.languages.length > 0
-)
+let isFormValid = $derived(isValid(formData))
 let yamlContent = $state('') // Declare yamlContent variable
 let cardContent = $state({})
 let tags = $state('')
@@ -34,19 +34,7 @@ $effect(() => {
 	let output = ''
 	if (isFormValid) {
 		console.log('Valid')
-		output += `name: ${formData.name === null ? '' : formData.name}\n`
-		output += `description: ${formData.description === null ? '' : formData.description}\n`
-		output += `link: ${formData.link === null ? '' : formData.link}\n`
-		if (formData.docs) {
-			output += `docs: ${formData.docs}\n`
-		}
-		if (formData.licenses.length > 0) {
-			output += `licenses:\n${formData.licenses.map((license) => `  - ${license}`).join('\n')}\n`
-		}
-		if (formData.tags.length > 0) {
-			output += `tags:\n${formData.tags.map((tag) => `  - ${tag}`).join('\n')}\n`
-		}
-		output += `languages:\n${formData.languages.map((lang) => `  - ${lang}`).join('\n')}\n`
+		output = renderYaml(formData)
 	}
 	yamlContent = output
 	cardContent = { ...formData }
@@ -85,10 +73,18 @@ function copyYamlToClipboard() {
         description="A simple description"
       ></Field>
       <Field
+        bind:value={formData.repository}
+        type="url"
+        name="Repository URL"
+        required
+        placeholder="https://..."
+        description="The project's main repository"
+      ></Field>
+      <Field
         bind:value={formData.link}
         type="url"
         name="Project URL"
-        required
+        required={false}
         placeholder="https://..."
         description="The project's main url"
       ></Field>
@@ -115,7 +111,7 @@ function copyYamlToClipboard() {
       <Field
         bind:value={tags}
         type="text"
-        name="Tags"
+        name="Tags *"
         required={false}
         placeholder="tag1,tag2,tag3"
         description="A comma-seperated lists of tags"
@@ -135,7 +131,7 @@ function copyYamlToClipboard() {
     </div>
 
     <!-- YAML preview section (right column on medium+ screens) -->
-    <div class="grid grid-cols-1 place-items-center">
+    <div class="grid grid-cols-1 justify-items-center">
       <div>
         <div class="mb-4">
           <Card {...cardContent}></Card>
