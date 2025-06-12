@@ -18,7 +18,7 @@ jobs:
       - name: Run tests
         run: bun test
   lint:
-    name: Run unit tests
+    name: Run linter
     runs-on: ubuntu-latest
 
     steps:
