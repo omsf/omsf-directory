@@ -4,12 +4,12 @@ import { SoftwareSchemaObject } from './schemas'
 import { glob } from 'astro/loaders'
 
 const software = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './software' }),
+	loader: glob({ pattern: '*.{yaml,yml}', base: './software' }),
 	schema: SoftwareSchemaObject
 })
 
 const workflows = defineCollection({
-	loader: glob({ pattern: '*.yaml', base: './workflows' }),
+	loader: glob({ pattern: '*.{yaml,yml}', base: './workflows' }),
 	schema: SoftwareSchemaObject
 })
 
