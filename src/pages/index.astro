@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
 import TagFilter from '../components/TagFilter.svelte'
-import { type SoftwareSchema } from '../schemas'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { type SoftwareSchema } from '../schemas'
 const software = await getCollection('software')
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
 	const aName = a.name.toLowerCase()

@@ -5,8 +5,8 @@ import '@fontsource/anonymous-pro'
 import '@fontsource/barlow'
 import { getCollection } from 'astro:content'
 import TagFilter from '../components/TagFilter.svelte'
-import { type SoftwareSchema } from '../schemas'
 import BaseLayout from '../layouts/BaseLayout.astro'
+import { type SoftwareSchema } from '../schemas'
 const workflows = await getCollection('workflows')
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
 	const aName = a.name.toLowerCase()
