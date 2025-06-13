@@ -9,3 +9,42 @@ Create a PR with the file you create and an example site will be generated in CI
 ## Software Used
 This site is built using [Astro](https://astro.build) and [Svelte](https://svelte.dev).
 This allows for us to build a dynamic site that functions like a static site.
+Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles.
+
+## Repo Breakdown
+
+```
+omsf-directory/
+├── .astro/                 # Astro build cache and temporary files
+├── .github/
+│   └── workflows/          # GitHub Actions CI/CD workflows
+├── public/                # Static assets (favicon, etc.)
+├── software/              # YAML files defining software projects
+│   ├── *.yaml
+├── src/                   # Source code for the Astro site
+│   ├── assets/           # Images, icons, and other assets
+│   ├── components/       # Svelte/Astro components
+│   ├── layouts/          # Page layout templates
+│   ├── lib/              # Utility functions and shared code
+│   ├── pages/            # Astro pages (routes)
+│   ├── styles/           # CSS and styling files
+│   ├── test/             # Test files
+│   ├── content.config.ts # Content collection configuration
+│   └── schemas.ts        # TypeScript schemas
+├── workflows/             # YAML files defining workflow projects
+│   └── *.yaml
+├── astro.config.mjs       # Astro configuration
+├── biome.json            # Biome linter/formatter configuration
+├── package.json          # Node.js project configuration
+├── svelte.config.js      # Svelte configuration
+├── tsconfig.json         # TypeScript configuration
+└── wrangler.jsonc        # Cloudflare Workers configuration
+```
+
+### Key Directories
+
+- **`software/`** - Contains YAML files that define each software project in the directory
+- **`workflows/`** - Contains YAML files that define workflow projects
+- **`src/`** - Main source code for the Astro website
+- **`public/`** - Static assets served directly by the web server
+- **`.github/workflows/`** - CI/CD pipeline definitions for automated builds and deployments
