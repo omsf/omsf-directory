@@ -42,14 +42,16 @@ const getURLParams = () => {
 const updateURL = () => {
 	if (typeof window === 'undefined') return
 	const params = new URLSearchParams()
-	
+
 	if (selectedTags.length > 0) params.set('tags', selectedTags.join(','))
 	if (selectedLangs.length > 0) params.set('langs', selectedLangs.join(','))
 	if (selectedLicenses.length > 0) params.set('licenses', selectedLicenses.join(','))
 	if (selectedProjects.length > 0) params.set('projects', selectedProjects.join(','))
 	if (omsfFilter) params.set('omsf', 'true')
 
-	const newURL = params.toString() ? `${window.location.pathname}?${params.toString()}` : window.location.pathname
+	const newURL = params.toString()
+		? `${window.location.pathname}?${params.toString()}`
+		: window.location.pathname
 	window.history.replaceState({}, '', newURL)
 }
 
