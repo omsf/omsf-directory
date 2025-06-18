@@ -1,4 +1,5 @@
 <script lang="ts">
+import { onMount } from 'svelte'
 import { type SoftwareSchema } from '../schemas'
 import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
@@ -24,6 +25,52 @@ let showLangs = $state(false)
 let showLicenses = $state(false)
 let showProjects = $state(false)
 let omsfFilter = $state(false)
+
+// URL state management
+const getURLParams = () => {
+	if (typeof window === 'undefined') return
+	const params = new URLSearchParams(window.location.search)
+	return {
+		tags: params.get('tags')?.split(',').filter(Boolean) || [],
+		langs: params.get('langs')?.split(',').filter(Boolean) || [],
+		licenses: params.get('licenses')?.split(',').filter(Boolean) || [],
+		projects: params.get('projects')?.split(',').filter(Boolean) || [],
+		omsf: params.get('omsf') === 'true'
+	}
+}
+
+const updateURL = () => {
+	if (typeof window === 'undefined') return
+	const params = new URLSearchParams()
+
+	if (selectedTags.length > 0) params.set('tags', selectedTags.join(','))
+	if (selectedLangs.length > 0) params.set('langs', selectedLangs.join(','))
+	if (selectedLicenses.length > 0) params.set('licenses', selectedLicenses.join(','))
+	if (selectedProjects.length > 0) params.set('projects', selectedProjects.join(','))
+	if (omsfFilter) params.set('omsf', 'true')
+
+	const newURL = params.toString()
+		? `${window.location.pathname}?${params.toString()}`
+		: window.location.pathname
+	window.history.replaceState({}, '', newURL)
+}
+
+// Initialize from URL params on mount
+onMount(() => {
+	const urlParams = getURLParams()
+	if (urlParams) {
+		selectedTags = urlParams.tags
+		selectedLangs = urlParams.langs
+		selectedLicenses = urlParams.licenses
+		selectedProjects = urlParams.projects
+		omsfFilter = urlParams.omsf
+	}
+})
+
+// Update URL whenever filter state changes
+$effect(() => {
+	updateURL()
+})
 
 const noClear = $derived(
 	selectedTags.length === 0 &&
