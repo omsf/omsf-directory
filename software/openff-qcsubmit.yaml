@@ -1,0 +1,12 @@
+name: openff-qcsubmit
+description: The OpenFF QCSubmit framework aims to facilitate curating and contributing new quantum chemical datasets to the QCArchive and retrieving already computed datasets.
+docs: https://openff-qcsubmit.readthedocs.io/en/stable/
+link: https://openff-qcsubmit.readthedocs.io
+licenses:
+  - MIT
+tags:
+  - Quantum Chemistry
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-qcsubmit
+project: Open Force Field

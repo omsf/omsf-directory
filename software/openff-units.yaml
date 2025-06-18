@@ -1,0 +1,12 @@
+name: openff-units
+description: A common units module for the OpenFF software stack, providing consistent unit definitions across the software ecosystem.
+docs: https://openff-units.readthedocs.io/en/stable/
+link: https://openff-units.readthedocs.io/en/stable/
+licenses:
+  - MIT
+tags:
+  - Units
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-units
+project: Open Force Field

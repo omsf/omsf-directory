@@ -1,0 +1,14 @@
+name: openff-forcefields
+description: This repository contains force fields released by the Open Force Field Initiative using the SMIRKS Native Open Force Field (SMIRNOFF) format.
+docs: https://open-forcefield-toolkit.readthedocs.io/en/stable/
+link: https://openforcefield.org/force-fields/force-fields/
+licenses:
+  - CC-BY-4.0
+tags:
+  - Force Fields
+  - SMIRNOFF Format
+  - Molecular Dynamics
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-forcefields
+project: Open Force Field

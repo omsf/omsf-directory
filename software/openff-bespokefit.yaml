@@ -1,0 +1,14 @@
+name: openff-bespokefit
+description: The BespokeFit framework aims to offer a completely automated workflow for creating bespoke, highly accurate, SMIRNOFF format parameters for individual molecules up to entire lead series.
+docs: https://docs.openforcefield.org/projects/bespokefit/en/stable/
+link: https://docs.openforcefield.org/projects/bespokefit/en/stable/
+licenses:
+  - MIT
+tags:
+  - Bespoke Parameter Creation
+  - SMIRNOFF Format
+  - Parameterization
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-bespokefit
+project: Open Force Field

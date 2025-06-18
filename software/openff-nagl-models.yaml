@@ -1,0 +1,14 @@
+name: openff-nagl-models
+description: This repository contains NAGL models released by the Open Force Field Initiative, intended for use with OpenFF NAGL.
+docs: https://docs.openforcefield.org/projects/nagl/en/latest/
+link: https://docs.openforcefield.org/projects/nagl/en/latest/
+licenses:
+  - CC-BY-4.0
+tags:
+  - Parameterization
+  - Machine Learning
+  - Quantum Chemistry
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-nagl-models
+project: Open Force Field

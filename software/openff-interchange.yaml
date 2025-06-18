@@ -1,0 +1,14 @@
+name: openff-interchange
+description: A project for storing, manipulating, and converting molecular mechanics data and supports parametrization and export to common formats.
+docs: https://openff-interchange.readthedocs.io/en/latest/
+link: https://openff-interchange.readthedocs.io
+licenses:
+  - MIT
+tags:
+  - Data Manipulation
+  - Force Fields
+  - Parametrization
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-interchange
+project: Open Force Field

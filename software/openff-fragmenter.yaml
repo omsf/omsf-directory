@@ -1,0 +1,15 @@
+name: openff-fragmenter
+description: A package for fragmenting molecules for quantum mechanics torsion scans.
+docs: https://fragmenter.readthedocs.io/en/latest/
+link: https://fragmenter.readthedocs.io/en/latest/
+licenses:
+  - MIT
+tags:
+  - Molecular Fragmentation
+  - Quantum Chemistry
+  - Torsion Scans
+  - Visualization
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-fragmenter
+project: Open Force Field

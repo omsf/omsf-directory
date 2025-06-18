@@ -1,0 +1,13 @@
+name: openff-evaluator
+description: The OpenFF Evaluator is a scalable framework for the automated estimation of physical property data sets from molecular simulation and molecular simulation data.
+docs: https://openff-evaluator.readthedocs.io/en/latest/
+link: https://openff-evaluator.readthedocs.io
+licenses:
+  - MIT
+tags:
+  - Molecular Dynamics
+  - Physical Property Estimation
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-evaluator
+project: Open Force Field

@@ -1,0 +1,14 @@
+name: openff-recharge
+description: OpenFF Recharge aims to provide a comprehensive suite of tools for training the partial charges of molecules against quantum chemical electrostatic potential (ESP) and electric field data.
+docs: https://openff-recharge.readthedocs.io/en/latest/
+link: https://openff-recharge.readthedocs.io
+licenses:
+  - MIT
+tags:
+  - Quantum Chemistry
+  - Partial Charge Assignment
+  - Machine Learning
+languages:
+  - Python
+repository: https://github.com/openforcefield/openff-recharge
+project: Open Force Field
