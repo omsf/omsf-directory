@@ -15,17 +15,17 @@ Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our 
 
 ```
 omsf-directory/
-├── .astro/                 # Astro build cache and temporary files
 ├── .github/
 │   └── workflows/          # GitHub Actions CI/CD workflows
 ├── public/                # Static assets (favicon, etc.)
 ├── software/              # YAML files defining software projects
-│   ├── *.yaml
+│   └── *.yaml
 ├── src/                   # Source code for the Astro site
 │   ├── assets/           # Images, icons, and other assets
 │   ├── components/       # Svelte/Astro components
 │   ├── layouts/          # Page layout templates
 │   ├── lib/              # Utility functions and shared code
+│   │   └── utils/        # Utility functions
 │   ├── pages/            # Astro pages (routes)
 │   ├── styles/           # CSS and styling files
 │   ├── test/             # Test files
@@ -35,10 +35,13 @@ omsf-directory/
 │   └── *.yaml
 ├── astro.config.mjs       # Astro configuration
 ├── biome.json            # Biome linter/formatter configuration
+├── bun.lock              # Bun lockfile
+├── CLAUDE.md             # AI assistant instructions
 ├── package.json          # Node.js project configuration
+├── README.md             # This file
 ├── svelte.config.js      # Svelte configuration
-├── tsconfig.json         # TypeScript configuration
-└── wrangler.jsonc        # Cloudflare Workers configuration
+├── TASKS.md              # Task documentation
+└── tsconfig.json         # TypeScript configuration
 ```
 
 ### Key Directories
