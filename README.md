@@ -9,7 +9,7 @@ Create a PR with the file you create and an example site will be generated in CI
 ## Software Used
 This site is built using [Astro](https://astro.build) and [Svelte](https://svelte.dev).
 This allows for us to build a dynamic site that functions like a static site.
-Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles.
+Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles. Additionally, we are using [Bun](https://bun.sh) to manage our packages and [Biome](https://biomejs.dev) to format and lint our code.
 
 ## Repo Breakdown
 
@@ -36,11 +36,9 @@ omsf-directory/
 ├── astro.config.mjs       # Astro configuration
 ├── biome.json            # Biome linter/formatter configuration
 ├── bun.lock              # Bun lockfile
-├── CLAUDE.md             # AI assistant instructions
 ├── package.json          # Node.js project configuration
 ├── README.md             # This file
 ├── svelte.config.js      # Svelte configuration
-├── TASKS.md              # Task documentation
 └── tsconfig.json         # TypeScript configuration
 ```
 
