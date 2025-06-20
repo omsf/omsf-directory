@@ -80,7 +80,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
             type="checkbox"
             checked={value.includes(item)}
             onchange={() => togglePredefinedItem(item)}
-            class="h-4 w-4 text-omsf-base focus:ring-omsf-base border-gray-300 rounded"
+            class="h-4 w-4 focus:ring-omsf-base border-gray-300 rounded accent-omsf-base"
           />
           <span class="text-sm font-omsf-subheading">{item}</span>
         </label>
@@ -118,7 +118,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
       <!-- All selected items use the same green color scheme -->
       {#each value as selected}
         <span
-          class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800"
+          class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-omsf-base text-gray-800"
         >
           {selected}
           <button
