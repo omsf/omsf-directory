@@ -1,0 +1,34 @@
+name: Upload to staging
+on:
+  workflow_run:
+    workflows: ["PR Build Test"]
+    types:
+      - completed
+jobs:
+  get-metadata:
+    runs-on: ubuntu-latest
+    outputs:
+      pr_number: ${{ steps.pr-metadata.outputs.pr-number }}
+      pr_headsha: ${{ steps.pr-metadata.outputs.pr-headsha }}
+    steps:
+      - name: Get PR metadata from action
+        id: pr-metadata
+        uses: omsf/static-site-tools/pr-info-from-workflow-run@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+  stage:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: get-metadata
+    uses: omsf/static-site-tools/.github/workflows/stage-cloudflare.yaml@main
+    permissions:
+      statuses: write
+      pull-requests: write
+    with:
+      run-id: ${{ github.event.workflow_run.id }}
+      pr-number: ${{ fromJSON(needs.get-metadata.outputs.pr_number) }} # convert to int
+      pr-headsha: ${{ needs.get-metadata.outputs.pr_headsha }}
+      project-name: ${{ vars.CLOUDFLARE_PROJECT_NAME }}
+      html-dir: "dist"
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

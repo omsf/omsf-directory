@@ -1,0 +1,41 @@
+name: Build Astro site from push
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  ASTRO_BASE_URL: ""
+  ASTRO_OUTPUT_DIR: "dist"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.141.0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Build site
+        uses: omsf/static-site-tools/build/astro@main
+        with:
+          base-url: ""
+
+      - name: Make artifact
+        shell: bash
+        run: tar czf site.tar.gz dist
+
+      - name: Upload build artifact
+        if: ${{ github.event_name != 'schedule' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: site.tar.gz
+          if-no-files-found: error
+          retention-days: 1
