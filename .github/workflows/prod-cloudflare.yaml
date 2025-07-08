@@ -10,7 +10,7 @@ on:
 
 jobs:
   deploy-to-prod:
-    if: ${{ (github.event.workflow_run.conclusion == 'success')
+    if: ${{ (github.event.workflow_run.conclusion == 'success') }}
     uses: omsf/static-site-tools/.github/workflows/prod-cloudflare.yaml@main
     with:
       run-id: ${{ github.event.workflow_run.id }}
