@@ -8,8 +8,9 @@ docs: https://openfold.readthedocs.io/en/latest/Inference.html
 licenses:
   - Apache 2.0
 tags:
-  - protein folding
+  - Protein Folding
   - AlphaFold2
-  - structural biology
-  - deep learning
-  - computational biology
+  - Structural Biology
+  - Deep Learning
+  - Computational Biology
+project: OpenFold
