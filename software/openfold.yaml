@@ -1,0 +1,16 @@
+name: OpenFold (Monomer, Multimer and Soloseq)
+description: A trainable PyTorch reproduction of DeepMind's AlphaFold2.
+repository: https://github.com/aqlaboratory/openfold
+languages:
+  - Python
+link: https://openfold.io/#projectarea
+docs: https://openfold.readthedocs.io/en/latest/Inference.html
+licenses:
+  - Apache 2.0
+tags:
+  - Protein Folding
+  - AlphaFold2
+  - Structural Biology
+  - Deep Learning
+  - Computational Biology
+project: OpenFold
