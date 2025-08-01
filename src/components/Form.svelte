@@ -49,7 +49,9 @@ function copyYamlToClipboard() {
   <div class="mb-6">
     <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
     <p class="text-gray-600 font-omsf-descriptive md:max-w-1/2">
-        This form helps to show how your project will look when we addeded to the directory. You can also generate the YAML by hand and open a PR at the <a href="http://github.com/omsf/omsf-directory" class="underline"  target="_blank" rel="noopener noreferrer">repo</a>.
+        This form helps to show how your project will look when we addeded to the directory. 
+        Once completeletd, click "Copy YAML" and open a PR <a href="http://github.com/omsf/omsf-directory" class="underline"  target="_blank" rel="noopener noreferrer">here</a>.
+        Create a YAML file with your copied contents in either the software or workflows folder. We will review your submission as soon as we can!
     </p>
   </div>
 
