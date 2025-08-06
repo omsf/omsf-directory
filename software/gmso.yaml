@@ -1,0 +1,17 @@
+name: GMSO
+description: GMSO is a flexible storage of chemical topology for various molecular simulation engines. 
+repository: https://github.com/mosdef-hub/gmso/
+languages:
+  - Python
+docs: https://gmso.mosdef.org/en/stable/
+licenses:
+  - MIT
+tags:
+  - Molecular Simulations
+  - GROMACS
+  - LAMMPS
+  - HOOMD-Blue
+  - Cassandra
+  - GOMC
+  - ParmEd
+project: Molecular Simulation Design Framework

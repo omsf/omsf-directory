@@ -1,0 +1,14 @@
+name: mBuild
+description: A hierarchical, component based molecule builder for initializing atomistic and coarse-grained coordinates and connectivity.
+repository: https://github.com/mosdef-hub/mbuild/
+languages:
+  - Python
+docs: https://mbuild.mosdef.org/en/stable/
+licenses:
+  - MIT
+tags:
+  - Molecular Dynamics
+  - Molecule Initialization
+  - Box Packing
+  - Polymer Builder
+project: Molecular Simulation Design Framework

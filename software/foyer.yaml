@@ -1,0 +1,14 @@
+name: Foyer
+description: An open-source Python tool that provides a framework for the application and dissemination of classical molecular modeling force fields. 
+repository: https://github.com/mosdef-hub/foyer/
+languages:
+  - Python
+docs: https://foyer.mosdef.org/en/stable/
+licenses:
+  - MIT
+tags:
+  - Force Fields
+  - OPLS-AA
+  - GAFF
+  - Atom Typer
+project: Molecular Simulation Design Framework
