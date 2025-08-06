@@ -1,0 +1,7 @@
+name: "OpenFF Example: Export OpenFF-generated OpenMM System to AMBER and GROMACS files"
+description: "Convert a System generated with the Open Force Field Toolkit, which can be simulated natively with OpenMM, into AMBER prmtop/inpcrd and GROMACS top/gro input files through the ParmEd library."
+repository: "https://github.com/openforcefield/openff-toolkit/tree/stable/examples/using_smirnoff_in_amber_or_gromacs"
+licenses: ["MIT"]
+tags: ["SMIRNOFF", "Interchange"]
+languages: ["Python"]
+project: "Open Force Field"
