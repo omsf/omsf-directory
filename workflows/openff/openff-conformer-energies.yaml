@@ -4,4 +4,3 @@ repository: "https://github.com/openforcefield/openff-toolkit/tree/main/examples
 licenses: ["MIT"]
 tags: ["Conformer Energies", "Small Molecules", "Energy Calculation"]
 languages: ["Python"]
-project: "Open Force Field"
