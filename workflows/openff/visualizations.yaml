@@ -1,5 +1,6 @@
 name: "OpenFF Example: Visualizations"
 description: "Shows how rich representation of Molecule objects work in the context of Jupyter Notebooks"
 repository: "https://github.com/openforcefield/openff-toolkit/tree/stable/examples/visualization"
+licenses: ["MIT"]
 tags: ["Visualizations", "Jupyter"]
 languages: ["Python"]
