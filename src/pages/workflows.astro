@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import { type SoftwareSchema } from '../schemas'
 
 const workflows = await getCollection('workflows')
+const openffWorkflows = await getCollection('openffWorkflows')
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
 	const aName = a.name.toLowerCase()
 	const bName = b.name.toLowerCase()
@@ -20,7 +21,14 @@ function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
 	}
 	return 0
 }
-const filteredWorkflows = workflows.map((workflow) => workflow.data).sort(compareFunc)
+const modifiedOpenFFWorkflows = openffWorkflows.map((workflow) => ({
+	...(workflow.data as SoftwareSchema),
+	project: 'Open Force Field'
+}))
+const filteredWorkflows = workflows
+	.map((workflow) => workflow.data)
+	.concat(modifiedOpenFFWorkflows)
+	.sort(compareFunc)
 const allTags = [...new Set(workflows.flatMap((workflow) => workflow.data.tags || []))].sort()
 ---
 
