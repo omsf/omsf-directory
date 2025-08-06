@@ -7,11 +7,9 @@ docs: https://gmso.mosdef.org/en/stable/
 licenses:
   - MIT
 tags:
-  - Molecular Simulations
   - GROMACS
   - LAMMPS
   - HOOMD-Blue
   - Cassandra
   - GOMC
   - ParmEd
-project: Molecular Simulation Design Framework
