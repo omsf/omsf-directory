@@ -1,0 +1,7 @@
+name: "OpenFF Example: Inspecting SMIRNOFF Parameters"
+description: "Inspecting which SMIRNOFF parameters are assigned to specific molecules"
+repository: "https://github.com/openforcefield/openff-toolkit/tree/main/examples/inspect_assigned_parameters"
+licenses: ["MIT"]
+tags: ["SMIRNOFF"]
+languages: ["Python"]
+

@@ -1,0 +1,6 @@
+name: "OpenFF Example: Combining a small molecule with Sage and a protein parameterized with an Amber protein force field"
+description: "Use SMIRNOFF parameters for small molecules in combination with more conventional force fields for proteins and other components of your system (using ParmEd to combine parameterized structures)"
+repository: "https://github.com/openforcefield/openff-toolkit/tree/stable/examples/using_smirnoff_with_amber_protein_forcefield"
+licenses: ["MIT"]
+tags: ["Protein-Ligand", "SMIRNOFF", "AMBER"]
+languages: ["Python"]
