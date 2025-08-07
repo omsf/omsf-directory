@@ -1,10 +1,11 @@
 <script lang="ts">
 import { isValid, renderYaml } from '../lib/utils/yamlRender.svelte'
-import { ALL_LICENSES, type SoftwareSchema, languageTags } from '../schemas'
+import { ALL_LICENSES, languageTags, type SoftwareSchema } from '../schemas'
 import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
 import Field from './Field.svelte'
 import MultiSelector from './MultiSelector.svelte'
+
 let formData = $state({
 	name: '',
 	description: '',

@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content'
 import type { APIRoute } from 'astro'
 
-export const GET: APIRoute = async ({ params, request }) => {
+export const GET: APIRoute = async () => {
 	const software = await getCollection('software')
 	let markdownContent = '# OMSF Software Collection\n\n'
 
