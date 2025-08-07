@@ -14,7 +14,7 @@
 		"@astrojs/language-server": "^2.15.4",
 		"@astrojs/svelte": "7.1.0",
 		"@astrojs/ts-plugin": "^1.10.4",
-		"@fontsource-variable/source-code-pro": "^5.2.5",
+		"@fontsource-variable/source-code-pro": "^5.2.6",
 		"@fontsource/anonymous-pro": "^5.2.5",
 		"@fontsource/barlow": "^5.2.5",
 		"@tailwindcss/vite": "^4.1.3",
