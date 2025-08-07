@@ -6,7 +6,11 @@
 		"dev": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"astro": "astro"
+		"astro": "astro",
+		"lint-check": "biome lint",
+		"format-check": "biome format",
+		"check": "biome check",
+		"check-apply": "biome check --write"
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
@@ -30,7 +34,7 @@
 	},
 	"devDependencies": {
 		"wrangler": "^4.9.1",
-		"@biomejs/biome": "1.9.4",
+		"@biomejs/biome": "2.1.4",
 		"vitest": "^3.1.4"
 	}
 }

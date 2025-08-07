@@ -15,10 +15,10 @@ const licenses = [...new Set(items.flatMap((item) => item.licenses))].filter(Boo
 // We filter out the "empty" project.
 const projects = [...new Set(items.flatMap((item) => item.project))].filter((project) => project)
 
-let selectedTags = $state(new Array<string>())
-let selectedLangs = $state(new Array<string>())
-let selectedLicenses = $state(new Array<string>())
-let selectedProjects = $state(new Array<string>())
+let selectedTags = $state([] as string[])
+let selectedLangs = $state([] as string[])
+let selectedLicenses = $state([] as string[])
+let selectedProjects = $state([] as string[])
 
 let showFilters = $state(false)
 let showLangs = $state(false)

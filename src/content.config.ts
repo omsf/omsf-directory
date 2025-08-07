@@ -1,7 +1,6 @@
 import { defineCollection } from 'astro:content'
-import { SoftwareSchemaObject } from './schemas'
-
 import { glob } from 'astro/loaders'
+import { SoftwareSchemaObject } from './schemas'
 
 const software = defineCollection({
 	loader: glob({ pattern: '*.{yaml,yml}', base: './software' }),
