@@ -19,4 +19,5 @@ export const SoftwareSchemaObject = z.object({
 	project: z.optional(omsfProjects)
 })
 
+export const jsonSchema = z.toJSONSchema(SoftwareSchemaObject)
 export type SoftwareSchema = z.infer<typeof SoftwareSchemaObject>
