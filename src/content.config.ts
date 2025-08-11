@@ -12,6 +12,11 @@ const openffWorkflows = defineCollection({
 	schema: SoftwareSchemaObject
 })
 
+const openfeWorkflows = defineCollection({
+	loader: glob({ pattern: '*.{yaml,yml}', base: './workflows/openfe' }),
+	schema: SoftwareSchemaObject
+})
+
 const workflows = defineCollection({
 	loader: glob({ pattern: '*.{yaml,yml}', base: './workflows' }),
 	schema: SoftwareSchemaObject
@@ -19,4 +24,4 @@ const workflows = defineCollection({
 
 // export type SoftwareSchema = z.infer<typeof SoftwareSchemaObject>;
 
-export const collections = { software, workflows, openffWorkflows }
+export const collections = { software, workflows, openffWorkflows, openfeWorkflows }
