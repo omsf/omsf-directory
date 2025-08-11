@@ -1,0 +1,11 @@
+name: "OpenFE Example: Relative Free Energies with the OpenFE CLI"
+description: This tutorial will show how to use the OpenFE CLI to calculate free energies - with no Python at all!
+docs: https://docs.openfree.energy/en/latest/tutorials/rbfe_cli_tutorial.html
+licenses:
+  - MIT
+repository: :https://github.com/OpenFreeEnergy/ExampleNotebooks/tree/main/rbfe_tutorial
+tags:
+  - Relative Binding Free Energy
+  - CLI
+languages:
+  - Python

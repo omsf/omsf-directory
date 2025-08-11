@@ -1,0 +1,11 @@
+name: Generating Partial Charges with the OpenFE CLI
+description: A tutorial on using the OpenFE CLI to generate partial charges.
+docs: https://docs.openfree.energy/en/latest/tutorials/charge_molecules_cli_tutorial.html
+licenses:
+  - MIT
+repository: https://github.com/OpenFreeEnergy/ExampleNotebooks/tree/main/cli_tutorials
+tags:
+  - Partial Charge 
+  - Molecular Dynamics
+languages:
+  - Python
