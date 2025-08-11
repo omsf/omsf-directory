@@ -29,7 +29,7 @@ const filteredWorkflows = workflows
 	.map((workflow) => workflow.data)
 	.concat(modifiedOpenFFWorkflows)
 	.sort(compareFunc)
-const allTags = [...new Set(workflows.flatMap((workflow) => workflow.data.tags || []))].sort()
+const allTags = [...new Set(filteredWorkflows.flatMap((workflow) => workflow.tags || []))].sort()
 ---
 
 <BaseLayout currentPage="workflows">
