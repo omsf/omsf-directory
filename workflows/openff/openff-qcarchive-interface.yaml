@@ -1,0 +1,6 @@
+name: "OpenFF Example: QCArchive Interface"
+description: "Retrieve data from the QCArchive into Molecule objects"
+repository: "https://github.com/openforcefield/openff-toolkit/blob/stable/examples/QCArchive_interface/QCarchive_interface.ipynb"
+licenses: ["MIT"]
+tags: ["QCArchive"]
+languages: ["Python"]

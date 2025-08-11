@@ -1,0 +1,6 @@
+name: "OpenFF Example: Virtual Sites Showcase"
+description: "Two examples of using SMIRNOFF force fields virtual sites - a ligand with virtual sites on sulfure and chlorine and a comparison between the SMIRNOFF and OpenMM implementations of TIP5P"
+repository: "https://github.com/openforcefield/openff-toolkit/blob/stable/examples/virtual_sites/vsite_showcase.ipynb"
+licenses: ["MIT"]
+tags: ["SMIRNOFF", "Virtual Sites"]
+languages: ["Python"]
