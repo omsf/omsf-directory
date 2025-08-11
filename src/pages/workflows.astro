@@ -10,7 +10,7 @@ import { type SoftwareSchema } from '../schemas'
 
 const workflows = await getCollection('workflows')
 const openffWorkflows = await getCollection('openffWorkflows')
-const openffWorkflows = await getCollection('openfeWorkflows')
+const openfeWorkflows = await getCollection('openfeWorkflows')
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
 	const aName = a.name.toLowerCase()
 	const bName = b.name.toLowerCase()
