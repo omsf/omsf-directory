@@ -5,7 +5,7 @@ licenses:
   - MIT
 repository: "https://github.com/OpenFreeEnergy/ExampleNotebooks/tree/main/rbfe_tutorial"
 tags:
-  - Relative Binding Free Energy
+  - Free Energy Calculation
   - CLI
 languages:
   - Python

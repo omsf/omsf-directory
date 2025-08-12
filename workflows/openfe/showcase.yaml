@@ -5,6 +5,6 @@ licenses:
   - MIT
 repository: "https://github.com/OpenFreeEnergy/ExampleNotebooks/tree/main/showcase"
 tags:
-  - Relative Binding Free Energy
+  - Free Energy Calculation
 languages:
   - Python
