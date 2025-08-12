@@ -1,0 +1,10 @@
+name: "OpenFE Showcase: Relative Binding Free Energies in the TYK2 System"
+description: A showcase of OpenFE for relative binding free energies from start to finish.
+docs: "https://docs.openfree.energy/en/latest/tutorials/showcase_notebook.html"
+licenses:
+  - MIT
+repository: "https://github.com/OpenFreeEnergy/ExampleNotebooks/tree/main/showcase"
+tags:
+  - Free Energy Calculation
+languages:
+  - Python
