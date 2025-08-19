@@ -10,7 +10,7 @@
         "@astrojs/svelte": "7.1.0",
         "@astrojs/ts-plugin": "^1.10.4",
         "@fontsource-variable/source-code-pro": "^5.2.6",
-        "@fontsource/anonymous-pro": "^5.2.5",
+        "@fontsource/anonymous-pro": "^5.2.6",
         "@fontsource/barlow": "^5.2.5",
         "@tailwindcss/vite": "^4.1.3",
         "astro": "5.12.8",
@@ -173,7 +173,7 @@
 
     "@fontsource-variable/source-code-pro": ["@fontsource-variable/source-code-pro@5.2.6", "", {}, "sha512-veMbS6Fa1GxIRYXzUOavQuB1QMclA5YGlOCq9IivbFQTl1fB40MJ5UsU/gX2Z5RwYB7Ez1Q4Bzy91aUrhPkL4g=="],
 
-    "@fontsource/anonymous-pro": ["@fontsource/anonymous-pro@5.2.5", "", {}, "sha512-2SDzsdM066SXP/eY1fqvfWI2b1nI3461/d+o5DXrC7v+WchGrOGqoQCmsBLuPotGHGMtpftP0RbRJY7+Yxc3MQ=="],
+    "@fontsource/anonymous-pro": ["@fontsource/anonymous-pro@5.2.6", "", {}, "sha512-90BkMfIuDU3v7Ch7jLVwy9O2qPI59KMINkl2EOIQt4NhvZisD5gZdWe2TwI9m1wzAJ1wjAL3wAt+wXxXMo0dAw=="],
 
     "@fontsource/barlow": ["@fontsource/barlow@5.2.5", "", {}, "sha512-p+2XXEM7v85kbn0Dh8g0YLMjTCDiRCAi9nHik6w/2owZ9CkT1yYGGgaUMshJRqykh7efv1gE0QxAkOhZHd8tEg=="],
 
