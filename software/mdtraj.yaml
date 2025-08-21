@@ -1,0 +1,14 @@
+name: MDTraj
+description: An open library for the analysis of molecular dynamics trajectories
+repository: https://github.com/mdtraj/mdtraj
+languages:
+  - Python
+  - C++
+link: https://github.com/mdtraj/mdtraj
+docs: https://mdtraj.readthedocs.io/en/latest/
+licenses:
+  - LGPL
+tags:
+  - Molecular Dynamics
+  - Analysis
+  - Biophysics
