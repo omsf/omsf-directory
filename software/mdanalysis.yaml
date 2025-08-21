@@ -1,0 +1,15 @@
+name: MDAnalysis
+description: MDAnalysis is a Python library to analyze molecular dynamics simulations.
+repository: https://github.com/MDAnalysis/mdanalysis
+languages:
+  - C++
+  - Python
+  - C
+link: https://www.mdanalysis.org/
+docs: https://docs.mdanalysis.org/stable/index.html
+licenses:
+  - LGPL
+tags:
+  - Molecular Dynamics Analysis
+  - Trajectory Analysis
+  - Molecular Simulation Data Handling
