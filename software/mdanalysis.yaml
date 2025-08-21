@@ -10,6 +10,6 @@ docs: https://docs.mdanalysis.org/stable/index.html
 licenses:
   - LGPL
 tags:
-  - molecular dynamics analysis
-  - trajectory analysis
-  - molecular simulation data handling
+  - Molecular Dynamics Analysis
+  - Trajectory Analysis
+  - Molecular Simulation Data Handling
