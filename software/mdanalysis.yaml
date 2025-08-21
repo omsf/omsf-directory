@@ -8,7 +8,7 @@ languages:
 link: https://www.mdanalysis.org/
 docs: https://docs.mdanalysis.org/stable/index.html
 licenses:
-  - LGPL-v3
+  - LGPL
 tags:
   - python
   - science
