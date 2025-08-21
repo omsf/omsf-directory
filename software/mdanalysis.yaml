@@ -10,10 +10,6 @@ docs: https://docs.mdanalysis.org/stable/index.html
 licenses:
   - LGPL
 tags:
-  - python
-  - science
-  - molecular-dynamics
-  - computational-chemistry
-  - molecular-simulation
-  - molecular-dynamics-simulation
-  - trajectory-analysis
+  - molecular dynamics analysis
+  - trajectory analysis
+  - molecular simulation data handling
