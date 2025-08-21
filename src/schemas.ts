@@ -3,7 +3,7 @@ import { z } from 'zod/v4'
 export const ALL_OMSF_PROJECTS = ['Open Force Field', 'Open Free Energy', 'OpenFold']
 const omsfProjects = z.enum(ALL_OMSF_PROJECTS)
 
-export const ALL_LICENSES = ['0BSD', 'AGPL', 'GPL-3', 'MIT']
+export const ALL_LICENSES = ['0BSD', 'AGPL', 'GPL-3', 'MIT', 'LGPL']
 
 export const languageTags = ['Python', 'C++', 'Fortran', 'Rust', 'Julia', 'R']
 
