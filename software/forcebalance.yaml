@@ -1,0 +1,11 @@
+name: ForceBalance
+description: Systematic force field optimization
+licenses:
+  - BSD-3 Non-AI
+repository: https://github.com/leeping/forcebalance
+tags:
+  - Force Field Optimization
+  - Molecular Simulation
+languages:
+  - Python
+
