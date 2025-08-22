@@ -1,0 +1,13 @@
+name: STORMM
+description: "A codebase that creates a new family of molecular dynamics programs that use shared C++ classes and GPU kernels to provide accessible, high-performance simulations across both CPU and GPU platforms with minimal performance trade-offs."
+docs: https://psivant.github.io/stormm
+licenses:
+  - MIT
+link: https://pypi.org/project/stormm
+repository: https://github.com/Psivant/stormm
+tags:
+  - Molecular Dynamics
+  - GPU
+  - High Perfomance
+languages:
+  - Python
