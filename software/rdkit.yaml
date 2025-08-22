@@ -1,0 +1,13 @@
+name: RDKit
+description: Open-source cheminformatics toolkit for working with chemical informatics and molecular modeling
+docs: https://www.rdkit.org/docs
+link: https://www.rdkit.org
+repository: https://github.com/rdkit/rdkit
+licenses:
+  - BSD-3
+tags:
+  - Cheminformatics
+  - Molecular Modeling
+languages:
+  - C++
+  - Python
