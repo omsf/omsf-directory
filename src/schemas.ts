@@ -21,3 +21,18 @@ export const SoftwareSchemaObject = z.object({
 
 export const jsonSchema = z.toJSONSchema(SoftwareSchemaObject)
 export type SoftwareSchema = z.infer<typeof SoftwareSchemaObject>
+export function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
+	const aName = a.name.toLowerCase()
+	const bName = b.name.toLowerCase()
+	if (aName < bName) {
+		return -1
+	}
+	if (aName > bName) {
+		return 1
+	}
+	return 0
+}
+
+export function getAllTags(filteredWorkflows: SoftwareSchema[]): string[] {
+	return [...new Set(filteredWorkflows.flatMap((workflow) => workflow.tags || []))].sort()
+}
