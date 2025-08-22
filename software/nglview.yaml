@@ -1,0 +1,18 @@
+name: NGLView
+description: IPython/Jupyter widget to interactively view molecular structures and trajectories
+docs: https://nglviewer.org/nglview
+licenses:
+  - MIT
+link: https://pypi.org/project/nglview
+repository: https://github.com/nglviewer/nglview
+tags:
+  - Jupyter
+  - IPython
+  - Molecular Visualization
+  - WebGL
+languages:
+  - Python
+  - JavaScript
+  - HTML
+  - CSS
+
