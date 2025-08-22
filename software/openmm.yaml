@@ -1,0 +1,15 @@
+name: OpenMM
+description: High-performance toolkit for molecular simulation
+docs: https://docs.openmm.org/latest/html
+licenses:
+  - MIT
+  - LGPL
+link: https://openmm.org
+repository: https://github.com/openmm/openmm
+tags:
+  - Molecular Dynamics
+  - GPU Acceleration
+  - Computational Chemistry
+languages:
+  - C++
+  - Python
