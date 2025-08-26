@@ -1,0 +1,11 @@
+name: knuckes-rs
+description: A fast, multi-threaded PDB parser library written in Rust with Python bindings.
+docs: https://docs.rs/knuckles-parse/latest/knuckles_parse
+licenses:
+  - MIT
+repository: https://github.com/ethanholz/knuckles-rs
+tags:
+  - PDB
+languages:
+  - Rust
+  - Python

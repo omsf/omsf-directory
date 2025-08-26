@@ -1,0 +1,12 @@
+name: RFDiffusion
+description: An open source method for structure generation, with or without conditional information (a motif, target etc).
+languages:
+  - Python
+tags:
+  - Structure Generation
+  - Motif Scaffolding
+  - Binder design
+repository: https://github.com/RosettaCommons/RFdiffusion
+licenses:
+  - BSD-3
+

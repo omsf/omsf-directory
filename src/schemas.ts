@@ -1,6 +1,6 @@
 import { z } from 'zod/v4'
 
-export const ALL_OMSF_PROJECTS = ['Open Force Field', 'Open Free Energy', 'OpenFold']
+export const ALL_OMSF_PROJECTS = ['Open Force Field', 'Open Free Energy', 'OpenFold', 'WESTPA']
 const omsfProjects = z.enum(ALL_OMSF_PROJECTS)
 
 export const ALL_LICENSES = ['0BSD', 'AGPL', 'GPL-3', 'MIT', 'LGPL']
