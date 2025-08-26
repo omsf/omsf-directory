@@ -21,6 +21,8 @@ jobs:
         uses: omsf/static-site-tools/build/astro@main
         with:
           base-url: ""
+        env:
+          NODE_ENV: "staging"
 
       - name: Make artifact
         shell: bash
