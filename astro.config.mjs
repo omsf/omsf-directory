@@ -1,10 +1,9 @@
 // @ts-check
 
 import svelte from '@astrojs/svelte'
-import matomo from 'astro-matomo'
-
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'astro/config'
+import matomo from 'astro-matomo'
 
 // https://astro.build/config
 export default defineConfig({
