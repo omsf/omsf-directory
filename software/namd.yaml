@@ -5,7 +5,7 @@ licenses:
   - University of Illinois/NCSA Open Source
   - Proprietary
 link: https://www.ks.uiuc.edu/Research/namd
-repository: https://github.com/nbcrrolls/namd
+repository: https://gitlab.com/tcbgUIUC/namd
 tags:
   - Molecular Dynamics
   - Large-scale simulation
