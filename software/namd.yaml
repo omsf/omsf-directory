@@ -8,6 +8,6 @@ link: https://www.ks.uiuc.edu/Research/namd
 repository: https://github.com/nbcrrolls/namd
 tags:
   - Molecular Dynamics
-  - Large-sclae simmulation
+  - Large-scale simulation
 languages:
   - C++
