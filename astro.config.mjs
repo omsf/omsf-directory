@@ -16,14 +16,10 @@ export default defineConfig({
 		svelte(),
 		matomo({
 			enabled: import.meta.env.PROD, // Only load in production
-			// TODO: Change
-			host: 'https://analytics.example.lol/',
+			host: 'https://omsf.matomo.cloud/',
 			setCookieDomain: 'directory.omsf.io',
-			trackerUrl: 'js/', // defaults to matomo.php
-			srcUrl: 'js/', // defaults to matomo.js
-			siteId: 666,
+			siteId: 4,
 			heartBeatTimer: 5,
-			disableCookies: true,
 			debug: false
 		})
 	]
