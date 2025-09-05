@@ -1,0 +1,15 @@
+name: Psi4
+description: An open-source ab initio quantum chemistry software package
+docs: https://psicode.org/psi4manual/master/index.html
+link: https://psicode.org
+repository: https://github.com/psi4/psi4
+licenses:
+  - LGPL
+tags:
+  - Quantum Chemistry
+  - Electronic Structure
+  - Ab Initio Methods
+languages:
+  - C++
+  - Python
+

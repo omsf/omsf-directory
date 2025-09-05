@@ -1,0 +1,13 @@
+name: NAMD
+description: High-performance parallel molecular dynamics program for large-scale biomolecular systems
+docs: https://www.ks.uiuc.edu/Research/namd/current/ug.pdf
+licenses:
+  - University of Illinois/NCSA Open Source
+  - Proprietary
+link: https://www.ks.uiuc.edu/Research/namd
+repository: https://gitlab.com/tcbgUIUC/namd
+tags:
+  - Molecular Dynamics
+  - Large-scale simulation
+languages:
+  - C++
