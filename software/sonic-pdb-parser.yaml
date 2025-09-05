@@ -1,0 +1,9 @@
+name: sonic-pdb-parser
+description: A fast PDB parser written in Zig
+licenses:
+  - MIT
+repository: https://github.com/ethanholz/sonic-pdb-parser
+tags:
+  - PDB
+languages:
+  - Zig
