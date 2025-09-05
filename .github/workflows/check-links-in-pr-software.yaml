@@ -1,6 +1,7 @@
 name: Check Links In Pull Requests for Software
 
 on:
+  workflow_dispatch: 
   pull_request:
     branches:
       - main
