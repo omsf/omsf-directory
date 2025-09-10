@@ -1,0 +1,12 @@
+name: "Packmol"
+description: "A package for building initial configurations for molecular dynamics simulations by packing molecules in defined regions of space with spatial constraints."
+licenses:
+  - "MIT"
+repository: "https://github.com/m3g/packmol"
+tags:
+  - "Molecular Dynamics"
+  - "Molecular Packing"
+  - "Configuration Generation"
+languages:
+  - "Fortran"
+docs: "https://m3g.github.io/packmol"

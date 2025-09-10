@@ -1,0 +1,16 @@
+name: "WESTPA"
+description: "A package for constructing and running stochastic simulations using the weighted ensemble approach for enhanced sampling of rare events."
+licenses:
+  - "MIT"
+repository: "https://github.com/westpa/westpa"
+tags:
+  - "Weighted Ensemble"
+  - "Molecular Dynamics"
+  - "Enhanced Sampling"
+  - "Rare Events"
+  - "Stochastic Simulation"
+languages:
+  - "Python"
+docs: "https://westpa.readthedocs.io"
+link: "https://westpa.github.io/westpa"
+project: WESTPA
