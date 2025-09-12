@@ -4,7 +4,7 @@ export function renderYaml(formData: SoftwareSchema): string {
 	let output = ''
 
 	output += `name: ${formData.name === null ? '' : formData.name}\n`
-	output += `description: ${formData.description === null ? '' : formData.description}\n`
+	output += `description: ${formData.description ? `"${formData.description}"` : ''}\n`
 	output += `repository: ${formData.repository === null ? '' : formData.repository}\n`
 	output += `languages:\n${formData.languages.map((lang) => `  - ${lang}`).join('\n')}\n`
 	if (formData.link) {
