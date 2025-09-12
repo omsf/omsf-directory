@@ -33,7 +33,7 @@ test('minimum defined form', () => {
 	}
 	const out = renderYaml(formData)
 	const expected = `name: OpenAwesome
-description: An awesome comp chem tool
+description: "An awesome comp chem tool"
 repository: https://github.com/test/test
 languages:\n  - Python\n  - C++\n`
 	expect(out).toEqual(expected)
@@ -53,7 +53,7 @@ test('complete form', () => {
 	}
 	const out = renderYaml(formData)
 	const expected = `name: OpenAwesome
-description: An awesome comp chem tool
+description: "An awesome comp chem tool"
 repository: https://github.com/test/test
 languages:\n  - Python\n  - C++
 link: https://project.org
