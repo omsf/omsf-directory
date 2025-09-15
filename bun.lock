@@ -7,7 +7,7 @@
         "@astrojs/check": "^0.9.4",
         "@astrojs/svelte": "7.1.1",
         "@astrojs/ts-plugin": "^1.10.4",
-        "@fontsource-variable/source-code-pro": "^5.2.6",
+        "@fontsource-variable/source-code-pro": "^5.2.7",
         "@fontsource/anonymous-pro": "^5.2.6",
         "@fontsource/barlow": "^5.2.6",
         "@tailwindcss/vite": "^4.1.13",
@@ -140,7 +140,7 @@
 
     "@esbuild/win32-x64": ["@esbuild/win32-x64@0.25.4", "", { "os": "win32", "cpu": "x64" }, "sha512-nOT2vZNw6hJ+z43oP1SPea/G/6AbN6X+bGNhNuq8NtRHy4wsMhw765IKLNmnjek7GvjWBYQ8Q5VBoYTFg9y1UQ=="],
 
-    "@fontsource-variable/source-code-pro": ["@fontsource-variable/source-code-pro@5.2.6", "", {}, "sha512-veMbS6Fa1GxIRYXzUOavQuB1QMclA5YGlOCq9IivbFQTl1fB40MJ5UsU/gX2Z5RwYB7Ez1Q4Bzy91aUrhPkL4g=="],
+    "@fontsource-variable/source-code-pro": ["@fontsource-variable/source-code-pro@5.2.7", "", {}, "sha512-kZ0VNwnhvSA7vu5MaiO52eicQ4zC+k+8HBLZb+1js0MK/RngLy25NEUFB1y/AKd0ZMwru88T433QBcFf9m/huw=="],
 
     "@fontsource/anonymous-pro": ["@fontsource/anonymous-pro@5.2.6", "", {}, "sha512-90BkMfIuDU3v7Ch7jLVwy9O2qPI59KMINkl2EOIQt4NhvZisD5gZdWe2TwI9m1wzAJ1wjAL3wAt+wXxXMo0dAw=="],
 
