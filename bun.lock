@@ -9,7 +9,7 @@
         "@astrojs/ts-plugin": "^1.10.4",
         "@fontsource-variable/source-code-pro": "^5.2.6",
         "@fontsource/anonymous-pro": "^5.2.6",
-        "@fontsource/barlow": "^5.2.6",
+        "@fontsource/barlow": "^5.2.8",
         "@tailwindcss/vite": "^4.1.13",
         "astro": "5.13.6",
         "astro-matomo": "^1.9.0",
@@ -144,7 +144,7 @@
 
     "@fontsource/anonymous-pro": ["@fontsource/anonymous-pro@5.2.6", "", {}, "sha512-90BkMfIuDU3v7Ch7jLVwy9O2qPI59KMINkl2EOIQt4NhvZisD5gZdWe2TwI9m1wzAJ1wjAL3wAt+wXxXMo0dAw=="],
 
-    "@fontsource/barlow": ["@fontsource/barlow@5.2.6", "", {}, "sha512-+Pdt0FkBlbwq+byIEPnD6vHs1TS9CuLWEpqG3M2Jw1mA4s5Ia1DVDAInUKdO4MvsjrwvGNJmdsjgA8mQCCh4mQ=="],
+    "@fontsource/barlow": ["@fontsource/barlow@5.2.8", "", {}, "sha512-iuFOnY4OI2cd1STrJ3NdJNzWjhcwv6JarmqfdoZzAmz9g0jTVjES86MNbuBxqVR3ydbTEjo4opEl24GXScRM7w=="],
 
     "@img/sharp-darwin-arm64": ["@img/sharp-darwin-arm64@0.33.5", "", { "optionalDependencies": { "@img/sharp-libvips-darwin-arm64": "1.0.4" }, "os": "darwin", "cpu": "arm64" }, "sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ=="],
 
