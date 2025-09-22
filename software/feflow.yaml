@@ -1,4 +1,4 @@
-description: FE Flow provides recipes, utilities, and protocols for molecular free energy calculations using the openmmtools/perses and Open Free Energy toolkits.
+description: Feflow provides community-generated OpenMM-based Protocols for OpenFE. Currently implements a non-equilibrium cycling hybrid topology Protocol based on Perses.
 docs: https://github.com/OpenFreeEnergy/feflow
 licenses:
   - MIT
