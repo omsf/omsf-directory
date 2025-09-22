@@ -1,4 +1,4 @@
-description: Kartograf is a package for atom mappings focusing on 3D geometries.
+description: Kartograf is a package for creating atom mappings for alchemical simulations using a 3D geometric graph-based algorithm.
 docs: https://github.com/OpenFreeEnergy/kartograf
 licenses:
   - MIT
