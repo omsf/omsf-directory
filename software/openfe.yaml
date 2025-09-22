@@ -1,5 +1,5 @@
 name: openfe
-description: A tool for free energy calculations.
+description: The main software package for the Open Free Energy Project. openfe implements a series of alchemical free energy Protocols and tooling to use them, including a CLI interface.
 docs: https://docs.openfree.energy/en/latest/
 licenses:
   - MIT
