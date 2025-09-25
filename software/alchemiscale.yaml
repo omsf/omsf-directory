@@ -1,4 +1,4 @@
-description: A high-throughput alchemical free energy execution system for use with HPC, cloud, bare metal, and Folding@Home.
+description: A high-throughput alchemical free energy execution system for OpenFE Protocols. Built for use with HPC, cloud, bare metal, and Folding@Home.
 docs: https://docs.alchemiscale.org/en/stable/
 licenses:
   - MIT
