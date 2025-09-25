@@ -1,0 +1,14 @@
+name: Molly
+description: "Molecular simulation in Julia"
+repository: https://github.com/JuliaMolSim/Molly.jl
+languages:
+  - Julia
+link: https://github.com/JuliaMolSim/Molly.jl
+docs: https://juliamolsim.github.io/Molly.jl/stable
+licenses:
+  - MIT
+tags:
+  - Molecular Dynamics
+  - Molecular Simulation
+  - Force Field Optimization
+  - Differentiable
