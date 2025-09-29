@@ -5,6 +5,7 @@ import '@fontsource/anonymous-pro'
 import '@fontsource/barlow'
 import Header from '../components/Header.astro'
 import Menu from '../components/Menu.astro'
+import Footer from '../components/Footer.astro'
 
 interface Props {
 	currentPage: string
@@ -27,5 +28,5 @@ const { currentPage } = Astro.props
       <slot />
     </body>
   </main>
-
+  <Footer/>
 </html>
