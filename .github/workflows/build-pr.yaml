@@ -16,6 +16,7 @@ jobs:
         with:
           submodules: recursive
           fetch-depth: 0
+          lfs: true
 
       - name: Build site
         uses: omsf/static-site-tools/build/astro@main
