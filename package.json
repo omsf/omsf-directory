@@ -17,7 +17,7 @@
 		"@astrojs/svelte": "7.1.1",
 		"@astrojs/ts-plugin": "^1.10.4",
 		"@fontsource-variable/source-code-pro": "^5.2.7",
-		"@fontsource/anonymous-pro": "^5.2.6",
+		"@fontsource/anonymous-pro": "^5.2.8",
 		"@fontsource/barlow": "^5.2.8",
 		"@tailwindcss/vite": "^4.1.13",
 		"astro": "5.14.1",
