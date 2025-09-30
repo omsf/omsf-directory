@@ -1,21 +1,28 @@
 import { getCollection } from 'astro:content'
 import type { APIRoute } from 'astro'
+import { type SoftwareSchema } from '../schemas'
 
 export const GET: APIRoute = async () => {
 	const software = await getCollection('software')
 	let markdownContent = '# OMSF Software Collection\n\n'
 
 	for (const item of software) {
-		markdownContent += `## ${item.data.name}\n\n`
-		markdownContent += `${item.data.description}\n\n`
-		markdownContent += `- **Docs:** [${item.data.docs}](${item.data.docs})\n`
-		markdownContent += `- **License:** ${item.data.license}\n`
-		markdownContent += `- **Link:** [${item.data.link}](${item.data.link})\n`
-		markdownContent += `- **Tags:** ${item.data.tags.join(', ')}\n`
-		markdownContent += `- **Languages:** ${item.data.languages.join(', ')}\n`
+		const data = item.data as SoftwareSchema
+		markdownContent += `## ${data.name}\n\n`
+		markdownContent += `${data.description}\n\n`
+		markdownContent += `- **Licenses:** ${data.licenses.join(', ')}\n`
+		markdownContent += `- **Repository: ** ${data.repository}\n`
+		if (data.link) {
+			markdownContent += `- **Link:** [${data.link}](${data.link})\n`
+		}
+		if (data.docs) {
+			markdownContent += `- **Docs:** [${data.docs}](${data.docs})\n`
+		}
+		markdownContent += `- **Tags:** ${data.tags.join(', ')}\n`
+		markdownContent += `- **Languages:** ${data.languages.join(', ')}\n`
 
-		if (item.data.project) {
-			markdownContent += `- **Project:** ${item.data.project}\n`
+		if (data.project) {
+			markdownContent += `- **Project:** ${data.project}\n`
 		}
 
 		markdownContent += '\n---\n\n'
