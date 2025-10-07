@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.4",
-		"@astrojs/svelte": "7.1.1",
+		"@astrojs/svelte": "7.2.0",
 		"@astrojs/ts-plugin": "^1.10.4",
 		"@fontsource-variable/source-code-pro": "^5.2.7",
 		"@fontsource/anonymous-pro": "^5.2.8",
