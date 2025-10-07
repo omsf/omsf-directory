@@ -1,0 +1,13 @@
+name: TorchMD-net
+description: "TorchMD-NET provides state-of-the-art neural network potentials (NNPs) and a mechanism to train them."
+repository: https://github.com/torchmd/torchmd-net
+languages:
+  - Python
+link: https://github.com/torchmd/torchmd-net
+docs: https://torchmd-net.readthedocs.io
+licenses:
+  - MIT
+tags:
+  - ML potentials
+  - MLIP
+  - NNP
