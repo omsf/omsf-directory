@@ -1,0 +1,11 @@
+name: TorchMD
+description: "End-To-End Molecular Dynamics (MD) Engine using PyTorch"
+repository: https://github.com/torchmd/torchmd
+languages:
+  - Python
+link: https://github.com/torchmd/torchmd
+docs: https://github.com/torchmd/torchmd
+licenses:
+  - MIT
+tags:
+  - MD
