@@ -1,0 +1,11 @@
+name: pymsym
+description: "A package for detecting point-group symmetry for molecular systems."
+repository: https://github.com/corinwagen/pymsym
+languages:
+  - Python
+link: https://corinwagen.github.io/public/blog/20240425_pymsym.html
+licenses:
+  - MIT
+tags:
+  - Symmetry
+  - Point Group
