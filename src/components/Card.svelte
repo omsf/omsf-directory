@@ -38,7 +38,7 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
       {#if link}<a href={link} class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
-      Licenses: {#each licenses as license, index}
+      Licenses: {#each licenses as license, index (license)}
           {#if index > 0} • {/if}
           {license.concat([" "])}
       {/each}
@@ -48,7 +48,7 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">
-    {#each allTags as tag}
+    {#each allTags as tag (tag)}
       <span
         class="font-omsf-subheading bg-omsf-gray mr-2 mb-2 inline-block rounded-full px-3 py-1 text-sm text-gray-700"
         >{tag}</span

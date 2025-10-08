@@ -72,7 +72,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
       class="border border-gray-300 rounded-md p-3 space-y-2 overflow-y-auto"
       style="max-height: {maxHeight}"
     >
-      {#each list as item}
+      {#each list as item (item)}
         <label
           class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
         >
@@ -116,7 +116,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
   {#if value.length > 0}
     <div class="mt-2 flex flex-wrap gap-1">
       <!-- All selected items use the same green color scheme -->
-      {#each value as selected}
+      {#each value as selected (selected)}
         <span
           class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-omsf-base text-gray-800"
         >
