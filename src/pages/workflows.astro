@@ -1,43 +1,50 @@
 ---
-import '../styles/global.css'
-import '@fontsource-variable/source-code-pro'
-import '@fontsource/anonymous-pro'
-import '@fontsource/barlow'
-import { getCollection } from 'astro:content'
-import TagFilter from '../components/TagFilter.svelte'
-import BaseLayout from '../layouts/BaseLayout.astro'
-import { type SoftwareSchema } from '../schemas'
+import "../styles/global.css";
+import "@fontsource-variable/source-code-pro";
+import "@fontsource/anonymous-pro";
+import "@fontsource/barlow";
+import { getCollection } from "astro:content";
+import TagFilter from "../components/TagFilter.svelte";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { type SoftwareSchema } from "../schemas";
 
-const workflows = await getCollection('workflows')
-const openffWorkflows = await getCollection('openffWorkflows')
-const openfeWorkflows = await getCollection('openfeWorkflows')
+const workflows = await getCollection("workflows");
+const openffWorkflows = await getCollection("openffWorkflows");
+const openfeWorkflows = await getCollection("openfeWorkflows");
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
-	const aName = a.name.toLowerCase()
-	const bName = b.name.toLowerCase()
-	if (aName < bName) {
-		return -1
-	}
-	if (aName > bName) {
-		return 1
-	}
-	return 0
+    const aName = a.name.toLowerCase();
+    const bName = b.name.toLowerCase();
+    if (aName < bName) {
+        return -1;
+    }
+    if (aName > bName) {
+        return 1;
+    }
+    return 0;
 }
 const modifiedOpenFFWorkflows = openffWorkflows.map((workflow) => ({
-	...(workflow.data as SoftwareSchema),
-	project: 'Open Force Field'
-}))
+    ...(workflow.data as SoftwareSchema),
+    project: "Open Force Field",
+}));
 const modifiedOpenFEWorkflows = openfeWorkflows.map((workflow) => ({
-	...(workflow.data as SoftwareSchema),
-	project: 'Open Free Energy'
-}))
+    ...(workflow.data as SoftwareSchema),
+    project: "Open Free Energy",
+}));
 const filteredWorkflows = workflows
-	.map((workflow) => workflow.data)
-	.concat(modifiedOpenFFWorkflows)
-	.concat(modifiedOpenFEWorkflows)
-	.sort(compareFunc)
-const allTags = [...new Set(filteredWorkflows.flatMap((workflow) => workflow.tags || []))].sort()
+    .map((workflow) => workflow.data)
+    .concat(modifiedOpenFFWorkflows)
+    .concat(modifiedOpenFEWorkflows)
+    .sort(compareFunc);
+const allTags = [
+    ...new Set(filteredWorkflows.flatMap((workflow) => workflow.tags || [])),
+].sort();
 ---
 
 <BaseLayout currentPage="workflows">
-  <TagFilter client:load items={filteredWorkflows} allTags={allTags} />
+    <TagFilter
+        client:load
+        client:only="true"
+        items={filteredWorkflows}
+        allTags={allTags}
+    />
 </BaseLayout>
