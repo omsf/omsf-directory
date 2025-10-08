@@ -52,9 +52,6 @@ function removeItem(item: string) {
 	value = value.filter((v) => v !== item)
 }
 
-// Separate predefined and custom items for display
-let selectedPredefined = $derived(value.filter((v) => list.includes(v)))
-let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
 </script>
 
 <div class="mb-6">

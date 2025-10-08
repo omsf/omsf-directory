@@ -9,7 +9,7 @@ interface Props {
 	tags: string[]
 	selectedTags: string[]
 }
-let { showFilters = $bindable(), tags, selectedTags = $bindable(), ...props }: Props = $props()
+let { showFilters = $bindable(), tags, selectedTags = $bindable() }: Props = $props()
 let isMobile = $state(false)
 const slideDuration = 150
 
