@@ -3,7 +3,7 @@ import type { HTMLButtonAttributes } from 'svelte/elements'
 
 interface Props extends HTMLButtonAttributes {
 	selectionFunction?: boolean
-	children: any
+	children: any // eslint-disable-line @typescript-eslint/no-explicit-any
 }
 let { selectionFunction, children, ...props }: Props = $props()
 
