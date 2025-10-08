@@ -1,6 +1,6 @@
 <script lang="ts">
 interface Props {
-	value: any
+    value: any // eslint-disable-line @typescript-eslint/no-explicit-any
 	name: string
 	type: string
 	placeholder: string

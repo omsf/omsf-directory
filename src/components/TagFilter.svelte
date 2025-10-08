@@ -1,5 +1,6 @@
 <script lang="ts">
 import { onMount } from 'svelte'
+import { SvelteURLSearchParams } from 'svelte/reactivity';
 import { type SoftwareSchema } from '../schemas'
 import Bubble from './Bubble.svelte'
 import Card from './Card.svelte'
@@ -14,6 +15,7 @@ const languageTags = [...new Set(items.flatMap((item) => item.languages))]
 const licenses = [...new Set(items.flatMap((item) => item.licenses))].filter(Boolean)
 // We filter out the "empty" project.
 const projects = [...new Set(items.flatMap((item) => item.project))].filter((project) => project)
+const params = new SvelteURLSearchParams(window.location.search);
 
 let selectedTags = $state([] as string[])
 let selectedLangs = $state([] as string[])
@@ -29,7 +31,6 @@ let omsfFilter = $state(false)
 // URL state management
 const getURLParams = () => {
 	if (typeof window === 'undefined') return
-	const params = new URLSearchParams(window.location.search)
 	return {
 		tags: params.get('tags')?.split(',').filter(Boolean) || [],
 		langs: params.get('langs')?.split(',').filter(Boolean) || [],
@@ -41,7 +42,6 @@ const getURLParams = () => {
 
 const updateURL = () => {
 	if (typeof window === 'undefined') return
-	const params = new URLSearchParams()
 
 	if (selectedTags.length > 0) params.set('tags', selectedTags.join(','))
 	if (selectedLangs.length > 0) params.set('langs', selectedLangs.join(','))

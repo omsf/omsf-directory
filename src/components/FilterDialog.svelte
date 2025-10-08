@@ -9,7 +9,7 @@ interface Props {
 	tags: string[]
 	selectedTags: string[]
 }
-let { showFilters = $bindable(), tags, selectedTags = $bindable(), ...props }: Props = $props()
+let { showFilters = $bindable(), tags, selectedTags = $bindable() }: Props = $props()
 let isMobile = $state(false)
 const slideDuration = 150
 
@@ -36,7 +36,7 @@ onMount(() => {
         class="grid grid-cols-2 gap-2"
         transition:slide|global={{ duration: slideDuration }}
       >
-        {#each tags as tag}
+        {#each tags as tag (tag)}
           <Bubble
             onclick={() => filterToggle(tag, selectedTags)}
             selectionFunction={selectedTags.includes(tag)}>{tag}</Bubble
@@ -49,7 +49,7 @@ onMount(() => {
       class="my-4 md:mx-20 lg:mx-70 flex flex-wrap justify-center gap-2"
       transition:slide|global={{ duration: slideDuration }}
     >
-      {#each tags as tag}
+      {#each tags as tag (tag)}
         <Bubble
           onclick={() => filterToggle(tag, selectedTags)}
           selectionFunction={selectedTags.includes(tag)}>{tag}</Bubble
