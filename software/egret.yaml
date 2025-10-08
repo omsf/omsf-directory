@@ -1,0 +1,13 @@
+name: Egret
+description: "Egret is a family of open-source neural network potentials for bioorganic simulation."
+repository: https://github.com/rowansci/egret-public
+languages:
+  - Python
+link: https://rowansci.com/blog/introducing-egret-1
+licenses:
+  - MIT
+tags:
+  - NNP
+  - MLIP
+  - MLFF
+  - Simulation
