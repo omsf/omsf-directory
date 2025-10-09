@@ -40,6 +40,6 @@ jobs:
       - uses: oven-sh/setup-bun@v2
       - name: Install packages
         run: bun install --frozen-lockfile -d
-      - name: Lint with ESLint
+      - name: Format check with prettier
         run: bun prettier:check:ci
 
