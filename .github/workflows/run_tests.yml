@@ -30,3 +30,16 @@ jobs:
         run: bun install --frozen-lockfile -d
       - name: Lint with ESLint
         run: bun lint
+  format:
+    name: Check format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+      - name: Install packages
+        run: bun install --frozen-lockfile -d
+      - name: Lint with ESLint
+        run: bun prettier:check:ci
+
