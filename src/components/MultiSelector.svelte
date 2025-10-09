@@ -1,57 +1,56 @@
 <script lang="ts">
-import Bubble from './Bubble.svelte'
+  import Bubble from "./Bubble.svelte";
 
-interface Props {
-	value: string[]
-	list: string[]
-	name: string
-	required?: boolean
-	description?: string
-	placeholder?: string
-	addButtonText?: string
-	predefinedSectionTitle?: string
-	customSectionTitle?: string
-	allowCustom?: boolean
-	maxHeight?: string
-}
+  interface Props {
+    value: string[];
+    list: string[];
+    name: string;
+    required?: boolean;
+    description?: string;
+    placeholder?: string;
+    addButtonText?: string;
+    predefinedSectionTitle?: string;
+    customSectionTitle?: string;
+    allowCustom?: boolean;
+    maxHeight?: string;
+  }
 
-let {
-	value = $bindable(),
-	list,
-	name,
-	required = false,
-	description,
-	placeholder = 'Enter custom item...',
-	addButtonText = 'Add',
-	predefinedSectionTitle = `Select from predefined ${name.toLowerCase()}:`,
-	customSectionTitle = `Add custom ${name.toLowerCase().slice(0, -1)}:`,
-	allowCustom = true,
-	maxHeight = '10rem'
-}: Props = $props()
+  let {
+    value = $bindable(),
+    list,
+    name,
+    required = false,
+    description,
+    placeholder = "Enter custom item...",
+    addButtonText = "Add",
+    predefinedSectionTitle = `Select from predefined ${name.toLowerCase()}:`,
+    customSectionTitle = `Add custom ${name.toLowerCase().slice(0, -1)}:`,
+    allowCustom = true,
+    maxHeight = "10rem",
+  }: Props = $props();
 
-const lowerName = name.toLowerCase()
-let customInput = $state('')
+  const lowerName = name.toLowerCase();
+  let customInput = $state("");
 
-function togglePredefinedItem(item: string) {
-	if (value.includes(item)) {
-		value = value.filter((v) => v !== item)
-	} else {
-		value = [...value, item]
-	}
-}
+  function togglePredefinedItem(item: string) {
+    if (value.includes(item)) {
+      value = value.filter((v) => v !== item);
+    } else {
+      value = [...value, item];
+    }
+  }
 
-function addCustomItem() {
-	const trimmed = customInput.trim()
-	if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
-		value = [...value, trimmed]
-		customInput = ''
-	}
-}
+  function addCustomItem() {
+    const trimmed = customInput.trim();
+    if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
+      value = [...value, trimmed];
+      customInput = "";
+    }
+  }
 
-function removeItem(item: string) {
-	value = value.filter((v) => v !== item)
-}
-
+  function removeItem(item: string) {
+    value = value.filter((v) => v !== item);
+  }
 </script>
 
 <div class="mb-6">
@@ -88,7 +87,9 @@ function removeItem(item: string) {
   <!-- Custom Item Input Section -->
   {#if allowCustom}
     <div class="mb-4">
-      <h4 class="text-sm font-medium text-gray-700 mb-2">{customSectionTitle}</h4>
+      <h4 class="text-sm font-medium text-gray-700 mb-2">
+        {customSectionTitle}
+      </h4>
       <div class="flex gap-2">
         <input
           type="text"

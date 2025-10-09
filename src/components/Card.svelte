@@ -1,21 +1,24 @@
 <script lang="ts">
-import { type SoftwareSchema } from '../schemas'
-import Logo from './Logo.svg.svelte'
+  import { type SoftwareSchema } from "../schemas";
+  import Logo from "./Logo.svg.svelte";
 
-const {
-	name = '',
-	description = '',
-	docs = '',
-	licenses = [],
-	tags = [],
-	link = '',
-	project = undefined,
-	languages = [],
-	repository = ''
-}: Partial<SoftwareSchema> = $props()
-// We create a state because we are abusing JS/TS when using this in the form.
-// We populate this with unparsable values by default by design in the form.
-let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => lang !== 'Other')])
+  const {
+    name = "",
+    description = "",
+    docs = "",
+    licenses = [],
+    tags = [],
+    link = "",
+    project = undefined,
+    languages = [],
+    repository = "",
+  }: Partial<SoftwareSchema> = $props();
+  // We create a state because we are abusing JS/TS when using this in the form.
+  // We populate this with unparsable values by default by design in the form.
+  let allTags = $derived([
+    ...(tags || []),
+    ...(languages || []).filter((lang) => lang !== "Other"),
+  ]);
 </script>
 
 <div
@@ -23,24 +26,34 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
 >
   <div class="px-6 py-4">
     <div class="grid grid-cols-2">
-      <div class="font-omsf-title mb-1 lg:text-xl text-base font-semibold lg:min-w-70 min-w-35 wrap-break-word">
+      <div
+        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold lg:min-w-70 min-w-35 wrap-break-word"
+      >
         {name}
       </div>
       {#if project !== undefined}
         <Logo />
       {/if}
     </div>
-    <div class="font-regular font-omsf-subheading font-light lg:text-base text-sm">
+    <div
+      class="font-regular font-omsf-subheading font-light lg:text-base text-sm"
+    >
       {#if repository}<a href={repository} class="underline">Repo</a>{/if}
-      {#if repository && docs} • {/if}
+      {#if repository && docs}
+        •
+      {/if}
       {#if docs}<a href={docs} class="underline">Docs</a>{/if}
-      {#if (repository || docs) && link} • {/if}
+      {#if (repository || docs) && link}
+        •
+      {/if}
       {#if link}<a href={link} class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
       Licenses: {#each licenses as license, index (license)}
-          {#if index > 0} • {/if}
-          {license.concat([" "])}
+        {#if index > 0}
+          •
+        {/if}
+        {license.concat([" "])}
       {/each}
     </div>
     <p class="font-omsf-descriptive text-base text-gray-700">

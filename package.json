@@ -1,42 +1,42 @@
 {
-	"name": "omsf-directory",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro",
-		"lint": "eslint --ignore-pattern .astro/",
-        "prettier:check:ci": "prettier --check .",
-        "prettier:format": "prettier --write ."
-	},
-	"dependencies": {
-		"@astrojs/check": "^0.9.4",
-		"@astrojs/svelte": "7.2.0",
-		"@astrojs/ts-plugin": "^1.10.4",
-		"@fontsource-variable/source-code-pro": "^5.2.7",
-		"@fontsource/anonymous-pro": "^5.2.8",
-		"@fontsource/barlow": "^5.2.8",
-		"astro": "5.14.7",
-		"astro-matomo": "^1.9.0",
-		"svelte": "^5.41.1",
-		"@tailwindcss/vite": "^4.1.14",
-		"tailwindcss": "^4.1.14",
-		"typescript": "^5.9.3",
-		"zod": "^4.1.12"
-	},
-	"devDependencies": {
-		"@astrojs/language-server": "^2.15.4",
-		"@typescript-eslint/parser": "^8.46.0",
-		"eslint": "^9.37.0",
-		"eslint-plugin-astro": "^1.3.1",
-		"eslint-plugin-svelte": "^3.12.4",
-		"globals": "^16.4.0",
-		"prettier": "3.6.2",
-		"prettier-plugin-astro": "0.14.1",
-		"prettier-plugin-svelte": "3.4.0",
-		"typescript-eslint": "^8.46.0",
-		"vitest": "^3.2.4"
-	}
+  "name": "omsf-directory",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint --ignore-pattern .astro/",
+    "prettier:check:ci": "prettier --check .",
+    "prettier:format": "prettier --write ."
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/svelte": "7.2.0",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@fontsource-variable/source-code-pro": "^5.2.7",
+    "@fontsource/anonymous-pro": "^5.2.8",
+    "@fontsource/barlow": "^5.2.8",
+    "astro": "5.14.7",
+    "astro-matomo": "^1.9.0",
+    "svelte": "^5.41.1",
+    "@tailwindcss/vite": "^4.1.14",
+    "tailwindcss": "^4.1.14",
+    "typescript": "^5.9.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@astrojs/language-server": "^2.15.4",
+    "@typescript-eslint/parser": "^8.46.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "eslint-plugin-svelte": "^3.12.4",
+    "globals": "^16.4.0",
+    "prettier": "3.6.2",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-svelte": "3.4.0",
+    "typescript-eslint": "^8.46.0",
+    "vitest": "^3.2.4"
+  }
 }
