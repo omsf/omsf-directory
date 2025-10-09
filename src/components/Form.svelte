@@ -1,58 +1,63 @@
 <script lang="ts">
-import { isValid, renderYaml } from '../lib/utils/yamlRender.svelte'
-import { ALL_LICENSES, languageTags, type SoftwareSchema } from '../schemas'
-import Bubble from './Bubble.svelte'
-import Card from './Card.svelte'
-import Field from './Field.svelte'
-import MultiSelector from './MultiSelector.svelte'
+  import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
+  import { ALL_LICENSES, languageTags, type SoftwareSchema } from "../schemas";
+  import Bubble from "./Bubble.svelte";
+  import Card from "./Card.svelte";
+  import Field from "./Field.svelte";
+  import MultiSelector from "./MultiSelector.svelte";
 
-let formData = $state({
-	name: '',
-	description: '',
-	licenses: [],
-	link: undefined,
-	tags: [],
-	docs: undefined,
-	languages: [],
-	project: undefined,
-	repository: ''
-} as SoftwareSchema)
-// Form validation using $derived
-let isFormValid = $derived(isValid(formData))
-let yamlContent = $state('') // Declare yamlContent variable
-let cardContent = $state({})
-let tags = $state('')
+  let formData = $state({
+    name: "",
+    description: "",
+    licenses: [],
+    link: undefined,
+    tags: [],
+    docs: undefined,
+    languages: [],
+    project: undefined,
+    repository: "",
+  } as SoftwareSchema);
+  // Form validation using $derived
+  let isFormValid = $derived(isValid(formData));
+  let yamlContent = $state(""); // Declare yamlContent variable
+  let cardContent = $state({});
+  let tags = $state("");
 
-$effect(() => {
-	formData.tags = tags
-		.split(',')
-		.map((tag) => tag.trim())
-		.filter((tag) => tag !== '')
-})
+  $effect(() => {
+    formData.tags = tags
+      .split(",")
+      .map((tag) => tag.trim())
+      .filter((tag) => tag !== "");
+  });
 
-$effect(() => {
-	// Only generate YAML if the form is valid
-	let output = ''
-	if (isFormValid) {
-		console.log('Valid')
-		output = renderYaml(formData)
-	}
-	yamlContent = output
-	cardContent = { ...formData }
-})
+  $effect(() => {
+    // Only generate YAML if the form is valid
+    let output = "";
+    if (isFormValid) {
+      console.log("Valid");
+      output = renderYaml(formData);
+    }
+    yamlContent = output;
+    cardContent = { ...formData };
+  });
 
-function copyYamlToClipboard() {
-	navigator.clipboard.writeText(yamlContent)
-}
+  function copyYamlToClipboard() {
+    navigator.clipboard.writeText(yamlContent);
+  }
 </script>
 
 <div class="container mx-auto px-2 sm:px-4">
   <div class="mb-6">
     <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
     <p class="text-gray-600 font-omsf-descriptive md:max-w-1/2">
-        This form helps to show how your project will look when we addeded to the directory. 
-        Once completeletd, click "Copy YAML" and open a PR <a href="http://github.com/omsf/omsf-directory" class="underline"  target="_blank" rel="noopener noreferrer">here</a>.
-        Create a YAML file with your copied contents in either the software or workflows folder. We will review your submission as soon as we can!
+      This form helps to show how your project will look when we addeded to the
+      directory. Once completeletd, click "Copy YAML" and open a PR <a
+        href="http://github.com/omsf/omsf-directory"
+        class="underline"
+        target="_blank"
+        rel="noopener noreferrer">here</a
+      >. Create a YAML file with your copied contents in either the software or
+      workflows folder. We will review your submission as soon as we can!
     </p>
   </div>
 
