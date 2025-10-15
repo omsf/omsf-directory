@@ -23,14 +23,14 @@ let allTags = $derived([...(tags || []), ...(languages || []).filter((lang) => l
 >
   <div class="px-6 py-4">
     <div class="grid grid-cols-2">
-      <div class="font-omsf-title mb-1 text-xl font-semibold lg:min-w-70">
+      <div class="font-omsf-title mb-1 lg:text-xl text-base font-semibold lg:min-w-70 min-w-35 wrap-break-word">
         {name}
       </div>
       {#if project !== undefined}
         <Logo />
       {/if}
     </div>
-    <div class="font-regular font-omsf-subheading font-light text-base">
+    <div class="font-regular font-omsf-subheading font-light lg:text-base text-sm">
       {#if repository}<a href={repository} class="underline">Repo</a>{/if}
       {#if repository && docs} • {/if}
       {#if docs}<a href={docs} class="underline">Docs</a>{/if}
