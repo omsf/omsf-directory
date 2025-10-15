@@ -1,7 +1,6 @@
-name: "OpenFF Post Translational Modification Prototype"
+name: "Post Translational Modification Prototype"
 description: "A notebook to paramaterize and simulate PTMs using OpenFF"
 repository: "https://github.com/openforcefield/ptm_prototype"
 licenses: ["MIT"]
 tags: ["Gas Phase Simulation", "Molecular Dynamics"]
 languages: ["Python"]
-
