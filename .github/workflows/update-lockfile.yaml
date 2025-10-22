@@ -1,0 +1,28 @@
+name: Update Bun lockfile
+on:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+    paths:
+      - "package.json"
+jobs:
+  bun-lockfile:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Regenerate lockfile
+        run: bun install --lockfile-only
+      - name: Test lock file can install deps
+        run: bun install --frozen-lockfile
+      - name: Commit updated lockfile if it changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n $(git status --porcelain bun.lock) ]]; then
+            git add bun.lock
+            git commit -m "chore: update bun.lock"
+            git push
+          fi
