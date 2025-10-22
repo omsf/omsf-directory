@@ -12,7 +12,8 @@ Create a PR with the file you create and an example site will be generated in CI
 
 This site is built using [Astro](https://astro.build) and [Svelte](https://svelte.dev).
 This allows for us to build a dynamic site that functions like a static site.
-Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles. Additionally, we are using [Bun](https://bun.sh) to manage our packages and [Biome](https://biomejs.dev) to format and lint our code.
+Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles. Additionally, we are using [Bun](https://bun.sh) to manage our packages, 
+[ESLint](https://eslint.org/) for linting, and [prettier](https://prettier.io/) for formatting.
 
 ## Repo Breakdown
 
@@ -37,7 +38,7 @@ omsf-directory/
 ├── workflows/             # YAML files defining workflow projects
 │   └── *.yaml
 ├── astro.config.mjs       # Astro configuration
-├── biome.json            # Biome linter/formatter configuration
+├── eslint.config.js       # ESLint config
 ├── bun.lock              # Bun lockfile
 ├── package.json          # Node.js project configuration
 ├── README.md             # This file
