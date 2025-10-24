@@ -3,6 +3,7 @@ import '../styles/global.css'
 import '@fontsource-variable/source-code-pro'
 import '@fontsource/anonymous-pro'
 import '@fontsource/barlow'
+import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import Menu from '../components/Menu.astro'
 
@@ -27,5 +28,5 @@ const { currentPage } = Astro.props
       <slot />
     </body>
   </main>
-
+  <Footer/>
 </html>
