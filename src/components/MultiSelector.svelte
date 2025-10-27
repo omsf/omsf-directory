@@ -1,60 +1,56 @@
 <script lang="ts">
-import Bubble from './Bubble.svelte'
+  import Bubble from "./Bubble.svelte";
 
-interface Props {
-	value: string[]
-	list: string[]
-	name: string
-	required?: boolean
-	description?: string
-	placeholder?: string
-	addButtonText?: string
-	predefinedSectionTitle?: string
-	customSectionTitle?: string
-	allowCustom?: boolean
-	maxHeight?: string
-}
+  interface Props {
+    value: string[];
+    list: string[];
+    name: string;
+    required?: boolean;
+    description?: string;
+    placeholder?: string;
+    addButtonText?: string;
+    predefinedSectionTitle?: string;
+    customSectionTitle?: string;
+    allowCustom?: boolean;
+    maxHeight?: string;
+  }
 
-let {
-	value = $bindable(),
-	list,
-	name,
-	required = false,
-	description,
-	placeholder = 'Enter custom item...',
-	addButtonText = 'Add',
-	predefinedSectionTitle = `Select from predefined ${name.toLowerCase()}:`,
-	customSectionTitle = `Add custom ${name.toLowerCase().slice(0, -1)}:`,
-	allowCustom = true,
-	maxHeight = '10rem'
-}: Props = $props()
+  let {
+    value = $bindable(),
+    list,
+    name,
+    required = false,
+    description,
+    placeholder = "Enter custom item...",
+    addButtonText = "Add",
+    predefinedSectionTitle = `Select from predefined ${name.toLowerCase()}:`,
+    customSectionTitle = `Add custom ${name.toLowerCase().slice(0, -1)}:`,
+    allowCustom = true,
+    maxHeight = "10rem",
+  }: Props = $props();
 
-const lowerName = name.toLowerCase()
-let customInput = $state('')
+  const lowerName = name.toLowerCase();
+  let customInput = $state("");
 
-function togglePredefinedItem(item: string) {
-	if (value.includes(item)) {
-		value = value.filter((v) => v !== item)
-	} else {
-		value = [...value, item]
-	}
-}
+  function togglePredefinedItem(item: string) {
+    if (value.includes(item)) {
+      value = value.filter((v) => v !== item);
+    } else {
+      value = [...value, item];
+    }
+  }
 
-function addCustomItem() {
-	const trimmed = customInput.trim()
-	if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
-		value = [...value, trimmed]
-		customInput = ''
-	}
-}
+  function addCustomItem() {
+    const trimmed = customInput.trim();
+    if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
+      value = [...value, trimmed];
+      customInput = "";
+    }
+  }
 
-function removeItem(item: string) {
-	value = value.filter((v) => v !== item)
-}
-
-// Separate predefined and custom items for display
-let selectedPredefined = $derived(value.filter((v) => list.includes(v)))
-let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
+  function removeItem(item: string) {
+    value = value.filter((v) => v !== item);
+  }
 </script>
 
 <div class="mb-6">
@@ -72,7 +68,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
       class="border border-gray-300 rounded-md p-3 space-y-2 overflow-y-auto"
       style="max-height: {maxHeight}"
     >
-      {#each list as item}
+      {#each list as item (item)}
         <label
           class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-1 rounded"
         >
@@ -91,7 +87,9 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
   <!-- Custom Item Input Section -->
   {#if allowCustom}
     <div class="mb-4">
-      <h4 class="text-sm font-medium text-gray-700 mb-2">{customSectionTitle}</h4>
+      <h4 class="text-sm font-medium text-gray-700 mb-2">
+        {customSectionTitle}
+      </h4>
       <div class="flex gap-2">
         <input
           type="text"
@@ -116,7 +114,7 @@ let selectedCustom = $derived(value.filter((v) => !list.includes(v)))
   {#if value.length > 0}
     <div class="mt-2 flex flex-wrap gap-1">
       <!-- All selected items use the same green color scheme -->
-      {#each value as selected}
+      {#each value as selected (selected)}
         <span
           class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-omsf-base text-gray-800"
         >
