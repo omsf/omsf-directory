@@ -1,6 +1,14 @@
 version: 2
-updates:
-  - package-ecosystem: "bun"
+updates: # Enable version updates for npm
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      dev-deps:
+        dependency-type: development
+      prod-deps:
+        dependency-type: production
+    commit-message:
+      prefix: "npm"
+      include: "scope"
