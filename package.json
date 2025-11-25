@@ -18,7 +18,7 @@
     "@fontsource-variable/source-code-pro": "^5.2.7",
     "@fontsource/anonymous-pro": "^5.2.8",
     "@fontsource/barlow": "^5.2.8",
-    "astro": "5.15.4",
+    "astro": "5.15.9",
     "astro-matomo": "^1.9.0",
     "svelte": "^5.41.1",
     "@tailwindcss/vite": "^4.1.14",
