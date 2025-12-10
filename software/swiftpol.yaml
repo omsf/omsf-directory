@@ -1,0 +1,14 @@
+name: SwiftPol
+description: "Tools for building polydisperse and crosslinked polymer systems for molecular dynamics."
+repository: https://github.com/matta-research-group/SwiftPol
+languages:
+  - Python
+link: https://matta-research-group.github.io/SwiftPol/
+docs: https://matta-research-group.github.io/SwiftPol/
+licenses:
+  - BSD-3-Clause
+tags:
+  - Molecular Dynamics
+  - Synthetic Polymers
+  - Polydispersity
+  - Crosslinking
