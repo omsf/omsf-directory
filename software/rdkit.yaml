@@ -4,7 +4,7 @@ docs: https://www.rdkit.org/docs
 link: https://www.rdkit.org
 repository: https://github.com/rdkit/rdkit
 licenses:
-  - BSD-3
+  - BSD-3-Clause
 tags:
   - Cheminformatics
   - Molecular Modeling

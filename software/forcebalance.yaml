@@ -1,7 +1,7 @@
 name: ForceBalance
 description: Systematic force field optimization
 licenses:
-  - BSD-3
+  - BSD-3-Clause
   - Non-AI
 repository: https://github.com/leeping/forcebalance
 tags:
