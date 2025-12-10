@@ -6,6 +6,6 @@ languages:
 link: https://www.biotite-python.org
 docs: https://www.biotite-python.org
 licenses:
-  - BSD-3
+  - BSD-3-Clause
 tags:
   - Bioinformatics
