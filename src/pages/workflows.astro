@@ -11,6 +11,7 @@ import { type SoftwareSchema } from "../schemas";
 const workflows = await getCollection("workflows");
 const openffWorkflows = await getCollection("openffWorkflows");
 const openfeWorkflows = await getCollection("openfeWorkflows");
+const openadmetWorkflows = await getCollection("openadmetWorkflows");
 function compareFunc(a: SoftwareSchema, b: SoftwareSchema): number {
   const aName = a.name.toLowerCase();
   const bName = b.name.toLowerCase();
@@ -30,10 +31,15 @@ const modifiedOpenFEWorkflows = openfeWorkflows.map((workflow) => ({
   ...(workflow.data as SoftwareSchema),
   project: "Open Free Energy",
 }));
+const modifiedOpenADMETWorkflows = openadmetWorkflows.map((workflow) => ({
+  ...(workflow.data as SoftwareSchema),
+  project: "OpenADMET",
+}));
 const filteredWorkflows = workflows
   .map((workflow) => workflow.data)
   .concat(modifiedOpenFFWorkflows)
   .concat(modifiedOpenFEWorkflows)
+  .concat(modifiedOpenADMETWorkflows)
   .sort(compareFunc);
 const allTags = [
   ...new Set(filteredWorkflows.flatMap((workflow) => workflow.tags || [])),
