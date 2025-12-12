@@ -1,0 +1,13 @@
+name: openadmet-models
+description: "The main software package for the OpenADMET Project. openadmet-models implements machine learning workflows for predicting ADMET properties of small molecules including our ANVIL training and evaluation workflows"
+docs: https://docs.openadmet.org/en/latest/
+licenses:
+  - Apache-2.0
+repository: https://github.com/OpenADMET/openadmet-models
+link: https://openadmet.org
+project: OpenADMET
+tags:
+  - ADMET
+  - Machine Learning
+languages:
+  - Python
