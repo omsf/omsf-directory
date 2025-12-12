@@ -17,6 +17,11 @@ const openfeWorkflows = defineCollection({
   schema: SoftwareSchemaObject,
 });
 
+const openadmetWorkflows = defineCollection({
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./workflows/openadmet" }),
+  schema: SoftwareSchemaObject,
+});
+
 const workflows = defineCollection({
   loader: glob({ pattern: "*.{yaml,yml}", base: "./workflows" }),
   schema: SoftwareSchemaObject,
@@ -29,4 +34,5 @@ export const collections = {
   workflows,
   openffWorkflows,
   openfeWorkflows,
+  openadmetWorkflows,
 };

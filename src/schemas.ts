@@ -2,6 +2,7 @@ import { z } from "zod/v4";
 
 export const ALL_OMSF_PROJECTS = [
   "Open Force Field",
+  "OpenADMET",
   "Open Free Energy",
   "OpenFold",
   "WESTPA",

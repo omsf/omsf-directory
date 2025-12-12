@@ -1,0 +1,12 @@
+name: OpenADMET Data Catalogs
+description: "Public datasets curated by OpenADMET for training and evaluating machine learning models for ADMET properties of small molecules."
+repository: https://github.com/OpenADMET/data-catalogs
+languages:
+  - Python
+link: https://github.com/OpenADMET/data-catalogs
+docs: https://github.com/OpenADMET/data-catalogs
+licenses:
+  - Apache-2.0
+tags:
+  - Machine Learning
+  - ADMET

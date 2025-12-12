@@ -1,0 +1,12 @@
+name: OpenADMET Showcase
+description: "A showcase for OpenADMET tooling to train and evaluate machine learning models for CYP3A4 inhibition"
+repository: https://github.com/OpenADMET/openadmet-demos
+languages:
+  - Python
+link: https://try.openadmet.org
+docs: https://demos.openadmet.org/en/latest/
+licenses:
+  - Apache-2.0
+tags:
+  - Machine Learning
+  - ADMET
