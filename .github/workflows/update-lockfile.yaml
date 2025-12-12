@@ -3,9 +3,6 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, synchronize, reopened]
-    paths:
-      - "package.json"
 jobs:
   bun-lockfile:
     if: github.actor == 'dependabot[bot]'
@@ -32,3 +29,6 @@ jobs:
             git commit -m "chore: update bun.lock"
             git push
           fi
+  validate:
+    uses: omsf/omsf-directory/.github/workflows/run_tests.yml@main
+    needs: bun-lockfile
