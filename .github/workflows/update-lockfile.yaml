@@ -3,18 +3,18 @@ on:
   pull_request:
     branches:
       - main
-    types: [opened, synchronize, reopened]
-    paths:
-      - "package.json"
 jobs:
   bun-lockfile:
     if: github.actor == 'dependabot[bot]'
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       pull-requests: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: oven-sh/setup-bun@v1
       - name: Regenerate lockfile
         run: bun install --lockfile-only
@@ -29,3 +29,6 @@ jobs:
             git commit -m "chore: update bun.lock"
             git push
           fi
+  validate:
+    uses: omsf/omsf-directory/.github/workflows/run_tests.yml@main
+    needs: bun-lockfile
