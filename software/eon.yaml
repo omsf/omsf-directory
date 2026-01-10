@@ -1,0 +1,19 @@
+name: eOn
+description: "eOn provides a C++ client for atomistic calculations, including saddle search methods with machine learned potentials and a Python server for long time scale dynamics."
+repository: https://github.com/TheochemUI/eOn
+languages:
+  - "Fortran"
+  - "C"
+  - "C++"
+  - "Python"
+link: https://www.eondocs.org/
+docs: https://eondocs.org/user_guide/
+licenses:
+  - BSD-3-Clause
+tags:
+  - MLIP
+  - MLFF
+  - Simulation
+  - Kinetics
+  - Saddle Search
+  - Nudged Elastic Band
