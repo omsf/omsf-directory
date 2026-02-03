@@ -1,0 +1,15 @@
+name: Workbench
+description: "An easy to use Python API for creating and deploying ADMET Models to AWS"
+repository: https://github.com/SuperCowPowers/workbench
+languages:
+  - Python
+link: https://github.com/SuperCowPowers/workbench
+docs: https://supercowpowers.github.io/workbench/
+licenses:
+  - MIT
+tags:
+  - models
+  - aws
+  - dash
+  - plotly
+
