@@ -8,8 +8,8 @@ docs: https://supercowpowers.github.io/workbench/
 licenses:
   - MIT
 tags:
-  - MODELS
+  - Models
   - AWS
-  - DASH
-  - PLOTLY
+  - Dash
+  - Plotly
 
