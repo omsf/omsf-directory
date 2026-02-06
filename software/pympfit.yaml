@@ -1,0 +1,14 @@
+name: pympfit
+description: "PyMPFIT provides a comprehensive suite of tools for training the partial charges of molecules against quantum chemical Gaussian distributed multipole analysis (GDMA) data. Features include multi-molecule constrained optimization and Bayesian virtual site fitting."
+repository: https://github.com/shehan807/pympfit
+languages:
+  - Python
+link: https://pympfit.readthedocs.io/en/latest/
+docs: https://pympfit.readthedocs.io/
+licenses:
+  - MIT
+tags:
+  - Quantum Chemistry
+  - Partial Charge Assignment
+  - Machine Learning
+  - Python
