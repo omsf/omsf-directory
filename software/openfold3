@@ -6,7 +6,7 @@ languages:
 link: https://openfold.io
 docs: https://openfold-3.readthedocs.io/en/latest/
 licenses:
-  - Apache 2
+  - Apache 2.0
 tags:
   - Structure Prediction
   - Co-Folding
