@@ -1,0 +1,16 @@
+name: BiochemicalVisualizations.jl
+description: "BiochemicalVisualization.jl is the graphical interface for BiochemicalAlgorithms.jl, providing different representations for biomolecular systems. All representations can be visualized in the form of interactive web widgets that are embeddable in Jypyter notebooks."
+repository: https://github.com/hildebrandtlab/BiochemicalVisualization.jl
+languages:
+  - Julia
+link: https://github.com/hildebrandtlab/BiochemicalVisualization.jl
+docs: https://hildebrandtlab.github.io/BiochemicalAlgorithms.jl/stable/
+licenses:
+  - MIT
+tags:
+  - molecular viewer
+  - ball-and-stick
+  - van-der-waals
+  - Julia
+  - BiochemicalAlgorithms.jl
+
