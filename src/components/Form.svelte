@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { normalizeFormArrays } from "../lib/utils/tagNormalization";
   import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
   import { ALL_LICENSES, languageTags, type SoftwareSchema } from "../schemas";
   import Bubble from "./Bubble.svelte";
@@ -22,6 +23,9 @@
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
+  const languageCanonicalMap = new Map<string, string>(
+    languageTags.map((language) => [language.toLowerCase(), language]),
+  );
 
   $effect(() => {
     formData.tags = tags
@@ -33,12 +37,13 @@
   $effect(() => {
     // Only generate YAML if the form is valid
     let output = "";
+    const normalizedFormData = normalizeFormArrays(formData, languageCanonicalMap);
     if (isFormValid) {
       console.log("Valid");
-      output = renderYaml(formData);
+      output = renderYaml(normalizedFormData);
     }
     yamlContent = output;
-    cardContent = { ...formData };
+    cardContent = { ...normalizedFormData };
   });
 
   function copyYamlToClipboard() {

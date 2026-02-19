@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { type SoftwareSchema } from "../schemas";
+  import { buildDisplayTags } from "../lib/utils/tagNormalization";
+  import { languageTags, type SoftwareSchema } from "../schemas";
   import Logo from "./Logo.svg.svelte";
 
   const {
@@ -13,21 +14,25 @@
     languages = [],
     repository = "",
   }: Partial<SoftwareSchema> = $props();
+  const languageCanonicalMap = new Map<string, string>(
+    languageTags.map((language) => [language.toLowerCase(), language]),
+  );
   // We create a state because we are abusing JS/TS when using this in the form.
   // We populate this with unparsable values by default by design in the form.
-  let allTags = $derived([
-    ...(tags || []),
-    ...(languages || []).filter((lang) => lang !== "Other"),
-  ]);
+  let allTags = $derived(
+    buildDisplayTags(tags, languages, languageCanonicalMap),
+  );
 </script>
 
 <div
   class="w-2xs overflow-hidden rounded-lg shadow-lg lg:h-full lg:w-sm border-2 border-omsf-gray min-h-120 max-h-120"
 >
   <div class="px-6 py-4">
-    <div class="grid grid-cols-2">
+    <div
+      class={`grid items-start ${project !== undefined ? "grid-cols-[1fr_auto] gap-x-2" : "grid-cols-1"}`}
+    >
       <div
-        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold lg:min-w-70 min-w-35 wrap-break-word"
+        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere text-balance line-clamp-3 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden"
       >
         {name}
       </div>
