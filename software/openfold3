@@ -8,5 +8,5 @@ docs: https://openfold-3.readthedocs.io/en/latest/
 licenses:
   - Apache 2
 tags:
-  - structure prediction
-  - co-folding
+  - Structure Prediction
+  - Co-Folding
