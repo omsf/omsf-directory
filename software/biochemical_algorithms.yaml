@@ -8,7 +8,6 @@ docs: https://hildebrandtlab.github.io/BiochemicalAlgorithms.jl/stable/
 licenses:
   - MIT
 tags:
-  - molecular mechanics
-  - molecular modeling
-  - structure minimization
-  - Julia
+  - Molecular Mechanics
+  - Molecular Modeling
+  - Structure Minimization

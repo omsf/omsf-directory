@@ -8,9 +8,7 @@ docs: https://hildebrandtlab.github.io/BiochemicalAlgorithms.jl/stable/
 licenses:
   - MIT
 tags:
-  - molecular viewer
-  - ball-and-stick
-  - van-der-waals
-  - Julia
+  - Molecular Viewer
+  - Ball-and-Stick
+  - Van-der-Waals
   - BiochemicalAlgorithms.jl
-
