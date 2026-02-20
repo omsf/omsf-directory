@@ -27,7 +27,11 @@ test("buildDisplayTags deduplicates case-insensitive tag/language overlap", () =
 });
 
 test('buildDisplayTags excludes "Other" language entries', () => {
-  const out = buildDisplayTags(["ML"], ["Other", "python"], languageCanonicalMap);
+  const out = buildDisplayTags(
+    ["ML"],
+    ["Other", "python"],
+    languageCanonicalMap,
+  );
   expect(out).toEqual(["ML", "Python"]);
 });
 

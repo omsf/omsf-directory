@@ -37,7 +37,10 @@
   $effect(() => {
     // Only generate YAML if the form is valid
     let output = "";
-    const normalizedFormData = normalizeFormArrays(formData, languageCanonicalMap);
+    const normalizedFormData = normalizeFormArrays(
+      formData,
+      languageCanonicalMap,
+    );
     if (isFormValid) {
       console.log("Valid");
       output = renderYaml(normalizedFormData);

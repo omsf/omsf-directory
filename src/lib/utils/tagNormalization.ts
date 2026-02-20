@@ -31,7 +31,9 @@ export function buildDisplayTags(
 ): string[] {
   const merged = [
     ...(tags ?? []),
-    ...(languages ?? []).filter((language) => language.toLowerCase() !== "other"),
+    ...(languages ?? []).filter(
+      (language) => language.toLowerCase() !== "other",
+    ),
   ];
 
   return dedupeCaseInsensitive(merged, languageCanonicalMap);
