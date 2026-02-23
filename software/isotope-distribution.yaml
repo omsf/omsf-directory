@@ -1,0 +1,12 @@
+name: isotope-distribution
+description: "Gives information about possible isotopes of a molecule: isotopic content, mass, abundance, relative intensity of a signal in a Mass Spectrometer. You can get all isotopologues of a molecule sorted from the most common to the rarest."
+repository: https://github.com/elsci-io/isotope-distribution
+languages:
+  - Java
+link: https://github.com/elsci-io/isotope-distribution
+docs: https://github.com/elsci-io/isotope-distribution
+licenses:
+  - Apache 2.0
+tags:
+  - Mass Spectrometry
+

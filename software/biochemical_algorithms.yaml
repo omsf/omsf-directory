@@ -1,0 +1,13 @@
+name: BiochemicalAlgorithms.jl
+description: "A framework for molecular modeling and mechanics written in Julia"
+repository: https://github.com/hildebrandtlab/BiochemicalAlgorithms.jl
+languages:
+  - Julia
+link: https://github.com/hildebrandtlab/BiochemicalAlgorithms.jl
+docs: https://hildebrandtlab.github.io/BiochemicalAlgorithms.jl/stable/
+licenses:
+  - MIT
+tags:
+  - Molecular Mechanics
+  - Molecular Modeling
+  - Structure Minimization
