@@ -64,7 +64,12 @@
       {#if link}<a href={link} class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
-      Licenses: {#each licenses as license, index (license)}
+      {#if licenses.length === 1}
+        License:
+      {:else}
+        Licenses:
+      {/if}
+      {#each licenses as license, index (license)}
         {#if index > 0}
           •
         {/if}
