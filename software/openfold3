@@ -1,4 +1,5 @@
 name: OpenFold3
+project: OpenFold
 description: "A fully open source biomolecular structure prediction model based on AlphaFold3"
 repository: https://github.com/aqlaboratory/openfold-3
 languages:
