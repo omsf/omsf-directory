@@ -6,7 +6,7 @@ languages:
 link: https://openfold.io/#projectarea
 docs: https://openfold.readthedocs.io/en/latest/Inference.html
 licenses:
-  - Apache 2.0
+  - Apache-2.0
 tags:
   - Protein Folding
   - AlphaFold2

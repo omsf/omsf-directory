@@ -6,7 +6,7 @@ languages:
 link: https://github.com/elsci-io/isotope-distribution
 docs: https://github.com/elsci-io/isotope-distribution
 licenses:
-  - Apache 2.0
+  - Apache-2.0
 tags:
   - Mass Spectrometry
 
