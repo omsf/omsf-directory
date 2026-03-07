@@ -1,7 +1,7 @@
 name: "Packmol"
 description: "A package for building initial configurations for molecular dynamics simulations by packing molecules in defined regions of space with spatial constraints."
 licenses:
-  - "MIT"
+  - MIT
 repository: "https://github.com/m3g/packmol"
 tags:
   - "Molecular Dynamics"
