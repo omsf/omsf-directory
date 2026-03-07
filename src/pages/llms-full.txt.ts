@@ -8,9 +8,13 @@ export const GET: APIRoute = async () => {
   for (const item of software) {
     markdownContent += `## ${item.data.name}\n\n`;
     markdownContent += `${item.data.description}\n\n`;
-    markdownContent += `- **Docs:** [${item.data.docs}](${item.data.docs})\n`;
-    markdownContent += `- **License:** ${item.data.license}\n`;
-    markdownContent += `- **Link:** [${item.data.link}](${item.data.link})\n`;
+    if (item.data.docs) {
+      markdownContent += `- **Docs:** [${item.data.docs}](${item.data.docs})\n`;
+    }
+    markdownContent += `- **Licenses:** ${item.data.licenses.join(", ")}\n`;
+    if (item.data.link) {
+      markdownContent += `- **Link:** [${item.data.link}](${item.data.link})\n`;
+    }
     markdownContent += `- **Tags:** ${item.data.tags.join(", ")}\n`;
     markdownContent += `- **Languages:** ${item.data.languages.join(", ")}\n`;
 

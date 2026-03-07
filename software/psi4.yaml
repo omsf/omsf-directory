@@ -4,7 +4,7 @@ docs: https://psicode.org/psi4manual/master/index.html
 link: https://psicode.org
 repository: https://github.com/psi4/psi4
 licenses:
-  - LGPL
+  - LGPL-3.0-or-later
 tags:
   - Quantum Chemistry
   - Electronic Structure

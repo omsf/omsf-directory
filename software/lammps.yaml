@@ -2,7 +2,7 @@ name: LAMMPS
 description: Large-scale Atomic/Molecular Massively Parallel Simulator for molecular dynamics and particle simulations.
 docs: https://docs.lammps.org
 licenses:
-  - GPL-2.0
+  - GPL-2.0-only
 link: https://lammps.org
 repository: https://github.com/lammps/lammps
 tags:

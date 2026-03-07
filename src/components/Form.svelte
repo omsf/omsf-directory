@@ -1,7 +1,11 @@
 <script lang="ts">
   import { normalizeFormArrays } from "../lib/utils/tagNormalization";
   import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
-  import { ALL_LICENSES, languageTags, type SoftwareSchema } from "../schemas";
+  import {
+    COMMON_LICENSES,
+    languageTags,
+    type SoftwareSchema,
+  } from "../schemas";
   import Bubble from "./Bubble.svelte";
   import Card from "./Card.svelte";
   import Field from "./Field.svelte";
@@ -115,7 +119,7 @@
       <MultiSelector
         bind:value={formData.licenses}
         name="Licenses"
-        list={ALL_LICENSES}
+        list={Array.from(COMMON_LICENSES)}
         description="Select from predefined licenses or add your own"
         required={true}
         placeholder="Enter custom license..."
