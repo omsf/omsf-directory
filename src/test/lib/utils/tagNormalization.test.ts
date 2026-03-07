@@ -39,7 +39,7 @@ test("normalizeFormArrays keeps cross-field overlap and dedups within fields", (
   const formData: SoftwareSchema = {
     name: "OpenAwesome",
     description: "An awesome comp chem tool",
-    licenses: ["MIT", "mit", "BSD-3"],
+    licenses: ["MIT", "mit", "BSD-3-Clause"],
     tags: ["Python", "python", "ML", "ml"],
     docs: "https://docs.org",
     link: "https://project.org",
@@ -52,5 +52,5 @@ test("normalizeFormArrays keeps cross-field overlap and dedups within fields", (
 
   expect(out.tags).toEqual(["Python", "ML"]);
   expect(out.languages).toEqual(["Python"]);
-  expect(out.licenses).toEqual(["MIT", "BSD-3"]);
+  expect(out.licenses).toEqual(["MIT", "BSD-3-Clause"]);
 });
