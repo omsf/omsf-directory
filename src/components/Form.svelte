@@ -119,7 +119,7 @@
       <MultiSelector
         bind:value={formData.licenses}
         name="Licenses"
-        list={COMMON_LICENSES}
+        list={Array.from(COMMON_LICENSES)}
         description="Select from predefined licenses or add your own"
         required={true}
         placeholder="Enter custom license..."

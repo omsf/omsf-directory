@@ -2,12 +2,12 @@
 // don't need a module declaration — the package ships only JSON, no .js entry
 import rawIds from "spdx-license-ids/index.json";
 
-// Cast to a readonly array so TypeScript can derive a precise string-literal
-// union type rather than widening to plain string[]
+// Cast to a readonly array of strings representing all SPDX license identifiers
+// as provided by the spdx-license-ids package.
 export const ALL_SPDX_IDS = rawIds as readonly string[];
 
-// Union of every valid SPDX short identifier (e.g. "MIT", "Apache-2.0")
-export type SpdxLicenseId = (typeof ALL_SPDX_IDS)[number];
+// Type of an SPDX short identifier (e.g. "MIT", "Apache-2.0")
+export type SpdxLicenseId = string;
 
 // Curated subset of SPDX IDs most relevant to open-source scientific / comp-chem
 // software, used to populate the predefined options in the submission form
