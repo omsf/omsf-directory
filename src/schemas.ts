@@ -21,6 +21,9 @@ export const languageTags = ["Python", "C++", "Fortran", "Rust", "Julia", "R"];
 // adds an AI-training restriction not present in any SPDX identifier.
 const NON_SPDX_SENTINELS = ["Proprietary", "Non-AI"] as const;
 
+// Precompute a Set for O(1) SPDX ID lookups instead of O(n) Array.includes().
+const SPDX_ID_SET = new Set(ALL_SPDX_IDS);
+
 // If the licenses array contains any known non-SPDX sentinel, SPDX
 // validation is skipped for the entire array — any strings are accepted.
 // Otherwise every entry must be a valid SPDX short identifier or a
@@ -32,7 +35,7 @@ const licensesArray = z
     if (NON_SPDX_SENTINELS.some((s) => licenses.includes(s))) return;
     for (const license of licenses) {
       if (
-        !ALL_SPDX_IDS.includes(license) &&
+        !SPDX_ID_SET.has(license) &&
         !license.startsWith("LicenseRef-")
       ) {
         ctx.addIssue({
