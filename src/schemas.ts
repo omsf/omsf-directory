@@ -34,10 +34,7 @@ const licensesArray = z
   .superRefine((licenses, ctx) => {
     if (NON_SPDX_SENTINELS.some((s) => licenses.includes(s))) return;
     for (const license of licenses) {
-      if (
-        !SPDX_ID_SET.has(license) &&
-        !license.startsWith("LicenseRef-")
-      ) {
+      if (!SPDX_ID_SET.has(license) && !license.startsWith("LicenseRef-")) {
         ctx.addIssue({
           code: "custom",
           message: `"${license}" is not a valid SPDX identifier or LicenseRef- prefixed string`,
