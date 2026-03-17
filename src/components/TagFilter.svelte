@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { SvelteURLSearchParams } from "svelte/reactivity";
+  import { dedupeCaseInsensitive } from "../lib/utils/tagNormalization";
   import { type SoftwareSchema } from "../schemas";
   import Bubble from "./Bubble.svelte";
   import Card from "./Card.svelte";
@@ -11,13 +12,24 @@
     allTags: string[];
   }
   const { items, allTags }: Props = $props();
+  const toDisplayLicense = (license: string): string => {
+    if (license.startsWith("LicenseRef-")) {
+      return "Custom";
+    }
+
+    return license;
+  };
+
   const languageTags = [...new Set(items.flatMap((item) => item.languages))];
-  const licenses = [...new Set(items.flatMap((item) => item.licenses))].filter(
-    Boolean,
+  const licenses = dedupeCaseInsensitive(
+    items
+      .flatMap((item) => item.licenses)
+      .filter(Boolean)
+      .map((license) => toDisplayLicense(license)),
   );
   // We filter out the "empty" project.
   const projects = [...new Set(items.flatMap((item) => item.project))].filter(
-    (project) => project,
+    (project): project is string => Boolean(project),
   );
   const params = new SvelteURLSearchParams(window.location.search);
 
@@ -67,7 +79,9 @@
     if (urlParams) {
       selectedTags = urlParams.tags;
       selectedLangs = urlParams.langs;
-      selectedLicenses = urlParams.licenses;
+      selectedLicenses = dedupeCaseInsensitive(
+        urlParams.licenses.map((license) => toDisplayLicense(license)),
+      );
       selectedProjects = urlParams.projects;
       omsfFilter = urlParams.omsf;
     }
@@ -109,8 +123,10 @@
 
     if (selectedLicenses.length > 0) {
       filteredItems = filteredItems.filter((tool) =>
-        selectedLicenses.some((license) =>
-          (tool.licenses || []).includes(license),
+        selectedLicenses.some((selectedLicense) =>
+          (tool.licenses || [])
+            .map((license) => toDisplayLicense(license))
+            .includes(selectedLicense),
         ),
       );
     }

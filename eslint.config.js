@@ -7,6 +7,7 @@ import svelteConfig from "./svelte.config.js";
 
 // This is copied and modified from: https://github.com/sveltejs/eslint-plugin-svelte
 export default ts.config(
+  { ignores: ["dist/", "node_modules/", ".astro/"] },
   js.configs.recommended,
   ...ts.configs.recommended,
   ...svelte.configs.recommended,

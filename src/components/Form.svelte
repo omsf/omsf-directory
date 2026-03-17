@@ -1,7 +1,12 @@
 <script lang="ts">
+  import { ALL_SPDX_IDS } from "../lib/spdx";
   import { normalizeFormArrays } from "../lib/utils/tagNormalization";
   import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
-  import { ALL_LICENSES, languageTags, type SoftwareSchema } from "../schemas";
+  import {
+    COMMON_LICENSES,
+    languageTags,
+    type SoftwareSchema,
+  } from "../schemas";
   import Bubble from "./Bubble.svelte";
   import Card from "./Card.svelte";
   import Field from "./Field.svelte";
@@ -23,9 +28,32 @@
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
+  const LICENSE_REF_PREFIX = "LicenseRef-";
+  const spdxCanonicalMap = new Map<string, string>(
+    ALL_SPDX_IDS.map((license) => [license.toLowerCase(), license]),
+  );
   const languageCanonicalMap = new Map<string, string>(
     languageTags.map((language) => [language.toLowerCase(), language]),
   );
+
+  function normalizeLicenseInput(input: string): string {
+    const value = input.trim();
+    if (!value) {
+      return "";
+    }
+
+    if (value.startsWith(LICENSE_REF_PREFIX)) {
+      const customName = value.slice(LICENSE_REF_PREFIX.length).trim();
+      return customName ? `${LICENSE_REF_PREFIX}${customName}` : "";
+    }
+
+    const canonicalSpdx = spdxCanonicalMap.get(value.toLowerCase());
+    if (canonicalSpdx) {
+      return canonicalSpdx;
+    }
+
+    return `${LICENSE_REF_PREFIX}${value}`;
+  }
 
   $effect(() => {
     formData.tags = tags
@@ -115,15 +143,31 @@
       <MultiSelector
         bind:value={formData.licenses}
         name="Licenses"
-        list={ALL_LICENSES}
-        description="Select from predefined licenses or add your own"
+        list={Array.from(COMMON_LICENSES)}
+        description="Enter SPDX IDs; non-SPDX values are converted to LicenseRef-"
         required={true}
-        placeholder="Enter custom license..."
+        placeholder="Enter SPDX or custom license"
         addButtonText="Add"
         predefinedSectionTitle="Select from predefined licenses:"
         customSectionTitle="Add custom license:"
         allowCustom={true}
+        normalizeCustomItem={normalizeLicenseInput}
       ></MultiSelector>
+      <p class="-mt-4 mb-6 text-sm text-gray-500 font-omsf-descriptive">
+        <span class="block"
+          >Example: <code>Proprietary</code> becomes
+          <code>LicenseRef-Proprietary</code></span
+        >
+        <span class="block"
+          >LicenseRef format details:
+          <a
+            href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/"
+            class="underline"
+            target="_blank"
+            rel="noopener noreferrer">SPDX license expressions spec</a
+          ></span
+        >
+      </p>
       <Field
         bind:value={tags}
         type="text"

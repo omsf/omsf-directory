@@ -1,7 +1,7 @@
 name: "GROMACS"
 description: "A free and open-source software suite for high-performance molecular dynamics simulations and trajectory analysis."
 licenses:
-  - "LGPL"
+  - LGPL-2.1-only
 repository: "https://gitlab.com/gromacs/gromacs"
 tags:
   - "Molecular Dynamics"

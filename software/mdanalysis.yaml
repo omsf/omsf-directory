@@ -8,7 +8,7 @@ languages:
 link: https://www.mdanalysis.org/
 docs: https://docs.mdanalysis.org/stable/index.html
 licenses:
-  - LGPL
+  - LGPL-2.1-or-later
 tags:
   - Molecular Dynamics Analysis
   - Trajectory Analysis

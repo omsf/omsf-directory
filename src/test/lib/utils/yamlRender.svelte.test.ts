@@ -43,7 +43,7 @@ test("complete form", () => {
   const formData: SoftwareSchema = {
     name: "OpenAwesome",
     description: "An awesome comp chem tool",
-    licenses: ["MIT", "BSD-3"],
+    licenses: ["MIT", "BSD-3-Clause"],
     tags: ["1", "2", "3"],
     docs: "https://docs.org",
     link: "https://project.org",
@@ -58,7 +58,7 @@ repository: https://github.com/test/test
 languages:\n  - Python\n  - C++
 link: https://project.org
 docs: https://docs.org
-licenses:\n  - MIT\n  - BSD-3
+licenses:\n  - MIT\n  - BSD-3-Clause
 tags:\n  - 1\n  - 2\n  - 3\n`;
   expect(out).toEqual(expected);
 });
@@ -83,7 +83,7 @@ test("valid complete form", () => {
   const formData: SoftwareSchema = {
     name: "OpenAwesome",
     description: "An awesome comp chem tool",
-    licenses: ["MIT", "BSD-3"],
+    licenses: ["MIT", "BSD-3-Clause"],
     tags: ["1", "2", "3"],
     docs: "https://docs.org",
     link: "https://project.org",
