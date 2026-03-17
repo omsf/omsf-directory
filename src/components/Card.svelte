@@ -18,9 +18,16 @@
     repository = "",
   }: Partial<SoftwareSchema> = $props();
   const SOFT_BREAK = "\u200b";
+  const LICENSE_REF_PREFIX = "LicenseRef-";
+
   const toDisplayLicense = (license: string): string => {
-    if (license.startsWith("LicenseRef-")) {
-      return "Custom";
+    if (license.startsWith(LICENSE_REF_PREFIX)) {
+      const customName = license.slice(LICENSE_REF_PREFIX.length).trim();
+      if (!customName) {
+        return "Custom";
+      }
+
+      return `${customName} (Custom)`;
     }
 
     return license;
