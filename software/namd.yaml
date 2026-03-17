@@ -3,7 +3,6 @@ description: High-performance parallel molecular dynamics program for large-scal
 docs: https://www.ks.uiuc.edu/Research/namd/current/ug.pdf
 licenses:
   - LicenseRef-NCSA
-  - LicenseRef-Proprietary
 link: https://www.ks.uiuc.edu/Research/namd
 repository: https://gitlab.com/tcbgUIUC/namd
 tags:
