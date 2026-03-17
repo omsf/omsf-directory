@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { buildDisplayTags } from "../lib/utils/tagNormalization";
+  import {
+    buildDisplayTags,
+    dedupeCaseInsensitive,
+  } from "../lib/utils/tagNormalization";
   import { languageTags, type SoftwareSchema } from "../schemas";
   import Logo from "./Logo.svg.svelte";
 
@@ -15,6 +18,14 @@
     repository = "",
   }: Partial<SoftwareSchema> = $props();
   const SOFT_BREAK = "\u200b";
+  const toDisplayLicense = (license: string): string => {
+    if (license.startsWith("LicenseRef-")) {
+      return "Custom";
+    }
+
+    return license;
+  };
+
   const addTitleBreaks = (value: string): string =>
     value
       // Prefer technical boundaries first.
@@ -31,6 +42,9 @@
   let displayName = $derived(addTitleBreaks(name || ""));
   let allTags = $derived(
     buildDisplayTags(tags, languages, languageCanonicalMap),
+  );
+  let displayLicenses = $derived(
+    dedupeCaseInsensitive(licenses.map((license) => toDisplayLicense(license))),
   );
 </script>
 
@@ -64,16 +78,16 @@
       {#if link}<a href={link} class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
-      {#if licenses.length === 1}
+      {#if displayLicenses.length === 1}
         License:
       {:else}
         Licenses:
       {/if}
-      {#each licenses as license, index (license)}
+      {#each displayLicenses as license, index (license)}
         {#if index > 0}
           •
         {/if}
-        {license.concat([" "])}
+        {license}
       {/each}
     </div>
     <p class="font-omsf-descriptive text-base text-gray-700 line-clamp-6">

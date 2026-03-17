@@ -6,12 +6,20 @@ export const GET: APIRoute = async () => {
   let markdownContent = "# OMSF Software Collection\n\n";
 
   for (const item of software) {
+    const displayLicenses = [
+      ...new Set(
+        item.data.licenses.map((license: string) =>
+          license.startsWith("LicenseRef-") ? "Custom" : license,
+        ),
+      ),
+    ];
+
     markdownContent += `## ${item.data.name}\n\n`;
     markdownContent += `${item.data.description}\n\n`;
     if (item.data.docs) {
       markdownContent += `- **Docs:** [${item.data.docs}](${item.data.docs})\n`;
     }
-    markdownContent += `- **Licenses:** ${item.data.licenses.join(", ")}\n`;
+    markdownContent += `- **Licenses:** ${displayLicenses.join(", ")}\n`;
     if (item.data.link) {
       markdownContent += `- **Link:** [${item.data.link}](${item.data.link})\n`;
     }

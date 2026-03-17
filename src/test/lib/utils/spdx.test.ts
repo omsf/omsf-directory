@@ -71,28 +71,33 @@ test("schema accepts a LicenseRef- prefixed custom identifier", () => {
 test("schema accepts multiple mixed valid licenses", () => {
   const result = SoftwareSchemaObject.safeParse({
     ...baseEntry,
-    licenses: ["MIT", "LGPL-2.1-or-later", "LicenseRef-Proprietary"],
+    licenses: [
+      "MIT",
+      "LGPL-2.1-or-later",
+      "LicenseRef-BSD-3-Clause-NonAI",
+      "LicenseRef-Proprietary",
+    ],
   });
   expect(result.success).toBe(true);
 });
 
-test("schema accepts 'Proprietary' and skips SPDX validation for the whole array", () => {
+test("schema rejects a bare 'Proprietary' value", () => {
   const result = SoftwareSchemaObject.safeParse({
     ...baseEntry,
-    licenses: ["Proprietary", "University of Illinois/NCSA Open Source"],
+    licenses: ["Proprietary"],
   });
-  expect(result.success).toBe(true);
+  expect(result.success).toBe(false);
 });
 
-test("schema accepts 'Non-AI' and skips SPDX validation for the whole array", () => {
+test("schema rejects a bare 'Non-AI' value", () => {
   const result = SoftwareSchemaObject.safeParse({
     ...baseEntry,
     licenses: ["BSD-3-Clause", "Non-AI"],
   });
-  expect(result.success).toBe(true);
+  expect(result.success).toBe(false);
 });
 
-test("schema rejects an arbitrary non-SPDX string when 'Proprietary' is absent", () => {
+test("schema rejects an arbitrary non-SPDX string without LicenseRef-", () => {
   const result = SoftwareSchemaObject.safeParse({
     ...baseEntry,
     licenses: ["not-a-real-license"],

@@ -120,14 +120,29 @@
         bind:value={formData.licenses}
         name="Licenses"
         list={Array.from(COMMON_LICENSES)}
-        description="Select from predefined licenses or add your own"
+        description="Select SPDX licenses or add custom LicenseRef- identifiers"
         required={true}
-        placeholder="Enter custom license..."
+        placeholder="Enter custom LicenseRef-..."
         addButtonText="Add"
         predefinedSectionTitle="Select from predefined licenses:"
         customSectionTitle="Add custom license:"
         allowCustom={true}
       ></MultiSelector>
+      <p class="-mt-4 mb-6 text-sm text-gray-500 font-omsf-descriptive">
+        <span class="block"
+          >Example custom license:
+          <code>LicenseRef-BSD-3-Clause-NonAI</code></span
+        >
+        <span class="block"
+          >LicenseRef format details:
+          <a
+            href="https://spdx.github.io/spdx-spec/v2.3/SPDX-license-expressions/"
+            class="underline"
+            target="_blank"
+            rel="noopener noreferrer">SPDX license expressions spec</a
+          ></span
+        >
+      </p>
       <Field
         bind:value={tags}
         type="text"
