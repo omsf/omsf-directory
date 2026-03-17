@@ -47,11 +47,7 @@
     const normalized = normalizeCustomItem
       ? normalizeCustomItem(trimmed)
       : trimmed;
-    if (
-      normalized &&
-      !value.includes(normalized) &&
-      !list.includes(normalized)
-    ) {
+    if (normalized && !value.includes(normalized)) {
       value = [...value, normalized];
       customInput = "";
     }
