@@ -13,6 +13,7 @@
     customSectionTitle?: string;
     allowCustom?: boolean;
     maxHeight?: string;
+    normalizeCustomItem?: (item: string) => string;
   }
 
   let {
@@ -27,6 +28,7 @@
     customSectionTitle = `Add custom ${name.toLowerCase().slice(0, -1)}:`,
     allowCustom = true,
     maxHeight = "10rem",
+    normalizeCustomItem,
   }: Props = $props();
 
   const lowerName = name.toLowerCase();
@@ -42,8 +44,15 @@
 
   function addCustomItem() {
     const trimmed = customInput.trim();
-    if (trimmed && !value.includes(trimmed) && !list.includes(trimmed)) {
-      value = [...value, trimmed];
+    const normalized = normalizeCustomItem
+      ? normalizeCustomItem(trimmed)
+      : trimmed;
+    if (
+      normalized &&
+      !value.includes(normalized) &&
+      !list.includes(normalized)
+    ) {
+      value = [...value, normalized];
       customInput = "";
     }
   }

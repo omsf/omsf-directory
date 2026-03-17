@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { ALL_SPDX_IDS } from "../lib/spdx";
   import { normalizeFormArrays } from "../lib/utils/tagNormalization";
   import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
   import {
@@ -27,9 +28,32 @@
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
+  const LICENSE_REF_PREFIX = "LicenseRef-";
+  const spdxCanonicalMap = new Map<string, string>(
+    ALL_SPDX_IDS.map((license) => [license.toLowerCase(), license]),
+  );
   const languageCanonicalMap = new Map<string, string>(
     languageTags.map((language) => [language.toLowerCase(), language]),
   );
+
+  function normalizeLicenseInput(input: string): string {
+    const value = input.trim();
+    if (!value) {
+      return "";
+    }
+
+    if (value.startsWith(LICENSE_REF_PREFIX)) {
+      const customName = value.slice(LICENSE_REF_PREFIX.length).trim();
+      return customName ? `${LICENSE_REF_PREFIX}${customName}` : "";
+    }
+
+    const canonicalSpdx = spdxCanonicalMap.get(value.toLowerCase());
+    if (canonicalSpdx) {
+      return canonicalSpdx;
+    }
+
+    return `${LICENSE_REF_PREFIX}${value}`;
+  }
 
   $effect(() => {
     formData.tags = tags
@@ -120,18 +144,19 @@
         bind:value={formData.licenses}
         name="Licenses"
         list={Array.from(COMMON_LICENSES)}
-        description="Select SPDX licenses or add custom LicenseRef- identifiers"
+        description="Enter SPDX IDs; non-SPDX values are converted to LicenseRef-"
         required={true}
-        placeholder="Enter custom LicenseRef-..."
+        placeholder="Enter SPDX or custom license"
         addButtonText="Add"
         predefinedSectionTitle="Select from predefined licenses:"
         customSectionTitle="Add custom license:"
         allowCustom={true}
+        normalizeCustomItem={normalizeLicenseInput}
       ></MultiSelector>
       <p class="-mt-4 mb-6 text-sm text-gray-500 font-omsf-descriptive">
         <span class="block"
-          >Example custom license:
-          <code>LicenseRef-BSD-3-Clause-NonAI</code></span
+          >Example: <code>Proprietary</code> becomes
+          <code>LicenseRef-Proprietary</code></span
         >
         <span class="block"
           >LicenseRef format details:
