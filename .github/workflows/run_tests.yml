@@ -18,7 +18,7 @@ jobs:
       - name: Install packages
         run: npm ci
       - name: Run tests
-        run: npm test
+        run: npx vitest run
   lint:
     name: Run linter
     runs-on: ubuntu-latest
