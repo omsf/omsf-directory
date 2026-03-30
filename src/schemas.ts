@@ -1,4 +1,5 @@
-import { z } from "zod/v4";
+// import { z } from "zod/v4";
+import { z } from "astro/zod";
 import { ALL_SPDX_IDS, COMMON_LICENSES } from "./lib/spdx";
 
 export const ALL_OMSF_PROJECTS = [
