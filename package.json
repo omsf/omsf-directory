@@ -24,7 +24,7 @@
     "spdx-license-ids": "^3.0.23",
     "svelte": "^5.55.4",
     "tailwindcss": "^4.1.14",
-    "typescript": "^6.0.3"
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.16.6",
@@ -39,5 +39,8 @@
     "prettier-plugin-svelte": "3.5.1",
     "typescript-eslint": "^8.59.0",
     "vitest": "^4.1.4"
+  },
+  "overrides": {
+    "yaml-language-server": "1.22.0"
   }
 }
