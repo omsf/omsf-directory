@@ -14,15 +14,15 @@
   "dependencies": {
     "@astrojs/check": "^0.9.9",
     "@astrojs/svelte": "8.1.1",
-    "@astrojs/ts-plugin": "^1.10.8",
+    "@astrojs/ts-plugin": "^1.10.9",
     "@fontsource-variable/source-code-pro": "^5.2.7",
     "@fontsource/anonymous-pro": "^5.2.8",
     "@fontsource/barlow": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
-    "astro": "6.3.3",
+    "astro": "6.3.5",
     "astro-matomo": "^1.9.0",
     "spdx-license-ids": "^3.0.23",
-    "svelte": "^5.55.7",
+    "svelte": "^5.55.8",
     "tailwindcss": "^4.1.14",
     "typescript": "^6.0.3"
   },
