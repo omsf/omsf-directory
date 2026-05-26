@@ -39,8 +39,5 @@
     "prettier-plugin-svelte": "4.0.1",
     "typescript-eslint": "^8.60.0",
     "vitest": "^4.1.7"
-  },
-  "overrides": {
-    "yaml-language-server": "1.22.0"
   }
 }
