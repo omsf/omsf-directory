@@ -29,16 +29,16 @@
   "devDependencies": {
     "@astrojs/language-server": "^2.16.9",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.59.4",
+    "@typescript-eslint/parser": "^8.60.0",
     "eslint": "^10.4.0",
     "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-svelte": "^3.17.1",
     "globals": "^17.6.0",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-svelte": "3.5.2",
-    "typescript-eslint": "^8.59.4",
-    "vitest": "^4.1.6"
+    "prettier-plugin-svelte": "4.0.1",
+    "typescript-eslint": "^8.60.0",
+    "vitest": "^4.1.7"
   },
   "overrides": {
     "yaml-language-server": "1.22.0"
