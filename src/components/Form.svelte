@@ -1,7 +1,7 @@
 <script lang="ts">
   import { ALL_SPDX_IDS } from "../lib/spdx";
   import { normalizeFormArrays } from "../lib/utils/tagNormalization";
-  import { isValid, renderYaml } from "../lib/utils/yamlRender.svelte";
+  import { renderYaml, validateForm } from "../lib/utils/yamlRender.svelte";
   import {
     COMMON_LICENSES,
     languageTags,
@@ -24,7 +24,8 @@
     repository: "",
   } as SoftwareSchema);
   // Form validation using $derived
-  let isFormValid = $derived(isValid(formData));
+  let validation = $derived(validateForm(formData));
+  let isFormValid = $derived(validation.isValid);
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
@@ -107,6 +108,7 @@
         required
         placeholder="Software Name"
         description="Enter the name of the software"
+        error={validation.fieldErrors.name?.[0]}
       ></Field>
       <Field
         bind:value={formData.description}
@@ -115,6 +117,7 @@
         required
         placeholder="Short Description"
         description="A simple description"
+        error={validation.fieldErrors.description?.[0]}
       ></Field>
       <Field
         bind:value={formData.repository}
@@ -123,6 +126,7 @@
         required
         placeholder="https://..."
         description="The project's main repository"
+        error={validation.fieldErrors.repository?.[0]}
       ></Field>
       <Field
         bind:value={formData.link}
@@ -131,6 +135,7 @@
         required={false}
         placeholder="https://..."
         description="The project's main url"
+        error={validation.fieldErrors.link?.[0]}
       ></Field>
       <Field
         bind:value={formData.docs}
@@ -139,6 +144,7 @@
         required={false}
         placeholder="https://..."
         description="The project's main documentation"
+        error={validation.fieldErrors.docs?.[0]}
       ></Field>
       <MultiSelector
         bind:value={formData.licenses}
@@ -152,6 +158,7 @@
         customSectionTitle="Add custom license:"
         allowCustom={true}
         normalizeCustomItem={normalizeLicenseInput}
+        error={validation.fieldErrors.licenses?.[0]}
       ></MultiSelector>
       <p class="-mt-4 mb-6 text-sm text-gray-500 font-omsf-descriptive">
         <span class="block"
@@ -175,6 +182,7 @@
         required={false}
         placeholder="tag1,tag2,tag3"
         description="A comma-seperated lists of tags"
+        error={validation.fieldErrors.tags?.[0]}
       ></Field>
       <MultiSelector
         bind:value={formData.languages}
@@ -187,6 +195,7 @@
         predefinedSectionTitle="Select from predefined languages:"
         customSectionTitle="Add custom language:"
         allowCustom={true}
+        error={validation.fieldErrors.languages?.[0]}
       ></MultiSelector>
     </div>
 
