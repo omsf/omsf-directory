@@ -35,13 +35,17 @@ const licensesArray = z
     }
   });
 
+const strictUrl = z.url().refine((url) => /^https?:\/\//.test(url), {
+  message: "URL must start with http:// or https://",
+});
+
 export const SoftwareSchemaObject = z.object({
   name: z.string(),
   description: z.string(),
-  docs: z.optional(z.url()),
+  docs: z.optional(strictUrl),
   licenses: licensesArray,
-  link: z.optional(z.url()),
-  repository: z.url(),
+  link: z.optional(strictUrl),
+  repository: strictUrl,
   tags: z.array(z.string()).min(1),
   languages: z.array(z.string()).min(1),
   project: z.optional(omsfProjects),

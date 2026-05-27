@@ -1,5 +1,9 @@
 import { expect, test } from "vitest";
-import { isValid, renderYaml } from "../../../lib/utils/yamlRender.svelte";
+import {
+  isValid,
+  renderYaml,
+  validateForm,
+} from "../../../lib/utils/yamlRender.svelte";
 import type { SoftwareSchema } from "../../../schemas";
 
 test("empty form", () => {
@@ -110,3 +114,25 @@ test("partially valid form", () => {
   const out = isValid(formData);
   expect(out).toBe(true);
 });
+
+test.each(["https:://github.com/test/test", "http:/lol.com"])(
+  "validateForm returns field errors for invalid repository URL %s",
+  (repository) => {
+    const formData: SoftwareSchema = {
+      name: "OpenAwesome",
+      description: "An awesome comp chem tool",
+      licenses: ["MIT"],
+      tags: ["1", "2"],
+      docs: undefined,
+      link: undefined,
+      languages: ["Python"],
+      project: undefined,
+      repository,
+    };
+
+    const validation = validateForm(formData);
+
+    expect(validation.isValid).toBe(false);
+    expect(validation.fieldErrors.repository?.length).toBeGreaterThan(0);
+  },
+);
