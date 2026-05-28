@@ -1,5 +1,14 @@
 import { type SoftwareSchema, SoftwareSchemaObject } from "../../schemas";
 
+export function validateForm(formData: SoftwareSchema) {
+  const result = SoftwareSchemaObject.safeParse(formData);
+
+  return {
+    isValid: result.success,
+    fieldErrors: result.success ? {} : result.error.flatten().fieldErrors,
+  };
+}
+
 export function renderYaml(formData: SoftwareSchema): string {
   let output = "";
 
@@ -24,8 +33,5 @@ export function renderYaml(formData: SoftwareSchema): string {
 }
 
 export function isValid(formData: SoftwareSchema): boolean {
-  return (
-    SoftwareSchemaObject.safeParse(formData).success &&
-    formData.languages.length > 0
-  );
+  return validateForm(formData).isValid;
 }

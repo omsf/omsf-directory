@@ -14,6 +14,7 @@
     allowCustom?: boolean;
     maxHeight?: string;
     normalizeCustomItem?: (item: string) => string;
+    error?: string;
   }
 
   let {
@@ -29,12 +30,17 @@
     allowCustom = true,
     maxHeight = "10rem",
     normalizeCustomItem,
+    error,
   }: Props = $props();
 
   const lowerName = name.toLowerCase();
+  const errorId = `${lowerName}-error`;
   let customInput = $state("");
+  let hasInteracted = $state(false);
+  let showError = $derived(Boolean(error && hasInteracted));
 
   function togglePredefinedItem(item: string) {
+    hasInteracted = true;
     if (value.includes(item)) {
       value = value.filter((v) => v !== item);
     } else {
@@ -43,6 +49,7 @@
   }
 
   function addCustomItem() {
+    hasInteracted = true;
     const trimmed = customInput.trim();
     const normalized = normalizeCustomItem
       ? normalizeCustomItem(trimmed)
@@ -54,6 +61,7 @@
   }
 
   function removeItem(item: string) {
+    hasInteracted = true;
     value = value.filter((v) => v !== item);
   }
 </script>
@@ -70,8 +78,12 @@
       {predefinedSectionTitle}
     </h4>
     <div
-      class="border border-gray-300 rounded-md p-3 space-y-2 overflow-y-auto"
+      class={`border rounded-md p-3 space-y-2 overflow-y-auto ${
+        showError ? "border-red-500" : "border-gray-300"
+      }`}
       style="max-height: {maxHeight}"
+      aria-invalid={showError}
+      aria-describedby={showError ? errorId : undefined}
     >
       {#each list as item (item)}
         <label
@@ -134,6 +146,12 @@
         </span>
       {/each}
     </div>
+  {/if}
+
+  {#if showError}
+    <p id={errorId} class="mt-1 text-sm text-red-600 font-omsf-descriptive">
+      {error}
+    </p>
   {/if}
 
   {#if description}
