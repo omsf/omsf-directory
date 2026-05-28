@@ -115,8 +115,8 @@ test("partially valid form", () => {
   expect(out).toBe(true);
 });
 
-test.each(["https:://github.com/test/test", "http:/lol.com"])(
-  "validateForm returns field errors for invalid repository URL %s",
+test.each(["foo.com", "https:://github.com/test/test", "http:/lol.com"])(
+  "validateForm prioritizes the URL prefix error for repository URL %s",
   (repository) => {
     const formData: SoftwareSchema = {
       name: "OpenAwesome",
@@ -133,6 +133,8 @@ test.each(["https:://github.com/test/test", "http:/lol.com"])(
     const validation = validateForm(formData);
 
     expect(validation.isValid).toBe(false);
-    expect(validation.fieldErrors.repository?.length).toBeGreaterThan(0);
+    expect(validation.fieldErrors.repository).toEqual([
+      "URL must start with http:// or https://",
+    ]);
   },
 );

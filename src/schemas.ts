@@ -35,9 +35,12 @@ const licensesArray = z
     }
   });
 
-const strictUrl = z.url().refine((url) => /^https?:\/\//.test(url), {
-  message: "URL must start with http:// or https://",
-});
+const strictUrl = z
+  .string()
+  .refine((url) => /^https?:\/\//.test(url), {
+    message: "URL must start with http:// or https://",
+  })
+  .pipe(z.url());
 
 export const SoftwareSchemaObject = z.object({
   name: z.string(),
