@@ -67,19 +67,35 @@
   const updateURL = () => {
     if (typeof window === "undefined") return;
 
-    selectedTags.length > 0
-      ? params.set("tags", selectedTags.join(","))
-      : params.delete("tags");
-    selectedLangs.length > 0
-      ? params.set("langs", selectedLangs.join(","))
-      : params.delete("langs");
-    selectedLicenses.length > 0
-      ? params.set("licenses", selectedLicenses.join(","))
-      : params.delete("licenses");
-    selectedProjects.length > 0
-      ? params.set("projects", selectedProjects.join(","))
-      : params.delete("projects");
-    omsfFilter ? params.set("omsf", "true") : params.delete("omsf");
+    if (selectedTags.length > 0) {
+      params.set("tags", selectedTags.join(","));
+    } else {
+      params.delete("tags");
+    }
+
+    if (selectedLangs.length > 0) {
+      params.set("langs", selectedLangs.join(","));
+    } else {
+      params.delete("langs");
+    }
+
+    if (selectedLicenses.length > 0) {
+      params.set("licenses", selectedLicenses.join(","));
+    } else {
+      params.delete("licenses");
+    }
+
+    if (selectedProjects.length > 0) {
+      params.set("projects", selectedProjects.join(","));
+    } else {
+      params.delete("projects");
+    }
+
+    if (omsfFilter) {
+      params.set("omsf", "true");
+    } else {
+      params.delete("omsf");
+    }
 
     const newURL = params.toString()
       ? `${window.location.pathname}?${params.toString()}`
