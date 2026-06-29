@@ -19,8 +19,8 @@
     error,
   }: Props = $props();
 
-  const inputId = name.toLowerCase().replaceAll(" ", "-");
-  const errorId = `${inputId}-error`;
+  let inputId = $derived(name.toLowerCase().replaceAll(" ", "-"));
+  let errorId = $derived(`${inputId}-error`);
   let showError = $derived(Boolean(error && String(value ?? "").trim()));
 </script>
 

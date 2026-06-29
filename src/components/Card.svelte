@@ -74,15 +74,17 @@
     <div
       class="font-regular font-omsf-subheading font-light lg:text-base text-sm"
     >
-      {#if repository}<a href={repository} class="underline">Repo</a>{/if}
+      {#if repository}<a href={repository} rel="external" class="underline"
+          >Repo</a
+        >{/if}
       {#if repository && docs}
         •
       {/if}
-      {#if docs}<a href={docs} class="underline">Docs</a>{/if}
+      {#if docs}<a href={docs} rel="external" class="underline">Docs</a>{/if}
       {#if (repository || docs) && link}
         •
       {/if}
-      {#if link}<a href={link} class="underline">Website</a>{/if}
+      {#if link}<a href={link} rel="external" class="underline">Website</a>{/if}
     </div>
     <div class="font-regular font-omsf-subheading font-extralight mb-2 text-sm">
       {#if displayLicenses.length === 1}

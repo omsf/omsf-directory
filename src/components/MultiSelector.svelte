@@ -33,8 +33,8 @@
     error,
   }: Props = $props();
 
-  const lowerName = name.toLowerCase();
-  const errorId = `${lowerName}-error`;
+  let lowerName = $derived(name.toLowerCase());
+  let errorId = $derived(`${lowerName}-error`);
   let customInput = $state("");
   let hasInteracted = $state(false);
   let showError = $derived(Boolean(error && hasInteracted));
