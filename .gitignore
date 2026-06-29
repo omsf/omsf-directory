@@ -1,7 +1,10 @@
 # build output
 dist/
-# generated types
-.astro/
+build/
+
+# generated files
+.svelte-kit/
+.content-collections/
 
 # dependencies
 node_modules/

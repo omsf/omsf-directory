@@ -10,9 +10,8 @@ Create a PR with the file you create and an example site will be generated in CI
 
 ## Software Used
 
-This site is built using [Astro](https://astro.build) and [Svelte](https://svelte.dev).
-This allows for us to build a dynamic site that functions like a static site.
-Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles. Additionally, we are using NPM to manage our packages,
+This site is built using [SvelteKit](https://svelte.dev/docs/kit) and [Content Collections](https://www.content-collections.dev/) to generate a static directory from YAML content.
+Additionally, we are using [TailwindCSS](https://tailwindcss.com) to handle our styles, NPM to manage packages,
 [ESLint](https://eslint.org/) for linting, and [prettier](https://prettier.io/) for formatting.
 
 ## Repo Breakdown
@@ -24,25 +23,24 @@ omsf-directory/
 ├── public/                # Static assets (favicon, etc.)
 ├── software/              # YAML files defining software projects
 │   └── *.yaml
-├── src/                   # Source code for the Astro site
+├── src/                   # Source code for the SvelteKit site
 │   ├── assets/           # Images, icons, and other assets
-│   ├── components/       # Svelte/Astro components
-│   ├── layouts/          # Page layout templates
+│   ├── components/       # Svelte components
 │   ├── lib/              # Utility functions and shared code
+│   │   ├── server/       # Server-only content helpers
 │   │   └── utils/        # Utility functions
-│   ├── pages/            # Astro pages (routes)
+│   ├── routes/           # SvelteKit pages and endpoints
 │   ├── styles/           # CSS and styling files
 │   ├── test/             # Test files
-│   ├── content.config.ts # Content collection configuration
 │   └── schemas.ts        # TypeScript schemas
 ├── workflows/             # YAML files defining workflow projects
 │   └── *.yaml
-├── astro.config.mjs       # Astro configuration
+├── content-collections.ts # Content Collections configuration
 ├── eslint.config.js       # ESLint config
-├── bun.lock              # Bun lockfile
 ├── package.json          # Node.js project configuration
 ├── README.md             # This file
-├── svelte.config.js      # Svelte configuration
+├── svelte.config.js      # SvelteKit/Svelte configuration
+├── vite.config.ts        # Vite configuration
 └── tsconfig.json         # TypeScript configuration
 ```
 
@@ -50,7 +48,7 @@ omsf-directory/
 
 - **`software/`** - Contains YAML files that define each software project in the directory
 - **`workflows/`** - Contains YAML files that define workflow projects
-- **`src/`** - Main source code for the Astro website
+- **`src/`** - Main source code for the SvelteKit website
 - **`public/`** - Static assets served directly by the web server
 - **`.github/workflows/`** - CI/CD pipeline definitions for automated builds and deployments
 

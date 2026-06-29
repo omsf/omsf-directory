@@ -1,6 +1,6 @@
 // Read the SPDX identifier list directly from the package's JSON file so we
 // don't need a module declaration — the package ships only JSON, no .js entry
-import rawIds from "spdx-license-ids/index.json";
+import rawIds from "spdx-license-ids/index.json" with { type: "json" };
 
 // Cast to a readonly array of strings representing all SPDX license identifiers
 // as provided by the spdx-license-ids package.

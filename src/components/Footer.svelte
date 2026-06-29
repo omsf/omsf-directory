@@ -1,18 +1,11 @@
----
-import { Image } from "astro:assets";
-import nsfLogo from "../assets/NSF_Official_logo_High_Res_1200ppi.png";
----
+<script lang="ts">
+  import nsfLogoUrl from "../assets/NSF_Official_logo_High_Res_1200ppi.png?url";
+</script>
 
 <footer class="flex justify-center py-8">
   <div class="flex flex-wrap items-center justify-center gap-4 w-sm">
-    <!-- 1) keep logo its own size -->
-    <Image src={nsfLogo} alt="NSF Logo" width="100" class="flex-shrink-0" />
+    <img src={nsfLogoUrl} alt="NSF Logo" width="100" class="flex-shrink-0" />
 
-    <!-- 2) text block: 
-         - flex-1 to fill remaining space 
-         - min-w-0 so it can shrink past its content-minimum 
-         - max-w-md (or lg/xl) to cap its width 
-         - break-words so it actually wraps at spaces -->
     <div
       class="flex-1 min-w-0 max-w-lg break-words font-omsf-descriptive text-base text-gray-700"
     >

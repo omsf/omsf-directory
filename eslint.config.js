@@ -1,4 +1,3 @@
-import eslintPluginAstro from "eslint-plugin-astro";
 import js from "@eslint/js";
 import svelte from "eslint-plugin-svelte";
 import globals from "globals";
@@ -7,11 +6,10 @@ import svelteConfig from "./svelte.config.js";
 
 // This is copied and modified from: https://github.com/sveltejs/eslint-plugin-svelte
 export default ts.config(
-  { ignores: ["dist/", "node_modules/", ".astro/"] },
+  { ignores: ["dist/", "build/", "node_modules/", ".svelte-kit/"] },
   js.configs.recommended,
   ...ts.configs.recommended,
   ...svelte.configs.recommended,
-  ...eslintPluginAstro.configs.recommended,
   {
     languageOptions: {
       globals: {

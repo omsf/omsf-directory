@@ -20,18 +20,26 @@
     return license;
   };
 
-  const languageTags = [...new Set(items.flatMap((item) => item.languages))];
-  const licenses = dedupeCaseInsensitive(
-    items
-      .flatMap((item) => item.licenses)
-      .filter(Boolean)
-      .map((license) => toDisplayLicense(license)),
+  const languageTags = $derived([
+    ...new Set(items.flatMap((item) => item.languages)),
+  ]);
+  const licenses = $derived(
+    dedupeCaseInsensitive(
+      items
+        .flatMap((item) => item.licenses)
+        .filter(Boolean)
+        .map((license) => toDisplayLicense(license)),
+    ),
   );
   // We filter out the "empty" project.
-  const projects = [...new Set(items.flatMap((item) => item.project))].filter(
-    (project): project is string => Boolean(project),
+  const projects = $derived(
+    [...new Set(items.flatMap((item) => item.project))].filter(
+      (project): project is string => Boolean(project),
+    ),
   );
-  const params = new SvelteURLSearchParams(window.location.search);
+  const params = new SvelteURLSearchParams(
+    typeof window === "undefined" ? "" : window.location.search,
+  );
 
   let selectedTags = $state([] as string[]);
   let selectedLangs = $state([] as string[]);
@@ -59,13 +67,19 @@
   const updateURL = () => {
     if (typeof window === "undefined") return;
 
-    if (selectedTags.length > 0) params.set("tags", selectedTags.join(","));
-    if (selectedLangs.length > 0) params.set("langs", selectedLangs.join(","));
-    if (selectedLicenses.length > 0)
-      params.set("licenses", selectedLicenses.join(","));
-    if (selectedProjects.length > 0)
-      params.set("projects", selectedProjects.join(","));
-    if (omsfFilter) params.set("omsf", "true");
+    selectedTags.length > 0
+      ? params.set("tags", selectedTags.join(","))
+      : params.delete("tags");
+    selectedLangs.length > 0
+      ? params.set("langs", selectedLangs.join(","))
+      : params.delete("langs");
+    selectedLicenses.length > 0
+      ? params.set("licenses", selectedLicenses.join(","))
+      : params.delete("licenses");
+    selectedProjects.length > 0
+      ? params.set("projects", selectedProjects.join(","))
+      : params.delete("projects");
+    omsfFilter ? params.set("omsf", "true") : params.delete("omsf");
 
     const newURL = params.toString()
       ? `${window.location.pathname}?${params.toString()}`
