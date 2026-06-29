@@ -6,8 +6,12 @@
     tag: string;
   }
 
-  let { select = false, tag, class: className = "", ...props }: Props =
-    $props();
+  let {
+    select = false,
+    tag,
+    class: className = "",
+    ...props
+  }: Props = $props();
 
   const linkClass = $derived(
     [

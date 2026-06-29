@@ -74,7 +74,9 @@
     <div
       class="font-regular font-omsf-subheading font-light lg:text-base text-sm"
     >
-      {#if repository}<a href={repository} rel="external" class="underline">Repo</a>{/if}
+      {#if repository}<a href={repository} rel="external" class="underline"
+          >Repo</a
+        >{/if}
       {#if repository && docs}
         •
       {/if}

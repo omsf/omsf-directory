@@ -6,7 +6,15 @@ import svelteConfig from "./svelte.config.js";
 
 // This is copied and modified from: https://github.com/sveltejs/eslint-plugin-svelte
 export default ts.config(
-  { ignores: ["dist/", "build/", "node_modules/", ".svelte-kit/", ".content-collections/cache/"] },
+  {
+    ignores: [
+      "dist/",
+      "build/",
+      "node_modules/",
+      ".svelte-kit/",
+      ".content-collections/cache/",
+    ],
+  },
   js.configs.recommended,
   ...ts.configs.recommended,
   ...svelte.configs.recommended,
