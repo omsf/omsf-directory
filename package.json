@@ -18,7 +18,7 @@
     "@fontsource/barlow": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
     "spdx-license-ids": "^3.0.23",
-    "svelte": "^5.56.1",
+    "svelte": "^5.56.3",
     "tailwindcss": "^4.1.14",
     "yaml": "^2.8.2",
     "zod": "^4.2.1"
