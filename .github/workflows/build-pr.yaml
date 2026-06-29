@@ -30,7 +30,7 @@ jobs:
 
       - name: Make artifact
         shell: bash
-        run: tar czf site.tar.gz build
+        run: tar czf site.tar.gz dist
 
       - name: Upload build artifact
         if: ${{ github.event_name != 'schedule' }}
