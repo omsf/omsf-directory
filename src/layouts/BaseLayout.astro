@@ -6,6 +6,7 @@ import "@fontsource/barlow";
 import Header from "../components/Header.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
+import Matomo from "../components/Matomo.astro";
 
 interface Props {
   currentPage: string;
@@ -20,6 +21,7 @@ const { currentPage } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <title>OMSF Directory</title>
+    <Matomo />
   </head>
   <main>
     <body>
@@ -29,6 +31,4 @@ const { currentPage } = Astro.props;
     </body>
   </main>
   <Footer />
-
-
 </html>
