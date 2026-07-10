@@ -10,8 +10,7 @@ docs: https://burrete-landing.vercel.app/docs
 licenses:
   - MIT
 tags:
-  - Molecular Visualization
   - Cheminformatics
   - Structural Biology
   - Molecular Dynamics
-  - Scientific Visualization
+  - Visualization
