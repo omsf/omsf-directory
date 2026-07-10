@@ -1,0 +1,16 @@
+name: Burrete
+description: macOS molecular workspace with Finder Quick Look previews, 3D structures, chemistry grids, and local workflow-artifact inspection.
+repository: https://github.com/SergeiNikolenko/Burrete
+languages:
+  - Rust
+  - TypeScript
+  - Swift
+link: https://burrete-landing.vercel.app/
+docs: https://burrete-landing.vercel.app/docs
+licenses:
+  - MIT
+tags:
+  - Cheminformatics
+  - Structural Biology
+  - Molecular Dynamics
+  - Visualization
