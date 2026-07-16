@@ -29,17 +29,17 @@
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@astrojs/language-server": "^2.16.10",
+    "@astrojs/language-server": "^2.16.11",
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/parser": "^8.62.0",
-    "eslint": "^10.5.0",
-    "eslint-plugin-astro": "^2.1.0",
-    "eslint-plugin-svelte": "^3.19.0",
+    "@typescript-eslint/parser": "^8.63.0",
+    "eslint": "^10.6.0",
+    "eslint-plugin-astro": "^2.1.1",
+    "eslint-plugin-svelte": "^3.20.0",
     "globals": "^17.7.0",
-    "prettier": "3.8.4",
+    "prettier": "3.9.4",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-svelte": "4.1.1",
-    "typescript-eslint": "^8.62.0",
-    "vitest": "^4.1.9"
+    "typescript-eslint": "^8.63.0",
+    "vitest": "^4.1.10"
   }
 }
