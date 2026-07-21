@@ -2,6 +2,9 @@
   "name": "omsf-directory",
   "type": "module",
   "version": "0.0.1",
+  "notes": {
+    "typescript": "Capped below 7 until Astro supports TypeScript 7."
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -26,7 +29,7 @@
     "spdx-license-ids": "^3.0.23",
     "svelte": "^5.56.4",
     "tailwindcss": "^4.1.14",
-    "typescript": "^7.0.2"
+    "typescript": ">=6.0.3 <7"
   },
   "devDependencies": {
     "@astrojs/language-server": "^2.16.11",
