@@ -5,9 +5,9 @@ const cards = (page: Page) => page.getByRole("article");
 test("cards and filter menus appear", async ({ page }) => {
   await page.goto("/");
 
-  await expect(cards(page).first()).toBeVisible();
-  const cardCount = await cards(page).count();
-  expect(cardCount).toBeGreaterThan(0);
+  await expect(
+    page.getByRole("article", { name: "mBuild", exact: true }),
+  ).toBeVisible();
 
   for (const [filter, option] of [
     ["Filters", "Molecular Dynamics"],
