@@ -9,11 +9,20 @@ test("cards and filter menus appear", async ({ page }) => {
   const cardCount = await cards(page).count();
   expect(cardCount).toBeGreaterThan(0);
 
-  for (const filter of ["Filters", "Language", "License", "Project"]) {
-    const countBefore = await page.getByRole("button").count();
-    await page.getByRole("button", { name: new RegExp(`^${filter}`) }).click();
-    expect(await page.getByRole("button").count()).toBeGreaterThan(countBefore);
-    await page.getByRole("button", { name: new RegExp(`^${filter}`) }).click();
+  for (const [filter, option] of [
+    ["Filters", "Molecular Dynamics"],
+    ["Language", "Python"],
+    ["License", "MIT"],
+    ["Project", "Open Force Field"],
+  ]) {
+    const control = page.getByRole("button", {
+      name: new RegExp(`^${filter}`),
+    });
+    const menuOption = page.getByRole("button", { name: option, exact: true });
+    await control.click();
+    await expect(menuOption).toBeVisible();
+    await control.click();
+    await expect(menuOption).toBeHidden();
   }
 });
 
