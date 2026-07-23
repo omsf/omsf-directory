@@ -65,21 +65,36 @@ test("all menu items can be opened", async ({ page }) => {
   await expect(page.getByRole("button", { name: /^Filters/ })).toBeVisible();
 });
 
-test("a complete valid form enables YAML output", async ({ page }) => {
+test("required fields control YAML output", async ({ page }) => {
   await page.goto("/new");
 
-  await page.getByLabel("Name *").fill("Example project");
-  await page
-    .getByLabel("Description *")
-    .fill("A project used to test the directory form.");
-  await page
-    .getByLabel("Repository URL *")
-    .fill("https://github.com/omsf/example");
-  await page.getByLabel("Project URL").fill("https://example.com");
-  await page.getByLabel("Project Docs").fill("https://example.com/docs");
-  await page.getByLabel("MIT").check();
-  await page.getByLabel("Tags *").fill("testing");
-  await page.getByLabel("Python").check();
+  const copyYaml = page.getByRole("button", { name: "Copy YAML" });
+  const requiredTextFields = [
+    [page.getByLabel("Name *"), "Example project"],
+    [
+      page.getByLabel("Description *"),
+      "A project used to test the directory form.",
+    ],
+    [page.getByLabel("Repository URL *"), "https://github.com/omsf/example"],
+    [page.getByLabel("Tags *"), "testing"],
+  ] as const;
+  const requiredChoices = [page.getByLabel("MIT"), page.getByLabel("Python")];
 
-  await expect(page.getByRole("button", { name: "Copy YAML" })).toBeEnabled();
+  await expect(copyYaml).toBeDisabled();
+  for (const [field, value] of requiredTextFields) await field.fill(value);
+  for (const choice of requiredChoices) await choice.check();
+  await expect(copyYaml).toBeEnabled();
+
+  for (const [field, value] of requiredTextFields) {
+    await field.fill("");
+    await expect(copyYaml).toBeDisabled();
+    await field.fill(value);
+    await expect(copyYaml).toBeEnabled();
+  }
+  for (const choice of requiredChoices) {
+    await choice.uncheck();
+    await expect(copyYaml).toBeDisabled();
+    await choice.check();
+    await expect(copyYaml).toBeEnabled();
+  }
 });
