@@ -1,6 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 
-const cards = (page: Page) => page.locator("div.min-h-120.max-h-120");
+const cards = (page: Page) => page.getByRole("article");
 
 test("cards and filter menus appear", async ({ page }) => {
   await page.goto("/");

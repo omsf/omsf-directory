@@ -55,7 +55,7 @@
   );
 </script>
 
-<div
+<article
   class="w-2xs overflow-hidden rounded-lg shadow-lg lg:h-full lg:w-sm border-2 border-omsf-gray min-h-120 max-h-120 flex flex-col"
 >
   <div class="px-6 py-4 flex-1 min-h-0 overflow-hidden">
@@ -109,4 +109,4 @@
       >
     {/each}
   </div>
-</div>
+</article>
