@@ -43,8 +43,8 @@ const strictUrl = z
   .pipe(z.url());
 
 export const SoftwareSchemaObject = z.object({
-  name: z.string(),
-  description: z.string(),
+  name: z.string().min(1),
+  description: z.string().min(1),
   docs: z.optional(strictUrl),
   licenses: licensesArray,
   link: z.optional(strictUrl),
