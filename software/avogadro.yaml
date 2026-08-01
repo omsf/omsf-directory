@@ -1,0 +1,16 @@
+name: Avogadro
+description: "A free and open source molecular editor and visualization tool, designed for students and advanced researchers alike to visualize and edit molecular systems."
+repository: https://github.com/OpenChemistry/avogadrolibs/
+languages:
+  - C++
+  - Python
+link: https://avogadro.cc/
+docs: https://avogadro.cc/docs
+licenses:
+  - BSD-3-Clause
+tags:
+  - Molecular Modeling
+  - Visualization
+  - Atomistic
+  - Builder
+  - Editor
