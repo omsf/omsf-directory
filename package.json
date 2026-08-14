@@ -34,16 +34,16 @@
   "devDependencies": {
     "@astrojs/language-server": "^2.16.13",
     "@eslint/js": "^10.0.1",
-    "@playwright/test": "^1.62.0",
-    "@typescript-eslint/parser": "^8.63.0",
+    "@playwright/test": "^1.62.1",
+    "@typescript-eslint/parser": "^8.66.0",
     "eslint": "^10.8.0",
-    "eslint-plugin-astro": "^3.0.1",
+    "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-svelte": "^3.22.0",
-    "globals": "^17.8.0",
+    "globals": "^17.9.0",
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-svelte": "4.1.1",
-    "typescript-eslint": "^8.65.0",
+    "typescript-eslint": "^8.66.0",
     "vitest": "^4.1.10"
   }
 }
