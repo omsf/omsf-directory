@@ -1,0 +1,15 @@
+name: Peptide Calculations
+description: "A dependency-free Python library and command-line tool for explicit-unit peptide solution calculations. It covers reconstitution volume, concentration, dilution and molarity, returns JSON for reproducible workflows, and rejects incompatible units and invalid dilution targets."
+repository: https://github.com/PeptidoMexico/peptidomexico-open-science
+link: https://peptidomexico.com.mx/open-science/
+docs: https://peptidomexico-open-science.readthedocs.io/en/latest/peptide-calculations-python/
+licenses:
+  - MIT
+tags:
+  - Peptides
+  - Molecular Biology
+  - Scientific Computing
+  - Laboratory Calculations
+  - Reproducibility
+languages:
+  - Python
