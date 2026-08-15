@@ -1,10 +1,10 @@
 # omsf-directory
 
-This site hosts a directory of software and workflows for molecular software projects and workflows.
+This site hosts a directory of software, workflows, and infrastructure for molecular software projects.
 
 ## Adding a new project
 
-You can directly add the YAML needed to either the `software` or `workflows` directory.
+You can directly add the YAML needed to the `software`, `workflows`, or `infrastructure` directory.
 If you need help generating this YAML, take a look at our new project creator at [https://directory.omsf.io/new](https://directory.omsf.io/new)!
 Create a PR with the file you create and an example site will be generated in CI for you to preview! Once merged, the site will auto-deploy with new changes.
 
@@ -22,6 +22,8 @@ omsf-directory/
 ├── .github/
 │   └── workflows/          # GitHub Actions CI/CD workflows
 ├── public/                # Static assets (favicon, etc.)
+├── infrastructure/       # YAML files defining infrastructure projects
+│   └── *.yaml
 ├── software/              # YAML files defining software projects
 │   └── *.yaml
 ├── src/                   # Source code for the Astro site
@@ -50,6 +52,7 @@ omsf-directory/
 
 - **`software/`** - Contains YAML files that define each software project in the directory
 - **`workflows/`** - Contains YAML files that define workflow projects
+- **`infrastructure/`** - Contains YAML files that define infrastructure projects
 - **`src/`** - Main source code for the Astro website
 - **`public/`** - Static assets served directly by the web server
 - **`.github/workflows/`** - CI/CD pipeline definitions for automated builds and deployments
