@@ -12,6 +12,10 @@
   import Field from "./Field.svelte";
   import MultiSelector from "./MultiSelector.svelte";
 
+  type EntryType = "software" | "workflows";
+
+  const GITHUB_NEW_FILE_URL = "https://github.com/omsf/omsf-directory/new/main";
+
   let formData = $state({
     name: "",
     description: "",
@@ -29,6 +33,10 @@
   let yamlContent = $state(""); // Declare yamlContent variable
   let cardContent = $state({});
   let tags = $state("");
+  let entryType = $state<EntryType>("software");
+  let targetPath = $derived(
+    `${entryType}/${slugify(formData.name) || "new-entry"}.yaml`,
+  );
   const LICENSE_REF_PREFIX = "LicenseRef-";
   const spdxCanonicalMap = new Map<string, string>(
     ALL_SPDX_IDS.map((license) => [license.toLowerCase(), license]),
@@ -56,6 +64,14 @@
     return `${LICENSE_REF_PREFIX}${value}`;
   }
 
+  function slugify(value: string): string {
+    return value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+
   $effect(() => {
     formData.tags = tags
       .split(",")
@@ -71,7 +87,6 @@
       languageCanonicalMap,
     );
     if (isFormValid) {
-      console.log("Valid");
       output = renderYaml(normalizedFormData);
     }
     yamlContent = output;
@@ -81,26 +96,45 @@
   function copyYamlToClipboard() {
     navigator.clipboard.writeText(yamlContent);
   }
+
+  function openGitHubNewFile() {
+    const params = new URLSearchParams({
+      filename: targetPath,
+      value: yamlContent,
+      message: `Add ${formData.name} to OMSF directory`,
+    });
+    window.open(
+      `${GITHUB_NEW_FILE_URL}?${params.toString()}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
+  }
 </script>
 
 <div class="container mx-auto px-2 sm:px-4">
   <div class="mb-6">
     <h2 class="text-2xl font-semibold mb-2 font-omsf-title">Add New Entry</h2>
     <p class="text-gray-600 font-omsf-descriptive md:max-w-1/2">
-      This form helps to show how your project will look when we addeded to the
-      directory. Once completeletd, click "Copy YAML" and open a PR <a
-        href="http://github.com/omsf/omsf-directory"
-        class="underline"
-        target="_blank"
-        rel="noopener noreferrer">here</a
-      >. Create a YAML file with your copied contents in either the software or
-      workflows folder. We will review your submission as soon as we can!
+      This form previews how your entry will look in the directory. Once the
+      form is complete, open GitHub to create a prefilled YAML file and submit a
+      pull request. If GitHub cannot prefill the file for you, use "Copy YAML"
+      as a fallback.
     </p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Form section (left column on medium+ screens) -->
     <div>
+      <label class="block mb-6 font-omsf-descriptive">
+        <span class="block mb-1 font-omsf-subheading">Entry Type</span>
+        <select
+          bind:value={entryType}
+          class="w-full rounded-md border border-omsf-gray bg-white px-3 py-2"
+        >
+          <option value="software">Software</option>
+          <option value="workflows">Workflow</option>
+        </select>
+      </label>
       <Field
         bind:value={formData.name}
         type="text"
@@ -181,7 +215,7 @@
         name="Tags *"
         required={false}
         placeholder="tag1,tag2,tag3"
-        description="A comma-seperated lists of tags"
+        description="A comma-separated list of tags"
         error={validation.fieldErrors.tags?.[0]}
       ></Field>
       <MultiSelector
@@ -205,9 +239,17 @@
         <div class="mb-4">
           <Card {...cardContent}></Card>
         </div>
-        <Bubble onclick={() => copyYamlToClipboard()} disabled={!isFormValid}
-          >Copy YAML</Bubble
-        >
+        <p class="mb-3 text-sm text-gray-600 font-omsf-descriptive">
+          Target file: <code>{targetPath}</code>
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <Bubble onclick={() => openGitHubNewFile()} disabled={!isFormValid}
+            >Open GitHub PR</Bubble
+          >
+          <Bubble onclick={() => copyYamlToClipboard()} disabled={!isFormValid}
+            >Copy YAML</Bubble
+          >
+        </div>
       </div>
     </div>
   </div>
