@@ -1,0 +1,14 @@
+name: gha-runner
+description: A Python library for building infrastructure-provisioning GitHub Actions that start and stop cloud-based self-hosted runners.
+docs: https://gha-runner.readthedocs.io/en/latest/aws/
+repository: https://github.com/omsf/gha-runner/
+licenses:
+  - MIT
+tags:
+  - GitHub Actions
+  - CI/CD
+  - Cloud Computing
+  - Infrastructure Provisioning
+languages:
+  - Python
+project: OMSF

@@ -1,0 +1,12 @@
+name: eco-infra-infra
+description: Reusable Terraform and OpenTofu modules for cloud infrastructure maintained by the OMSF Ecosystem Infrastructure team.
+repository: https://github.com/omsf-eco-infra/eco-infra-infra
+licenses:
+  - MIT
+tags:
+  - Infrastructure as Code
+  - Cloud Computing
+  - AWS
+languages:
+  - HCL
+project: OMSF

@@ -1,0 +1,14 @@
+name: devbox
+description: Tools for managing temporary AWS development instances while preserving development environments between runs.
+repository: https://github.com/omsf-eco-infra/devbox
+licenses:
+  - MIT
+tags:
+  - Cloud Computing
+  - Development Environments
+  - Infrastructure as Code
+  - AWS
+languages:
+  - Python
+  - HCL
+project: OMSF

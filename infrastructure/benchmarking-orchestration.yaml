@@ -1,0 +1,12 @@
+name: benchmarking-orchestration
+description: Provider-oriented CLI for queueing launch work, dispatching molecular simulation benchmark workers, and storing task state across cloud providers.
+repository: https://github.com/omsf-eco-infra/benchmarking-orchestration
+licenses:
+  - MIT
+tags:
+  - Benchmarking
+  - Cloud Computing
+  - Simulation Orchestration
+languages:
+  - Python
+project: OMSF

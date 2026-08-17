@@ -8,6 +8,7 @@ export const ALL_OMSF_PROJECTS = [
   "Open Free Energy",
   "OpenFold",
   "WESTPA",
+  "OMSF",
 ];
 const omsfProjects = z.enum(ALL_OMSF_PROJECTS);
 
