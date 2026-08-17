@@ -1,0 +1,14 @@
+name: benchmarking-analysis
+description: An interactive dashboard comparing AWS GPU performance and cost efficiency for molecular dynamics and relative binding free energy workloads.
+link: https://benchmarking.eco-infra.rodeo
+repository: https://github.com/omsf-eco-infra/benchmarking-analysis
+licenses:
+  - MIT
+tags:
+  - Benchmarking
+  - Data Analysis
+  - Visualization
+  - Cloud Computing
+languages:
+  - Python
+project: OMSF

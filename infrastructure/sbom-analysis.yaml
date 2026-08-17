@@ -1,0 +1,13 @@
+name: sbom-analysis
+description: A repeatable workflow for generating SPDX software bills of materials for Pixi environments and reviewing dependency risk.
+repository: https://github.com/omsf-eco-infra/sbom-analysis
+licenses:
+  - MIT
+tags:
+  - SBOM
+  - Dependency Analysis
+  - Software Supply Chain
+  - Security
+languages:
+  - Python
+project: OMSF

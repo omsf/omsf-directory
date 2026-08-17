@@ -7,6 +7,11 @@ const software = defineCollection({
   schema: SoftwareSchemaObject,
 });
 
+const infrastructure = defineCollection({
+  loader: glob({ pattern: "*.{yaml,yml}", base: "./infrastructure" }),
+  schema: SoftwareSchemaObject,
+});
+
 const openffWorkflows = defineCollection({
   loader: glob({ pattern: "*.{yaml,yml}", base: "./workflows/openff" }),
   schema: SoftwareSchemaObject,
@@ -31,6 +36,7 @@ const workflows = defineCollection({
 
 export const collections = {
   software,
+  infrastructure,
   workflows,
   openffWorkflows,
   openfeWorkflows,

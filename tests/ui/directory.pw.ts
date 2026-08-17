@@ -54,6 +54,10 @@ test("all menu items can be opened", async ({ page }) => {
   await expect(page).toHaveURL(/\/workflows\/?$/);
   await expect(page.getByRole("button", { name: /^Filters/ })).toBeVisible();
 
+  await page.getByRole("link", { name: "Infrastructure" }).click();
+  await expect(page).toHaveURL(/\/infrastructure\/?$/);
+  await expect(page.getByRole("button", { name: /^Filters/ })).toBeVisible();
+
   await page.getByRole("link", { name: "Add your project!" }).click();
   await expect(page).toHaveURL(/\/new\/?$/);
   await expect(
