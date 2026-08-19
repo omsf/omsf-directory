@@ -1,0 +1,15 @@
+name: static-site-tools
+description: Tools for deploying static websites to Cloudflare Pages using GitHub Actions. Includes site previews and automatic deployment on push to the main branch.
+repository: https://github.com/omsf/static-site-tools
+licenses:
+  - MIT
+tags:
+  - Cloud Computing
+  - Infrastructure as Code
+  - Cloudflare
+  - GitHub Actions
+  - Website Deployment
+languages:
+  - Python
+  - HCL
+project: OMSF
