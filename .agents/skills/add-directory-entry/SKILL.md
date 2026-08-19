@@ -60,14 +60,13 @@ Keep the entry factual and compact. Do not add unsupported fields, placeholders,
 
 ## 5. Verify the change
 
-Review the new file and run the dependency-free validator bundled with this skill:
+Review the new file and inspect the focused diff:
 
 ```sh
-python3 .agents/skills/add-directory-entry/validate_entry.py <entry-path>
 git diff --check
 ```
 
-The validator checks the catalogue's YAML shape, required and optional fields, value types, URLs, project names, license identifier syntax, and filename convention. It uses only the Python standard library; do not require contributors to install Node.js or npm for local entry validation. Repository CI remains the authoritative Astro schema and collection integration check.
+Schema and collection validation runs in repository CI and typically requires Node.js, so it may not be available on local machines. If `npm run build` is available locally, run it to check the entry against the Astro schemas.
 
 Also inspect the focused diff. If network access is available, verify each new URL resolves; do not weaken link checking to accommodate a bad URL.
 
