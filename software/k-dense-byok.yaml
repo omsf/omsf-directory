@@ -1,0 +1,14 @@
+name: K-Dense BYOK
+description: "Open-source AI co-scientist harness. OpenRouter key required for inference, with option to run for free using local models such as Ollama. Optional scalable compute with Modal."
+repository: https://github.com/K-Dense-AI/k-dense-byok
+docs: https://github.com/K-Dense-AI/k-dense-byok/blob/main/README.md
+link: https://www.k-dense.ai
+licenses:
+  - MIT
+languages:
+  - TypeScript
+tags:
+  - Bioinformatics
+  - Computational Chemistry
+  - Drug Discovery
+  - Deep Research
