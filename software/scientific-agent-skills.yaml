@@ -1,0 +1,14 @@
+name: Scientific Agent Skills
+description: "Ready-to-use agent skills plus 100+ databases covering biology, chemistry, drug discovery, and more. Compatible with Cursor, Codex, Pi, Antigravity, Claude Code, and more."
+repository: https://github.com/K-Dense-AI/scientific-agent-skills
+docs: https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/README.md
+link: https://www.k-dense.ai
+licenses:
+  - MIT
+languages:
+  - Python
+tags:
+  - Cheminformatics
+  - Bioinformatics
+  - Drug Discovery
+  - Computational Biology
