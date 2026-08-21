@@ -1,0 +1,13 @@
+name: Rowan Autosearch
+description: "Agent-driven molecular optimization over chemical space, using Rowan for property scoring and RDKit for constraint-aware candidate design."
+repository: https://github.com/K-Dense-AI/rowan-autosearch
+docs: https://github.com/K-Dense-AI/rowan-autosearch/blob/main/README.md
+link: https://www.k-dense.ai
+licenses:
+  - MIT
+languages:
+  - Python
+tags:
+  - Molecular Design
+  - Computational Chemistry
+  - Cheminformatics
