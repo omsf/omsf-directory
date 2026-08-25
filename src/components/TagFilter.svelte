@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   import { SvelteURLSearchParams } from "svelte/reactivity";
   import { dedupeCaseInsensitive } from "../lib/utils/tagNormalization";
-  import { type SoftwareSchema } from "../schemas";
+  import { ALL_OMSF_PROJECTS, type SoftwareSchema } from "../schemas";
   import Bubble from "./Bubble.svelte";
   import Card from "./Card.svelte";
   import FilterDialog from "./FilterDialog.svelte";
@@ -27,10 +27,7 @@
       .filter(Boolean)
       .map((license) => toDisplayLicense(license)),
   );
-  // We filter out the "empty" project.
-  const projects = [...new Set(items.flatMap((item) => item.project))].filter(
-    (project): project is string => Boolean(project),
-  );
+  const projects = ALL_OMSF_PROJECTS;
   const params = new SvelteURLSearchParams(window.location.search);
 
   let selectedTags = $state([] as string[]);
