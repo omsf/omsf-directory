@@ -1,0 +1,13 @@
+name: PySCF
+description: A flexible Python framework for quantum chemistry simulations, method development, and integration into scientific workflows.
+docs: https://pyscf.org/
+repository: https://github.com/pyscf/pyscf
+licenses:
+  - Apache-2.0
+tags:
+  - Quantum Chemistry
+  - Electronic Structure
+languages:
+  - Python
+  - C
+project: PySCF
