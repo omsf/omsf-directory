@@ -1,0 +1,14 @@
+name: ROCKET
+description: A Python package for refining OpenFold predictions using crystallographic and cryo-EM likelihood targets.
+docs: https://rocket-9.gitbook.io/rocket-docs
+repository: https://github.com/rs-station/ROCKET
+licenses:
+  - Apache-2.0
+tags:
+  - Structural Biology
+  - Structure Refinement
+  - Crystallography
+  - Cryo-EM
+languages:
+  - Python
+project: Reciprocal Space Station

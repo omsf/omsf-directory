@@ -1,0 +1,13 @@
+name: reciprocalspaceship
+description: A Python library with a pandas-style interface for analyzing and manipulating crystallographic reflection data.
+docs: https://rs-station.github.io/reciprocalspaceship/
+repository: https://github.com/rs-station/reciprocalspaceship
+licenses:
+  - MIT
+tags:
+  - Crystallography
+  - Reflection Data
+  - X-ray Diffraction
+languages:
+  - Python
+project: Reciprocal Space Station

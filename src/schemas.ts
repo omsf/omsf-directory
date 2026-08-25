@@ -7,6 +7,8 @@ export const ALL_OMSF_PROJECTS = [
   "OpenADMET",
   "Open Free Energy",
   "OpenFold",
+  "PySCF",
+  "Reciprocal Space Station",
   "WESTPA",
   "OMSF",
 ];

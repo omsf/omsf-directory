@@ -1,0 +1,13 @@
+name: METEOR
+description: A tool for computing and denoising crystallographic difference maps to identify weak signals from minor populations.
+docs: https://rs-station.github.io/meteor/
+repository: https://github.com/rs-station/meteor
+licenses:
+  - MIT
+tags:
+  - Crystallography
+  - Difference Maps
+  - Denoising
+languages:
+  - Python
+project: Reciprocal Space Station
