@@ -1,0 +1,13 @@
+name: GPU4PySCF
+description: A PySCF plugin that accelerates quantum chemistry calculations on NVIDIA GPUs.
+repository: https://github.com/pyscf/gpu4pyscf
+licenses:
+  - Apache-2.0
+tags:
+  - Quantum Chemistry
+  - Electronic Structure
+  - GPU Acceleration
+languages:
+  - Python
+  - CUDA
+project: PySCF
