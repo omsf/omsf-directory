@@ -9,6 +9,11 @@ updates: # Enable version updates for npm
         dependency-type: development
       prod-deps:
         dependency-type: production
+    ignore:
+      - dependency-name: "typescript"
+        versions: ["7.x"]
+        # We can't use typescript v7 until embedded language support exists
+        # See here: https://github.com/withastro/roadmap/discussions/1321
     commit-message:
       prefix: "npm"
       include: "scope"
