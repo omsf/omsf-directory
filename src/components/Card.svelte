@@ -37,6 +37,7 @@
   );
   // We create a state because we are abusing JS/TS when using this in the form.
   // We populate this with unparsable values by default by design in the form.
+  let titleParts = $derived(name.split(/(?<=[a-z0-9])(?=[A-Z])/));
   let allTags = $derived(
     buildDisplayTags(tags, languages, languageCanonicalMap),
   );
@@ -54,9 +55,11 @@
       class={`grid items-start ${project !== undefined ? "grid-cols-[1fr_auto] gap-x-2" : "grid-cols-1"}`}
     >
       <div
-        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere text-balance"
+        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere"
       >
-        {name}
+        {#each titleParts as part, index}
+          {#if index > 0}<wbr />{/if}{part}
+        {/each}
       </div>
       {#if project !== undefined}
         <Logo />
