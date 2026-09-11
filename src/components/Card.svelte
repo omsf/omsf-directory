@@ -17,7 +17,6 @@
     languages = [],
     repository = "",
   }: Partial<SoftwareSchema> = $props();
-  const SOFT_BREAK = "\u200b";
   const LICENSE_REF_PREFIX = "LicenseRef-";
 
   const toDisplayLicense = (license: string): string => {
@@ -33,20 +32,11 @@
     return license;
   };
 
-  const addTitleBreaks = (value: string): string =>
-    value
-      // Prefer technical boundaries first.
-      .replace(/([._/-])/g, `$1${SOFT_BREAK}`)
-      .replace(/([a-z0-9])([A-Z])/g, `$1${SOFT_BREAK}$2`)
-      // Add safe break opportunities for long single-token titles.
-      .replace(/([A-Za-z0-9]{12})(?=[A-Za-z0-9])/g, `$1${SOFT_BREAK}`);
-
   const languageCanonicalMap = new Map<string, string>(
     languageTags.map((language) => [language.toLowerCase(), language]),
   );
   // We create a state because we are abusing JS/TS when using this in the form.
   // We populate this with unparsable values by default by design in the form.
-  let displayName = $derived(addTitleBreaks(name || ""));
   let allTags = $derived(
     buildDisplayTags(tags, languages, languageCanonicalMap),
   );
@@ -64,9 +54,9 @@
       class={`grid items-start ${project !== undefined ? "grid-cols-[1fr_auto] gap-x-2" : "grid-cols-1"}`}
     >
       <div
-        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere text-balance line-clamp-3 [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:3] overflow-hidden"
+        class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere text-balance"
       >
-        {displayName}
+        {name}
       </div>
       {#if project !== undefined}
         <Logo />
