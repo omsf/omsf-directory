@@ -57,7 +57,7 @@
       <div
         class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere"
       >
-        {#each titleParts as part, index}
+        {#each titleParts as part, index (index)}
           {#if index > 0}<wbr />{/if}{part}
         {/each}
       </div>
