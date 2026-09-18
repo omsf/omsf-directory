@@ -37,7 +37,14 @@
   );
   // We create a state because we are abusing JS/TS when using this in the form.
   // We populate this with unparsable values by default by design in the form.
-  let titleParts = $derived(name.split(/(?<=[a-z0-9])(?=[A-Z])/));
+  let titleSegments = $derived.by(() => {
+    let offset = 0;
+    return name.split(/(?<=[a-z0-9])(?=[A-Z])/).map((part) => {
+      const segment = { key: `${offset}:${part}`, part };
+      offset += part.length;
+      return segment;
+    });
+  });
   let allTags = $derived(
     buildDisplayTags(tags, languages, languageCanonicalMap),
   );
@@ -57,7 +64,7 @@
       <div
         class="font-omsf-title mb-1 lg:text-xl text-base font-semibold min-w-0 wrap-anywhere"
       >
-        {#each titleParts as part, index (index)}
+        {#each titleSegments as { part, key }, index (key)}
           {#if index > 0}<wbr />{/if}{part}
         {/each}
       </div>
