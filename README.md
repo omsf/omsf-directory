@@ -2,6 +2,16 @@
 
 This site hosts a directory of software, workflows, and infrastructure for molecular software projects.
 
+## LLM-friendly catalogue
+
+- [`/llms.txt`](https://directory.omsf.io/llms.txt) indexes the machine-readable exports.
+- [`/llms-full.txt`](https://directory.omsf.io/llms-full.txt) contains every entry across all categories.
+- `/software/llms.txt`, `/workflows/llms.txt`, and `/infrastructure/llms.txt` provide smaller category-specific exports.
+
+These static Markdown exports are generated from the same validated YAML collections as the website. Workflows include the general, Open Force Field, Open Free Energy, and OpenADMET collections.
+
+Validate the exports with `npm run build` and `npx playwright test tests/ui/llms.pw.ts --project=local` (API-only checks; no browser installation needed).
+
 ## Adding a new project
 
 You can directly add the YAML needed to the `software`, `workflows`, or `infrastructure` directory.
