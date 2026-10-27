@@ -80,7 +80,7 @@ test("required fields control YAML output", async ({ page }) => {
       "A project used to test the directory form.",
     ],
     [page.getByLabel("Repository URL *"), "https://github.com/omsf/example"],
-    [page.getByLabel("Tags *"), "testing"],
+    [page.getByLabel("Tags *"), "Testing"],
   ] as const;
   const requiredChoices = [page.getByLabel("MIT"), page.getByLabel("Python")];
 
@@ -95,6 +95,14 @@ test("required fields control YAML output", async ({ page }) => {
     await field.fill(value);
     await expect(copyYaml).toBeEnabled();
   }
+  await page.getByLabel("Tags *").fill("testing");
+  await expect(copyYaml).toBeDisabled();
+  await expect(
+    page.getByText("Tags must start with an uppercase letter or digit"),
+  ).toBeVisible();
+  await page.getByLabel("Tags *").fill("Testing");
+  await expect(copyYaml).toBeEnabled();
+
   for (const choice of requiredChoices) {
     await choice.uncheck();
     await expect(copyYaml).toBeDisabled();

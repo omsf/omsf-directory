@@ -15,6 +15,7 @@ Validate the exports with `npm run build` and `npx playwright test tests/ui/llms
 ## Adding a new project
 
 You can directly add the YAML needed to the `software`, `workflows`, or `infrastructure` directory.
+Each tag must start with an uppercase letter or digit (for example, `Cheminformatics`, `IUPAC`, or `3D Geometry`). The shared catalogue schema enforces this for all entries during `npm run build`, including in PR CI.
 If you need help generating this YAML, take a look at our new project creator at [https://directory.omsf.io/new](https://directory.omsf.io/new)!
 Create a PR with the file you create and an example site will be generated in CI for you to preview! Once merged, the site will auto-deploy with new changes.
 

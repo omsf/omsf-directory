@@ -181,8 +181,8 @@
         type="text"
         name="Tags *"
         required={false}
-        placeholder="tag1,tag2,tag3"
-        description="A comma-seperated lists of tags"
+        placeholder="Cheminformatics, Molecular Modeling, 3D Geometry"
+        description="Comma-separated tags, each starting with an uppercase letter or digit"
         error={validation.fieldErrors.tags?.[0]}
       ></Field>
       <MultiSelector
