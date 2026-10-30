@@ -52,7 +52,13 @@ export const SoftwareSchemaObject = z.object({
   licenses: licensesArray,
   link: z.optional(strictUrl),
   repository: strictUrl,
-  tags: z.array(z.string()).min(1),
+  tags: z
+    .array(
+      z.string().regex(/^[\p{Lu}\p{Nd}]/u, {
+        message: "Tags must start with an uppercase letter or digit",
+      }),
+    )
+    .min(1),
   languages: z.array(z.string()).min(1),
   project: z.optional(omsfProjects),
 });
