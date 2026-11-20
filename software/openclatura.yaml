@@ -1,0 +1,16 @@
+name: openclatura
+description: "openclatura is a deterministic SMILES-to-IUPAC name generator inspired by the IUPAC Blue Book 2013 recommendations."
+repository: https://github.com/lamalab-org/openclatura
+languages:
+  - Python
+link: https://openclatura.org
+licenses:
+  - MIT
+tags:
+  - SMILES2Name
+  - SMILES
+  - name
+  - nomenclature
+  - IUPAC
+  - SMILES2IUPAC
+  - mol2iupac
