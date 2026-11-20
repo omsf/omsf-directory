@@ -1,0 +1,14 @@
+name: SynBio Studio
+description: "An open-source toolkit for writing genetic-circuit designs in BioScript and compiling them to SBOL 3, SBML, FASTA and GenBank. The packaged Windows application also includes workbenches for protein structure inspection, local ProteinMPNN sequence design, and traceable sequence comparison."
+repository: https://github.com/jorgegn29/Synbio-studio
+licenses:
+  - AGPL-3.0-only
+languages:
+  - Rust
+  - TypeScript
+  - Python
+tags:
+  - Bioinformatics
+  - Synthetic Biology
+  - Structural Biology
+  - Protein Sequence Design
